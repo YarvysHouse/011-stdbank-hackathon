@@ -1,0 +1,59 @@
+E11  Pepkor Holdings
+Pseudo consolidated statements (ZAR m unless stated)
+
+INCOME STATEMENT
+fiscal_year                                    FY2024    FY2025    FY2026  3yr_total
+line_item                                                                           
+Revenue - domestic collections                9,622.9   9,595.0   9,581.1   28,799.1
+Revenue - cross-border trade receipts         1,360.9   1,469.2   1,388.9    4,219.0
+Other operating income                          298.7     343.3     287.4      929.5
+Total revenue                                11,282.5  11,407.5  11,257.4   33,947.5
+Cost of sales - domestic suppliers           -6,293.8  -6,253.0  -6,231.9  -18,778.8
+Cost of sales - cross-border trade payments  -1,469.5  -1,617.7  -1,638.5   -4,725.8
+Cost of sales and supplier payments          -7,763.4  -7,870.7  -7,870.5  -23,504.5
+Gross profit proxy                            3,519.2   3,536.8   3,387.0   10,443.0
+Employee costs                                  -11.2     -10.9     -11.4      -33.5
+Other operating expenses                       -327.7    -368.3    -348.0   -1,044.0
+EBITDA proxy                                  3,180.3   3,157.6   3,027.6    9,365.4
+Taxation paid                                   -33.5     -26.9     -30.3      -90.8
+Net cash earnings proxy                       3,146.7   3,130.7   2,997.3    9,274.6
+Gross margin proxy                               0.31      0.31      0.30          -
+EBITDA margin proxy                              0.28      0.28      0.27          -
+Employee cost ratio                              0.00      0.00      0.00          -
+Export revenue share                             0.12      0.13      0.12          -
+Effective cash tax rate                          0.01      0.01      0.01          -
+Revenue growth                                      -      0.01     -0.01          -
+
+CASH FLOW
+fiscal_year                             FY2024     FY2025     FY2026  3yr_total
+line_item                                                                      
+Receipts from customers               11,282.5   11,407.5   11,257.4   33,947.5
+Payments to suppliers                 -8,091.1   -8,239.0   -8,218.5  -24,548.6
+Payments to employees                    -11.2      -10.9      -11.4      -33.5
+Taxation paid                            -33.5      -26.9      -30.3      -90.8
+Net cash from operating activities     3,146.7    3,130.7    2,997.3    9,274.6
+Intragroup sweeps received             9,284.4    9,048.7    9,093.1   27,426.2
+Intragroup sweeps paid                -9,363.1   -9,298.7   -9,250.3  -27,912.1
+Cross-border intragroup received       1,410.7    1,543.8    1,445.4    4,400.0
+Cross-border intragroup paid          -1,499.9   -1,628.5   -1,547.2   -4,675.6
+Net intragroup and financing flows      -167.9     -334.7     -258.9     -761.6
+Net movement in cash                   2,978.9    2,795.9    2,738.3    8,513.1
+Memo - gross cash inflows             21,977.6   22,000.1   21,796.0   65,773.7
+Memo - gross cash outflows           -18,998.7  -19,204.2  -19,057.7  -57,260.6
+Memo - foreign currency gross flows    6,367.4    6,970.9    6,655.5   19,993.9
+Operating cash conversion                 0.28       0.27       0.27          -
+
+CONTINGENT NOTE
+fiscal_year                      FY2024    FY2025    FY2026 3yr_total
+line_item                                                            
+Letters of credit - notional      524.9     442.6     548.3   1,515.7
+Guarantees - notional             255.1     264.6     184.7     704.4
+Export collections - notional     732.3     773.7     800.1   2,306.1
+Total trade finance notional    1,512.3   1,480.9   1,533.1   4,526.3
+Of which export                   660.6     774.0     713.7   2,148.4
+Of which import                   851.7     706.9     819.4   2,377.9
+Open exposure at period end       741.0     811.6     746.4   2,299.0
+Settled during period             651.4     555.4     651.3   1,858.2
+Weighted average tenor (days)    108.68    111.52    111.34         -
+Instrument count               1,073.00  1,001.00  1,077.00         -
+Counterparty countries            22.00     22.00     22.00         -

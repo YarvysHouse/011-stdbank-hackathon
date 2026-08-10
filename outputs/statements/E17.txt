@@ -1,0 +1,59 @@
+E17  Vodacom Group
+Pseudo consolidated statements (ZAR m unless stated)
+
+INCOME STATEMENT
+fiscal_year                                  FY2024   FY2025  FY2026 3yr_total
+line_item                                                                     
+Revenue - domestic collections                 82.8     89.5    86.9     259.2
+Revenue - cross-border trade receipts         672.0    743.0   629.4   2,044.4
+Other operating income                        180.1    176.0   128.7     484.8
+Total revenue                                 934.9  1,008.6   845.0   2,788.4
+Cost of sales - domestic suppliers            -90.6    -84.9   -91.7    -267.2
+Cost of sales - cross-border trade payments  -707.6   -723.7  -649.0  -2,080.3
+Cost of sales and supplier payments          -798.1   -808.6  -740.8  -2,347.5
+Gross profit proxy                            136.8    200.0   104.2     440.9
+Employee costs                                 -0.0     -0.0    -0.0      -0.1
+Other operating expenses                     -141.9   -141.3  -156.3    -439.5
+EBITDA proxy                                   -5.2     58.6   -52.1       1.3
+Taxation paid                                  -1.5     -3.5    -2.8      -7.9
+Net cash earnings proxy                        -6.7     55.1   -54.9      -6.6
+Gross margin proxy                             0.15     0.20    0.12         -
+EBITDA margin proxy                           -0.01     0.06   -0.06         -
+Employee cost ratio                            0.00     0.00    0.00         -
+Export revenue share                           0.72     0.74    0.74         -
+Effective cash tax rate                           -     0.06       -         -
+Revenue growth                                    -     0.08   -0.16         -
+
+CASH FLOW
+fiscal_year                            FY2024    FY2025    FY2026 3yr_total
+line_item                                                                  
+Receipts from customers                 934.9   1,008.6     845.0   2,788.4
+Payments to suppliers                  -940.1    -949.9    -897.1  -2,787.0
+Payments to employees                    -0.0      -0.0      -0.0      -0.1
+Taxation paid                            -1.5      -3.5      -2.8      -7.9
+Net cash from operating activities       -6.7      55.1     -54.9      -6.6
+Intragroup sweeps received               34.0      32.2      46.8     113.1
+Intragroup sweeps paid                  -29.3     -40.2     -21.3     -90.8
+Cross-border intragroup received        623.6     621.8     639.7   1,885.2
+Cross-border intragroup paid           -696.1    -661.6    -707.6  -2,065.3
+Net intragroup and financing flows      -67.7     -47.8     -42.3    -157.8
+Net movement in cash                    -74.5       7.3     -97.2    -164.4
+Memo - gross cash inflows             1,592.5   1,662.6   1,531.5   4,786.6
+Memo - gross cash outflows           -1,667.0  -1,655.3  -1,628.8  -4,951.1
+Memo - foreign currency gross flows   3,021.3   3,067.5   2,910.7   8,999.5
+Operating cash conversion               -0.01      0.05     -0.07         -
+
+CONTINGENT NOTE
+fiscal_year                    FY2024  FY2025  FY2026 3yr_total
+line_item                                                      
+Letters of credit - notional     33.0    63.0    61.6     157.7
+Guarantees - notional            84.6    63.3    84.7     232.7
+Export collections - notional    20.5    71.2    34.4     126.1
+Total trade finance notional    138.2   197.6   180.7     516.5
+Of which export                  59.0    72.4    88.4     219.8
+Of which import                  79.1   125.1    92.4     296.6
+Open exposure at period end      42.1   143.1    76.4     261.7
+Settled during period            76.8    45.9    82.7     205.3
+Weighted average tenor (days)  121.05   99.62  105.75         -
+Instrument count                84.00  106.00  113.00         -
+Counterparty countries          18.00   21.00   21.00         -

@@ -1,0 +1,59 @@
+E01  BHP Group
+Pseudo consolidated statements (ZAR m unless stated)
+
+INCOME STATEMENT
+fiscal_year                                    FY2024    FY2025    FY2026 3yr_total
+line_item                                                                          
+Revenue - domestic collections                8,484.1   8,759.5   9,446.3  26,689.9
+Revenue - cross-border trade receipts           471.0     429.7     516.9   1,417.6
+Other operating income                           75.2      97.7      98.3     271.1
+Total revenue                                 9,030.3   9,286.8  10,061.5  28,378.6
+Cost of sales - domestic suppliers           -1,520.7  -1,582.4  -1,804.4  -4,907.5
+Cost of sales - cross-border trade payments    -426.5    -511.4    -461.8  -1,399.7
+Cost of sales and supplier payments          -1,947.3  -2,093.7  -2,266.2  -6,307.2
+Gross profit proxy                            7,083.0   7,193.1   7,795.3  22,071.4
+Employee costs                                   -3.1      -2.9      -2.7      -8.7
+Other operating expenses                       -144.0    -118.0    -128.8    -390.8
+EBITDA proxy                                  6,935.8   7,072.2   7,663.8  21,671.8
+Taxation paid                                    -6.9      -8.3      -5.6     -20.8
+Net cash earnings proxy                       6,928.9   7,063.9   7,658.2  21,651.0
+Gross margin proxy                               0.78      0.77      0.77         -
+EBITDA margin proxy                              0.77      0.76      0.76         -
+Employee cost ratio                              0.00      0.00      0.00         -
+Export revenue share                             0.05      0.05      0.05         -
+Effective cash tax rate                          0.00      0.00      0.00         -
+Revenue growth                                      -      0.03      0.08         -
+
+CASH FLOW
+fiscal_year                            FY2024    FY2025    FY2026  3yr_total
+line_item                                                                   
+Receipts from customers               9,030.3   9,286.8  10,061.5   28,378.6
+Payments to suppliers                -2,091.3  -2,211.8  -2,395.0   -6,698.0
+Payments to employees                    -3.1      -2.9      -2.7       -8.7
+Taxation paid                            -6.9      -8.3      -5.6      -20.8
+Net cash from operating activities    6,928.9   7,063.9   7,658.2   21,651.0
+Intragroup sweeps received            2,214.3   2,412.6   2,808.1    7,435.0
+Intragroup sweeps paid               -2,369.6  -2,371.6  -2,722.8   -7,464.1
+Cross-border intragroup received        501.4     485.0     406.3    1,392.7
+Cross-border intragroup paid           -465.2    -532.7    -470.9   -1,468.7
+Net intragroup and financing flows     -119.1      -6.8      20.7     -105.1
+Net movement in cash                  6,809.9   7,057.2   7,678.9   21,545.9
+Memo - gross cash inflows            11,746.0  12,184.4  13,275.9   37,206.3
+Memo - gross cash outflows           -4,936.1  -5,127.3  -5,597.0  -15,660.4
+Memo - foreign currency gross flows   2,083.3   2,174.5   2,082.9    6,340.6
+Operating cash conversion                0.77      0.76      0.76          -
+
+CONTINGENT NOTE
+fiscal_year                     FY2024   FY2025   FY2026 3yr_total
+line_item                                                         
+Letters of credit - notional     530.0    613.9    691.1   1,835.0
+Guarantees - notional            335.2    439.0    510.6   1,284.8
+Export collections - notional    339.0    225.8    242.8     807.6
+Total trade finance notional   1,204.2  1,278.7  1,444.6   3,927.5
+Of which export                  493.4    677.5    750.7   1,921.6
+Of which import                  710.8    601.2    693.8   2,005.8
+Open exposure at period end      569.6    569.2    739.4   1,878.2
+Settled during period            564.7    637.1    619.3   1,821.2
+Weighted average tenor (days)   103.79   103.44   105.99         -
+Instrument count                418.00   418.00   471.00         -
+Counterparty countries           11.00    11.00    11.00         -

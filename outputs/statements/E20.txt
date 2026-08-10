@@ -1,0 +1,59 @@
+E20  Shaftesbury Capital plc
+Pseudo consolidated statements (ZAR m unless stated)
+
+INCOME STATEMENT
+fiscal_year                                 FY2024 FY2025 FY2026 3yr_total
+line_item                                                                 
+Revenue - domestic collections                 5.7    6.3    5.8      17.8
+Revenue - cross-border trade receipts         36.7   53.5   50.8     140.9
+Other operating income                         4.8    3.3    6.4      14.4
+Total revenue                                 47.2   63.1   62.9     173.1
+Cost of sales - domestic suppliers            -6.8   -5.9   -6.1     -18.7
+Cost of sales - cross-border trade payments  -47.4  -59.9  -46.1    -153.3
+Cost of sales and supplier payments          -54.1  -65.7  -52.1    -172.0
+Gross profit proxy                            -6.9   -2.7   10.7       1.1
+Employee costs                                 0.0   -0.0   -0.0      -0.0
+Other operating expenses                      -4.2   -6.0   -3.4     -13.6
+EBITDA proxy                                 -11.1   -8.7    7.3     -12.5
+Taxation paid                                 -0.4   -0.2   -0.2      -0.8
+Net cash earnings proxy                      -11.6   -8.8    7.1     -13.3
+Gross margin proxy                           -0.15  -0.04   0.17         -
+EBITDA margin proxy                          -0.24  -0.14   0.12         -
+Employee cost ratio                           0.00   0.00   0.00         -
+Export revenue share                          0.78   0.85   0.81         -
+Effective cash tax rate                          -      -   0.03         -
+Revenue growth                                   -   0.34  -0.00         -
+
+CASH FLOW
+fiscal_year                         FY2024 FY2025 FY2026 3yr_total
+line_item                                                         
+Receipts from customers               47.2   63.1   62.9     173.1
+Payments to suppliers                -58.3  -71.7  -55.6    -185.6
+Payments to employees                  0.0   -0.0   -0.0      -0.0
+Taxation paid                         -0.4   -0.2   -0.2      -0.8
+Net cash from operating activities   -11.6   -8.8    7.1     -13.3
+Intragroup sweeps received             0.0    0.0    0.0       0.0
+Intragroup sweeps paid                 0.0    0.0    0.0       0.0
+Cross-border intragroup received       1.7    2.7    2.2       6.6
+Cross-border intragroup paid          -4.7   -2.5   -2.6      -9.7
+Net intragroup and financing flows    -2.9    0.2   -0.4      -3.1
+Net movement in cash                 -14.5   -8.7    6.7     -16.4
+Memo - gross cash inflows             48.9   65.7   65.1     179.7
+Memo - gross cash outflows           -63.4  -74.4  -58.3    -196.1
+Memo - foreign currency gross flows   99.4  127.7  111.4     338.5
+Operating cash conversion            -0.25  -0.14   0.11         -
+
+CONTINGENT NOTE
+fiscal_year                   FY2024 FY2025  FY2026 3yr_total
+line_item                                                    
+Letters of credit - notional     2.5    0.0     0.3       2.8
+Guarantees - notional            5.3    1.3     8.1      14.7
+Export collections - notional    2.3    1.0     0.0       3.3
+Total trade finance notional    10.1    2.3     8.3      20.8
+Of which export                  8.4    1.4     7.6      17.3
+Of which import                  1.7    1.0     0.8       3.4
+Open exposure at period end      3.7    1.6     4.9      10.2
+Settled during period            6.3    0.7     3.5      10.5
+Weighted average tenor (days)  67.05  65.51  101.49         -
+Instrument count               12.00   6.00   12.00         -
+Counterparty countries          7.00   5.00    6.00         -

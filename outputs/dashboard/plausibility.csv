@@ -1,0 +1,241 @@
+entity_id,entity_name,sector,fiscal_year,line_item,value,low,high,status
+E01,BHP Group,mining,FY2024,Gross margin proxy,0.78436346767413,0.1,0.7,above plausible range
+E01,BHP Group,mining,FY2025,Gross margin proxy,0.7745501195589651,0.1,0.7,above plausible range
+E01,BHP Group,mining,FY2026,Gross margin proxy,0.7747655924787004,0.1,0.7,above plausible range
+E01,BHP Group,mining,FY2024,EBITDA margin proxy,0.7680668870667559,0.05,0.45,above plausible range
+E01,BHP Group,mining,FY2025,EBITDA margin proxy,0.761532088373959,0.05,0.45,above plausible range
+E01,BHP Group,mining,FY2026,EBITDA margin proxy,0.7616934160857382,0.05,0.45,above plausible range
+E01,BHP Group,mining,FY2024,Employee cost ratio,0.00034795536482554656,0.03,0.35,below plausible range
+E01,BHP Group,mining,FY2025,Employee cost ratio,0.0003084392338995311,0.03,0.35,below plausible range
+E01,BHP Group,mining,FY2026,Employee cost ratio,0.0002722204193818894,0.03,0.35,below plausible range
+E01,BHP Group,mining,FY2024,Effective cash tax rate,0.0009966061816971672,0.1,0.35,below plausible range
+E01,BHP Group,mining,FY2025,Effective cash tax rate,0.0011722323519880481,0.1,0.35,below plausible range
+E01,BHP Group,mining,FY2026,Effective cash tax rate,0.0007304442976828742,0.1,0.35,below plausible range
+E02,Glencore,mining,FY2024,Gross margin proxy,0.6805256607000476,0.1,0.7,plausible
+E02,Glencore,mining,FY2025,Gross margin proxy,0.6812702861298295,0.1,0.7,plausible
+E02,Glencore,mining,FY2026,Gross margin proxy,0.6870053542971186,0.1,0.7,plausible
+E02,Glencore,mining,FY2024,EBITDA margin proxy,0.6468481415991175,0.05,0.45,above plausible range
+E02,Glencore,mining,FY2025,EBITDA margin proxy,0.6328512812033272,0.05,0.45,above plausible range
+E02,Glencore,mining,FY2026,EBITDA margin proxy,0.6479633104360369,0.05,0.45,above plausible range
+E02,Glencore,mining,FY2024,Employee cost ratio,0.0006711098632573175,0.03,0.35,below plausible range
+E02,Glencore,mining,FY2025,Employee cost ratio,0.0006818681641360351,0.03,0.35,below plausible range
+E02,Glencore,mining,FY2026,Employee cost ratio,0.0006090830478639547,0.03,0.35,below plausible range
+E02,Glencore,mining,FY2024,Effective cash tax rate,0.001793099513019788,0.1,0.35,below plausible range
+E02,Glencore,mining,FY2025,Effective cash tax rate,0.002453226534107266,0.1,0.35,below plausible range
+E02,Glencore,mining,FY2026,Effective cash tax rate,0.002676125603935259,0.1,0.35,below plausible range
+E03,Anglo American,mining,FY2024,Gross margin proxy,0.7587341463323386,0.1,0.7,above plausible range
+E03,Anglo American,mining,FY2025,Gross margin proxy,0.7574248491759764,0.1,0.7,above plausible range
+E03,Anglo American,mining,FY2026,Gross margin proxy,0.7706306775748505,0.1,0.7,above plausible range
+E03,Anglo American,mining,FY2024,EBITDA margin proxy,0.7462078535363043,0.05,0.45,above plausible range
+E03,Anglo American,mining,FY2025,EBITDA margin proxy,0.7455046398124936,0.05,0.45,above plausible range
+E03,Anglo American,mining,FY2026,EBITDA margin proxy,0.7593928097584443,0.05,0.45,above plausible range
+E03,Anglo American,mining,FY2024,Employee cost ratio,0.00026959528619639495,0.03,0.35,below plausible range
+E03,Anglo American,mining,FY2025,Employee cost ratio,0.0002815386657839189,0.03,0.35,below plausible range
+E03,Anglo American,mining,FY2026,Employee cost ratio,0.0004307619936658773,0.03,0.35,below plausible range
+E03,Anglo American,mining,FY2024,Effective cash tax rate,0.0010994483868913907,0.1,0.35,below plausible range
+E03,Anglo American,mining,FY2025,Effective cash tax rate,0.0013306413826656301,0.1,0.35,below plausible range
+E03,Anglo American,mining,FY2026,Effective cash tax rate,0.0012913798659479067,0.1,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2024,Gross margin proxy,0.6971367480596551,0.1,0.7,plausible
+E04,AngloGold Ashanti,mining,FY2025,Gross margin proxy,0.6619499015510669,0.1,0.7,plausible
+E04,AngloGold Ashanti,mining,FY2026,Gross margin proxy,0.7151746692630286,0.1,0.7,above plausible range
+E04,AngloGold Ashanti,mining,FY2024,EBITDA margin proxy,0.6704557889361427,0.05,0.45,above plausible range
+E04,AngloGold Ashanti,mining,FY2025,EBITDA margin proxy,0.6212433692455628,0.05,0.45,above plausible range
+E04,AngloGold Ashanti,mining,FY2026,EBITDA margin proxy,0.6871571759355894,0.05,0.45,above plausible range
+E04,AngloGold Ashanti,mining,FY2024,Employee cost ratio,0.0006831397776687705,0.03,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2025,Employee cost ratio,0.000554561369096098,0.03,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2026,Employee cost ratio,0.0007595710554224138,0.03,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2024,Effective cash tax rate,0.0038338807939605505,0.1,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2025,Effective cash tax rate,0.002540687101775817,0.1,0.35,below plausible range
+E04,AngloGold Ashanti,mining,FY2026,Effective cash tax rate,0.0015554320706703784,0.1,0.35,below plausible range
+E05,Gold Fields,mining,FY2024,Gross margin proxy,0.6744036323292194,0.1,0.7,plausible
+E05,Gold Fields,mining,FY2025,Gross margin proxy,0.6439390231601226,0.1,0.7,plausible
+E05,Gold Fields,mining,FY2026,Gross margin proxy,0.6651674201014263,0.1,0.7,plausible
+E05,Gold Fields,mining,FY2024,EBITDA margin proxy,0.6412055422534294,0.05,0.45,above plausible range
+E05,Gold Fields,mining,FY2025,EBITDA margin proxy,0.5944773187095566,0.05,0.45,above plausible range
+E05,Gold Fields,mining,FY2026,EBITDA margin proxy,0.6248728563745124,0.05,0.45,above plausible range
+E05,Gold Fields,mining,FY2024,Employee cost ratio,0.0006507638689199268,0.03,0.35,below plausible range
+E05,Gold Fields,mining,FY2025,Employee cost ratio,0.0005823893629829543,0.03,0.35,below plausible range
+E05,Gold Fields,mining,FY2026,Employee cost ratio,0.0007514309895482315,0.03,0.35,below plausible range
+E05,Gold Fields,mining,FY2024,Effective cash tax rate,0.0035579665025438916,0.1,0.35,below plausible range
+E05,Gold Fields,mining,FY2025,Effective cash tax rate,0.002937994381667588,0.1,0.35,below plausible range
+E05,Gold Fields,mining,FY2026,Effective cash tax rate,0.003439919914290817,0.1,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2024,Gross margin proxy,0.46402884267689487,0.1,0.7,plausible
+E06,Valterra Platinum,mining,FY2025,Gross margin proxy,0.3791347861961484,0.1,0.7,plausible
+E06,Valterra Platinum,mining,FY2026,Gross margin proxy,0.4505920287464268,0.1,0.7,plausible
+E06,Valterra Platinum,mining,FY2024,EBITDA margin proxy,0.3302378717484682,0.05,0.45,plausible
+E06,Valterra Platinum,mining,FY2025,EBITDA margin proxy,0.24035928274574334,0.05,0.45,plausible
+E06,Valterra Platinum,mining,FY2026,EBITDA margin proxy,0.3520956902307167,0.05,0.45,plausible
+E06,Valterra Platinum,mining,FY2024,Employee cost ratio,7.220036283175187e-05,0.03,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2025,Employee cost ratio,0.0,0.03,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2026,Employee cost ratio,0.0,0.03,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2024,Effective cash tax rate,0.0,0.1,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2025,Effective cash tax rate,0.015734281515358738,0.1,0.35,below plausible range
+E06,Valterra Platinum,mining,FY2026,Effective cash tax rate,0.021958307108447993,0.1,0.35,below plausible range
+E07,OUTsurance Group,insurance,FY2024,Gross margin proxy,0.08870492755955725,0.1,0.7,below plausible range
+E07,OUTsurance Group,insurance,FY2025,Gross margin proxy,0.149461591816821,0.1,0.7,plausible
+E07,OUTsurance Group,insurance,FY2026,Gross margin proxy,-0.0044201654759316745,0.1,0.7,below plausible range
+E07,OUTsurance Group,insurance,FY2024,EBITDA margin proxy,-0.01988703445239645,0.05,0.45,below plausible range
+E07,OUTsurance Group,insurance,FY2025,EBITDA margin proxy,0.013676856779860563,0.05,0.45,below plausible range
+E07,OUTsurance Group,insurance,FY2026,EBITDA margin proxy,-0.16164642396641643,0.05,0.45,below plausible range
+E07,OUTsurance Group,insurance,FY2024,Employee cost ratio,0.00029510671575331843,0.03,0.35,below plausible range
+E07,OUTsurance Group,insurance,FY2025,Employee cost ratio,0.00016175465423374624,0.03,0.35,below plausible range
+E07,OUTsurance Group,insurance,FY2026,Employee cost ratio,8.152021530228845e-05,0.03,0.35,below plausible range
+E07,OUTsurance Group,insurance,FY2024,Effective cash tax rate,,0.1,0.35,plausible
+E07,OUTsurance Group,insurance,FY2025,Effective cash tax rate,0.786906868831924,0.1,0.35,above plausible range
+E07,OUTsurance Group,insurance,FY2026,Effective cash tax rate,,0.1,0.35,plausible
+E08,Sanlam,insurance,FY2024,Gross margin proxy,0.3320291242596711,0.1,0.7,plausible
+E08,Sanlam,insurance,FY2025,Gross margin proxy,0.32610960119582727,0.1,0.7,plausible
+E08,Sanlam,insurance,FY2026,Gross margin proxy,0.3262999239300812,0.1,0.7,plausible
+E08,Sanlam,insurance,FY2024,EBITDA margin proxy,0.3141473089523651,0.05,0.45,plausible
+E08,Sanlam,insurance,FY2025,EBITDA margin proxy,0.3100965984522588,0.05,0.45,plausible
+E08,Sanlam,insurance,FY2026,EBITDA margin proxy,0.30175267004795286,0.05,0.45,plausible
+E08,Sanlam,insurance,FY2024,Employee cost ratio,0.0008791087914601399,0.03,0.35,below plausible range
+E08,Sanlam,insurance,FY2025,Employee cost ratio,0.0010483031835502622,0.03,0.35,below plausible range
+E08,Sanlam,insurance,FY2026,Employee cost ratio,0.0013350723726891663,0.03,0.35,below plausible range
+E08,Sanlam,insurance,FY2024,Effective cash tax rate,0.008539613574509127,0.1,0.35,below plausible range
+E08,Sanlam,insurance,FY2025,Effective cash tax rate,0.007747203993926137,0.1,0.35,below plausible range
+E08,Sanlam,insurance,FY2026,Effective cash tax rate,0.010314769329133557,0.1,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2024,Gross margin proxy,0.31159758954137373,0.1,0.7,plausible
+E09,Shoprite Holdings,consumer,FY2025,Gross margin proxy,0.28684918449888136,0.1,0.7,plausible
+E09,Shoprite Holdings,consumer,FY2026,Gross margin proxy,0.3006488831377638,0.1,0.7,plausible
+E09,Shoprite Holdings,consumer,FY2024,EBITDA margin proxy,0.26873737509840234,0.05,0.45,plausible
+E09,Shoprite Holdings,consumer,FY2025,EBITDA margin proxy,0.24475347459853583,0.05,0.45,plausible
+E09,Shoprite Holdings,consumer,FY2026,EBITDA margin proxy,0.25436714871162397,0.05,0.45,plausible
+E09,Shoprite Holdings,consumer,FY2024,Employee cost ratio,0.002261014086661998,0.03,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2025,Employee cost ratio,0.002408531109037857,0.03,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2026,Employee cost ratio,0.0021228078421658245,0.03,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2024,Effective cash tax rate,0.02190036041235111,0.1,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2025,Effective cash tax rate,0.019746015596743872,0.1,0.35,below plausible range
+E09,Shoprite Holdings,consumer,FY2026,Effective cash tax rate,0.026866196137840245,0.1,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2024,Gross margin proxy,0.28835174129717084,0.1,0.7,plausible
+E10,Bid Corporation,consumer,FY2025,Gross margin proxy,0.2604052738005923,0.1,0.7,plausible
+E10,Bid Corporation,consumer,FY2026,Gross margin proxy,0.27235276794427693,0.1,0.7,plausible
+E10,Bid Corporation,consumer,FY2024,EBITDA margin proxy,0.2374698280658132,0.05,0.45,plausible
+E10,Bid Corporation,consumer,FY2025,EBITDA margin proxy,0.19336759978493548,0.05,0.45,plausible
+E10,Bid Corporation,consumer,FY2026,EBITDA margin proxy,0.20851510890814326,0.05,0.45,plausible
+E10,Bid Corporation,consumer,FY2024,Employee cost ratio,0.002516557404569796,0.03,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2025,Employee cost ratio,0.0019865005350310767,0.03,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2026,Employee cost ratio,0.0017176136584374686,0.03,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2024,Effective cash tax rate,0.025015356082034125,0.1,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2025,Effective cash tax rate,0.02734396336244465,0.1,0.35,below plausible range
+E10,Bid Corporation,consumer,FY2026,Effective cash tax rate,0.023128956138039607,0.1,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2024,Gross margin proxy,0.31191323256002845,0.1,0.7,plausible
+E11,Pepkor Holdings,consumer,FY2025,Gross margin proxy,0.31004280458125716,0.1,0.7,plausible
+E11,Pepkor Holdings,consumer,FY2026,Gross margin proxy,0.30086497665103007,0.1,0.7,plausible
+E11,Pepkor Holdings,consumer,FY2024,EBITDA margin proxy,0.2818763826641298,0.05,0.45,plausible
+E11,Pepkor Holdings,consumer,FY2025,EBITDA margin proxy,0.27679753932584417,0.05,0.45,plausible
+E11,Pepkor Holdings,consumer,FY2026,EBITDA margin proxy,0.2689407591297046,0.05,0.45,plausible
+E11,Pepkor Holdings,consumer,FY2024,Employee cost ratio,0.000992232882163008,0.03,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2025,Employee cost ratio,0.0009571229294815244,0.03,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2026,Employee cost ratio,0.001011194098361013,0.03,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2024,Effective cash tax rate,0.01054621475434373,0.1,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2025,Effective cash tax rate,0.008526178135466939,0.1,0.35,below plausible range
+E11,Pepkor Holdings,consumer,FY2026,Effective cash tax rate,0.010018779036291189,0.1,0.35,below plausible range
+E12,Clicks Group,consumer,FY2024,Gross margin proxy,0.15672812454328253,0.1,0.7,plausible
+E12,Clicks Group,consumer,FY2025,Gross margin proxy,0.0005047400889534624,0.1,0.7,below plausible range
+E12,Clicks Group,consumer,FY2026,Gross margin proxy,0.0889524354699029,0.1,0.7,below plausible range
+E12,Clicks Group,consumer,FY2024,EBITDA margin proxy,0.03467485791827135,0.05,0.45,below plausible range
+E12,Clicks Group,consumer,FY2025,EBITDA margin proxy,-0.1562572865801989,0.05,0.45,below plausible range
+E12,Clicks Group,consumer,FY2026,EBITDA margin proxy,-0.08563107727654268,0.05,0.45,below plausible range
+E12,Clicks Group,consumer,FY2024,Employee cost ratio,0.00012292188792758317,0.03,0.35,below plausible range
+E12,Clicks Group,consumer,FY2025,Employee cost ratio,0.00013549630239396735,0.03,0.35,below plausible range
+E12,Clicks Group,consumer,FY2026,Employee cost ratio,2.423620702774143e-05,0.03,0.35,below plausible range
+E12,Clicks Group,consumer,FY2024,Effective cash tax rate,0.18827122286852088,0.1,0.35,plausible
+E12,Clicks Group,consumer,FY2025,Effective cash tax rate,,0.1,0.35,plausible
+E12,Clicks Group,consumer,FY2026,Effective cash tax rate,,0.1,0.35,plausible
+E13,NEPI Rockcastle,real_estate,FY2024,Gross margin proxy,-0.005543333997945839,0.1,0.7,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2025,Gross margin proxy,0.015956447797690777,0.1,0.7,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2026,Gross margin proxy,-0.04260974579782503,0.1,0.7,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2024,EBITDA margin proxy,-0.20041206156787114,0.05,0.45,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2025,EBITDA margin proxy,-0.1102454441810223,0.05,0.45,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2026,EBITDA margin proxy,-0.21656626597717643,0.05,0.45,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2024,Employee cost ratio,0.0001490104363901904,0.03,0.35,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2025,Employee cost ratio,0.0,0.03,0.35,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2026,Employee cost ratio,8.199722507845885e-05,0.03,0.35,below plausible range
+E13,NEPI Rockcastle,real_estate,FY2024,Effective cash tax rate,,0.1,0.35,plausible
+E13,NEPI Rockcastle,real_estate,FY2025,Effective cash tax rate,,0.1,0.35,plausible
+E13,NEPI Rockcastle,real_estate,FY2026,Effective cash tax rate,,0.1,0.35,plausible
+E14,Prosus,tech,FY2024,Gross margin proxy,0.24109643936415964,0.1,0.7,plausible
+E14,Prosus,tech,FY2025,Gross margin proxy,0.23669767054804697,0.1,0.7,plausible
+E14,Prosus,tech,FY2026,Gross margin proxy,0.1853879193451311,0.1,0.7,plausible
+E14,Prosus,tech,FY2024,EBITDA margin proxy,0.1473604831674025,0.05,0.45,plausible
+E14,Prosus,tech,FY2025,EBITDA margin proxy,0.14457355681592068,0.05,0.45,plausible
+E14,Prosus,tech,FY2026,EBITDA margin proxy,0.07845333042586751,0.05,0.45,plausible
+E14,Prosus,tech,FY2024,Employee cost ratio,0.0014158224331966324,0.03,0.35,below plausible range
+E14,Prosus,tech,FY2025,Employee cost ratio,0.0014099092042642513,0.03,0.35,below plausible range
+E14,Prosus,tech,FY2026,Employee cost ratio,0.0016197078617930915,0.03,0.35,below plausible range
+E14,Prosus,tech,FY2024,Effective cash tax rate,0.03287396696503549,0.1,0.35,below plausible range
+E14,Prosus,tech,FY2025,Effective cash tax rate,0.01944695381339722,0.1,0.35,below plausible range
+E14,Prosus,tech,FY2026,Effective cash tax rate,0.03690150955921715,0.1,0.35,below plausible range
+E15,Naspers,tech,FY2024,Gross margin proxy,0.181744249548805,0.1,0.7,plausible
+E15,Naspers,tech,FY2025,Gross margin proxy,0.266742429857425,0.1,0.7,plausible
+E15,Naspers,tech,FY2026,Gross margin proxy,0.16893230583195323,0.1,0.7,plausible
+E15,Naspers,tech,FY2024,EBITDA margin proxy,0.04835171714055641,0.05,0.45,below plausible range
+E15,Naspers,tech,FY2025,EBITDA margin proxy,0.160920209621226,0.05,0.45,plausible
+E15,Naspers,tech,FY2026,EBITDA margin proxy,0.03459715068464122,0.05,0.45,below plausible range
+E15,Naspers,tech,FY2024,Employee cost ratio,0.0012374406730174294,0.03,0.35,below plausible range
+E15,Naspers,tech,FY2025,Employee cost ratio,0.0011927277390617538,0.03,0.35,below plausible range
+E15,Naspers,tech,FY2026,Employee cost ratio,0.0011592089836519118,0.03,0.35,below plausible range
+E15,Naspers,tech,FY2024,Effective cash tax rate,0.050197784786589796,0.1,0.35,below plausible range
+E15,Naspers,tech,FY2025,Effective cash tax rate,0.014294958065068596,0.1,0.35,below plausible range
+E15,Naspers,tech,FY2026,Effective cash tax rate,0.13091279359945412,0.1,0.35,plausible
+E16,MTN Group,telecoms,FY2024,Gross margin proxy,0.2555673206859889,0.1,0.7,plausible
+E16,MTN Group,telecoms,FY2025,Gross margin proxy,0.22875970874912763,0.1,0.7,plausible
+E16,MTN Group,telecoms,FY2026,Gross margin proxy,0.24684731748535532,0.1,0.7,plausible
+E16,MTN Group,telecoms,FY2024,EBITDA margin proxy,0.17751808897145205,0.05,0.45,plausible
+E16,MTN Group,telecoms,FY2025,EBITDA margin proxy,0.1400547862304823,0.05,0.45,plausible
+E16,MTN Group,telecoms,FY2026,EBITDA margin proxy,0.16767954618432762,0.05,0.45,plausible
+E16,MTN Group,telecoms,FY2024,Employee cost ratio,0.0018170778246688769,0.03,0.35,below plausible range
+E16,MTN Group,telecoms,FY2025,Employee cost ratio,0.0019099000320436379,0.03,0.35,below plausible range
+E16,MTN Group,telecoms,FY2026,Employee cost ratio,0.0019335452818188036,0.03,0.35,below plausible range
+E16,MTN Group,telecoms,FY2024,Effective cash tax rate,0.033536888497184406,0.1,0.35,below plausible range
+E16,MTN Group,telecoms,FY2025,Effective cash tax rate,0.03595529965518245,0.1,0.35,below plausible range
+E16,MTN Group,telecoms,FY2026,Effective cash tax rate,0.032428666978658864,0.1,0.35,below plausible range
+E17,Vodacom Group,telecoms,FY2024,Gross margin proxy,0.14627960545950144,0.1,0.7,plausible
+E17,Vodacom Group,telecoms,FY2025,Gross margin proxy,0.19825731022851223,0.1,0.7,plausible
+E17,Vodacom Group,telecoms,FY2026,Gross margin proxy,0.1233375112028834,0.1,0.7,plausible
+E17,Vodacom Group,telecoms,FY2024,EBITDA margin proxy,-0.005586922250335158,0.05,0.45,below plausible range
+E17,Vodacom Group,telecoms,FY2025,EBITDA margin proxy,0.05812700555239987,0.05,0.45,plausible
+E17,Vodacom Group,telecoms,FY2026,EBITDA margin proxy,-0.06168166060704911,0.05,0.45,below plausible range
+E17,Vodacom Group,telecoms,FY2024,Employee cost ratio,5.247121496269414e-05,0.03,0.35,below plausible range
+E17,Vodacom Group,telecoms,FY2025,Employee cost ratio,3.477458813349656e-05,0.03,0.35,below plausible range
+E17,Vodacom Group,telecoms,FY2026,Employee cost ratio,2.0126002628058263e-05,0.03,0.35,below plausible range
+E17,Vodacom Group,telecoms,FY2024,Effective cash tax rate,,0.1,0.35,plausible
+E17,Vodacom Group,telecoms,FY2025,Effective cash tax rate,0.06035787059766195,0.1,0.35,below plausible range
+E17,Vodacom Group,telecoms,FY2026,Effective cash tax rate,,0.1,0.35,plausible
+E18,The Bidvest Group,industrials_pharma,FY2024,Gross margin proxy,0.22258283054154657,0.1,0.7,plausible
+E18,The Bidvest Group,industrials_pharma,FY2025,Gross margin proxy,0.27760584067749217,0.1,0.7,plausible
+E18,The Bidvest Group,industrials_pharma,FY2026,Gross margin proxy,0.3118590858254468,0.1,0.7,plausible
+E18,The Bidvest Group,industrials_pharma,FY2024,EBITDA margin proxy,0.16522642820642017,0.05,0.45,plausible
+E18,The Bidvest Group,industrials_pharma,FY2025,EBITDA margin proxy,0.19890252121871813,0.05,0.45,plausible
+E18,The Bidvest Group,industrials_pharma,FY2026,EBITDA margin proxy,0.25726612154456213,0.05,0.45,plausible
+E18,The Bidvest Group,industrials_pharma,FY2024,Employee cost ratio,0.0022139623109646927,0.03,0.35,below plausible range
+E18,The Bidvest Group,industrials_pharma,FY2025,Employee cost ratio,0.002249143140231618,0.03,0.35,below plausible range
+E18,The Bidvest Group,industrials_pharma,FY2026,Employee cost ratio,0.0020442936360008843,0.03,0.35,below plausible range
+E18,The Bidvest Group,industrials_pharma,FY2024,Effective cash tax rate,0.03806226818054967,0.1,0.35,below plausible range
+E18,The Bidvest Group,industrials_pharma,FY2025,Effective cash tax rate,0.030444532039958585,0.1,0.35,below plausible range
+E18,The Bidvest Group,industrials_pharma,FY2026,Effective cash tax rate,0.022314368187595843,0.1,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2024,Gross margin proxy,0.2941018981627607,0.1,0.7,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2025,Gross margin proxy,0.2582145671966374,0.1,0.7,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2026,Gross margin proxy,0.27492784411846083,0.1,0.7,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2024,EBITDA margin proxy,0.23438698565205554,0.05,0.45,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2025,EBITDA margin proxy,0.17597148689888145,0.05,0.45,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2026,EBITDA margin proxy,0.2214148989911594,0.05,0.45,plausible
+E19,Aspen Pharmacare,industrials_pharma,FY2024,Employee cost ratio,0.0021170478398582875,0.03,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2025,Employee cost ratio,0.002264990806728161,0.03,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2026,Employee cost ratio,0.0018896112209123254,0.03,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2024,Effective cash tax rate,0.026158887098718435,0.1,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2025,Effective cash tax rate,0.034049152516533454,0.1,0.35,below plausible range
+E19,Aspen Pharmacare,industrials_pharma,FY2026,Effective cash tax rate,0.020834393653454325,0.1,0.35,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2024,Gross margin proxy,-0.147209826843574,0.1,0.7,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2025,Gross margin proxy,-0.04251154520363434,0.1,0.7,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2026,Gross margin proxy,0.17058772329087918,0.1,0.7,plausible
+E20,Shaftesbury Capital plc,real_estate,FY2024,EBITDA margin proxy,-0.23618725783925718,0.05,0.45,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2025,EBITDA margin proxy,-0.13733045827592213,0.05,0.45,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2026,EBITDA margin proxy,0.1161435063790717,0.05,0.45,plausible
+E20,Shaftesbury Capital plc,real_estate,FY2024,Employee cost ratio,0.0,0.03,0.35,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2025,Employee cost ratio,7.51631672547253e-05,0.03,0.35,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2026,Employee cost ratio,7.445292124044245e-05,0.03,0.35,below plausible range
+E20,Shaftesbury Capital plc,real_estate,FY2024,Effective cash tax rate,,0.1,0.35,plausible
+E20,Shaftesbury Capital plc,real_estate,FY2025,Effective cash tax rate,,0.1,0.35,plausible
+E20,Shaftesbury Capital plc,real_estate,FY2026,Effective cash tax rate,0.02913874506412919,0.1,0.35,below plausible range

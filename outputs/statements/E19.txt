@@ -1,0 +1,59 @@
+E19  Aspen Pharmacare
+Pseudo consolidated statements (ZAR m unless stated)
+
+INCOME STATEMENT
+fiscal_year                                   FY2024   FY2025   FY2026 3yr_total
+line_item                                                                       
+Revenue - domestic collections                 786.0    778.4    891.9   2,456.4
+Revenue - cross-border trade receipts          322.7    290.7    324.2     937.5
+Other operating income                          76.5     67.9     68.2     212.5
+Total revenue                                1,185.1  1,136.9  1,284.3   3,606.4
+Cost of sales - domestic suppliers            -511.4   -522.8   -579.8  -1,614.1
+Cost of sales - cross-border trade payments   -325.2   -320.5   -351.4    -997.1
+Cost of sales and supplier payments           -836.6   -843.4   -931.2  -2,611.2
+Gross profit proxy                             348.6    293.6    353.1     995.2
+Employee costs                                  -2.5     -2.6     -2.4      -7.5
+Other operating expenses                       -68.3    -90.9    -66.3    -225.5
+EBITDA proxy                                   277.8    200.1    284.4     762.2
+Taxation paid                                   -7.3     -6.8     -5.9     -20.0
+Net cash earnings proxy                        270.5    193.3    278.4     742.2
+Gross margin proxy                              0.29     0.26     0.27         -
+EBITDA margin proxy                             0.23     0.18     0.22         -
+Employee cost ratio                             0.00     0.00     0.00         -
+Export revenue share                            0.27     0.26     0.25         -
+Effective cash tax rate                         0.03     0.03     0.02         -
+Revenue growth                                     -    -0.04     0.13         -
+
+CASH FLOW
+fiscal_year                            FY2024    FY2025    FY2026 3yr_total
+line_item                                                                  
+Receipts from customers               1,185.1   1,136.9   1,284.3   3,606.4
+Payments to suppliers                  -904.9    -934.3    -997.5  -2,836.7
+Payments to employees                    -2.5      -2.6      -2.4      -7.5
+Taxation paid                            -7.3      -6.8      -5.9     -20.0
+Net cash from operating activities      270.5     193.3     278.4     742.2
+Intragroup sweeps received              892.3     860.2   1,016.4   2,768.9
+Intragroup sweeps paid                 -896.7    -868.4  -1,055.8  -2,821.0
+Cross-border intragroup received        293.0     284.2     275.5     852.6
+Cross-border intragroup paid           -353.7    -316.6    -327.4    -997.7
+Net intragroup and financing flows      -65.1     -40.7     -91.4    -197.2
+Net movement in cash                    205.4     152.6     187.1     545.0
+Memo - gross cash inflows             2,370.4   2,281.3   2,576.2   7,228.0
+Memo - gross cash outflows           -2,165.1  -2,128.7  -2,389.1  -6,682.9
+Memo - foreign currency gross flows   1,439.3   1,370.8   1,413.0   4,223.0
+Operating cash conversion                0.23      0.17      0.22         -
+
+CONTINGENT NOTE
+fiscal_year                    FY2024  FY2025  FY2026 3yr_total
+line_item                                                      
+Letters of credit - notional    177.0   168.5   208.7     554.3
+Guarantees - notional           106.3    81.5   142.2     330.0
+Export collections - notional   111.5   119.2   181.5     412.1
+Total trade finance notional    394.8   369.2   532.4   1,296.4
+Of which export                 207.6   159.3   250.9     617.8
+Of which import                 187.2   209.9   281.5     678.6
+Open exposure at period end     161.1   152.6   228.1     541.8
+Settled during period           210.8   160.0   277.8     648.6
+Weighted average tenor (days)  102.56  108.95  116.28         -
+Instrument count               356.00  345.00  426.00         -
+Counterparty countries          18.00   18.00   18.00         -

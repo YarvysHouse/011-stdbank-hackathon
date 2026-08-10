@@ -1,0 +1,16 @@
+# Source data - 409MB, and transactional_banking.csv alone exceeds GitHub's 100MB limit
+Data/
+*.zip
+
+# Hackathon briefs and T&Cs
+Hackathon Briefs and TCs/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Environment
+.env
+.DS_Store

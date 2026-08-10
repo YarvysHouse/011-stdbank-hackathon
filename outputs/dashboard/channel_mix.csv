@@ -1,0 +1,1687 @@
+entity_id,fiscal_year,leg_type,channel,direction,txn_count,value_zar
+E01,FY2024,collections,Debit Order,inbound,1566,823246292.2953925
+E01,FY2024,collections,EFT,inbound,7348,3861328723.3776317
+E01,FY2024,collections,Internal Transfer,inbound,2456,1322358570.4347093
+E01,FY2024,collections,RTC,inbound,3227,1607541327.7876258
+E01,FY2024,collections,SWIFT,inbound,1622,869619613.077934
+E01,FY2024,intercompany_sweeps,Debit Order,inbound,470,199964456.3
+E01,FY2024,intercompany_sweeps,Debit Order,outbound,457,208740192.3
+E01,FY2024,intercompany_sweeps,EFT,inbound,2059,1025566715.82
+E01,FY2024,intercompany_sweeps,EFT,outbound,2079,1105881054.69
+E01,FY2024,intercompany_sweeps,Internal Transfer,inbound,716,333857853.14
+E01,FY2024,intercompany_sweeps,Internal Transfer,outbound,680,354791795.49
+E01,FY2024,intercompany_sweeps,RTC,inbound,922,440464971.69
+E01,FY2024,intercompany_sweeps,RTC,outbound,902,496232311.97
+E01,FY2024,intercompany_sweeps,SWIFT,inbound,458,214476876.74
+E01,FY2024,intercompany_sweeps,SWIFT,outbound,455,204001614.51
+E01,FY2024,payroll,Debit Order,outbound,14,253880.56
+E01,FY2024,payroll,EFT,outbound,88,1626115.93
+E01,FY2024,payroll,Internal Transfer,outbound,28,554944.1
+E01,FY2024,payroll,RTC,outbound,28,473249.04
+E01,FY2024,payroll,SWIFT,outbound,15,233939.94
+E01,FY2024,supplier_payments,Debit Order,outbound,1375,159793087.87
+E01,FY2024,supplier_payments,EFT,outbound,6239,677196299.72
+E01,FY2024,supplier_payments,Internal Transfer,outbound,1961,215490397.92
+E01,FY2024,supplier_payments,RTC,outbound,2808,317414925.62
+E01,FY2024,supplier_payments,SWIFT,outbound,1417,150827170.07
+E01,FY2024,tax,Debit Order,outbound,5,485716.59
+E01,FY2024,tax,EFT,outbound,13,1708091.13
+E01,FY2024,tax,Internal Transfer,outbound,11,1461878.4100000001
+E01,FY2024,tax,RTC,outbound,8,1401298.67
+E01,FY2024,tax,SWIFT,outbound,8,1855324.6400000001
+E01,FY2025,collections,Debit Order,inbound,1597,885269266.4429181
+E01,FY2025,collections,EFT,inbound,7294,3960356162.525323
+E01,FY2025,collections,Internal Transfer,inbound,2520,1391765437.8364525
+E01,FY2025,collections,RTC,inbound,3291,1664450478.622115
+E01,FY2025,collections,SWIFT,inbound,1639,857667345.4341629
+E01,FY2025,intercompany_sweeps,Debit Order,inbound,482,230298035.63
+E01,FY2025,intercompany_sweeps,Debit Order,outbound,462,226886707.19
+E01,FY2025,intercompany_sweeps,EFT,inbound,2154,1113775345.58
+E01,FY2025,intercompany_sweeps,EFT,outbound,2208,1100165530.22
+E01,FY2025,intercompany_sweeps,Internal Transfer,inbound,739,355019574.45
+E01,FY2025,intercompany_sweeps,Internal Transfer,outbound,713,340577747.84
+E01,FY2025,intercompany_sweeps,RTC,inbound,893,456884486.94
+E01,FY2025,intercompany_sweeps,RTC,outbound,962,459689379.3
+E01,FY2025,intercompany_sweeps,SWIFT,inbound,459,256596586.91
+E01,FY2025,intercompany_sweeps,SWIFT,outbound,503,244320658.01
+E01,FY2025,payroll,Debit Order,outbound,18,276340.48
+E01,FY2025,payroll,EFT,outbound,70,1234680.33
+E01,FY2025,payroll,Internal Transfer,outbound,23,425047.3
+E01,FY2025,payroll,RTC,outbound,36,690851.25
+E01,FY2025,payroll,SWIFT,outbound,13,237509.16
+E01,FY2025,supplier_payments,Debit Order,outbound,1415,157174222.74
+E01,FY2025,supplier_payments,EFT,outbound,6345,713522546.24
+E01,FY2025,supplier_payments,Internal Transfer,outbound,2147,232370242.4
+E01,FY2025,supplier_payments,RTC,outbound,2846,314004065.88
+E01,FY2025,supplier_payments,SWIFT,outbound,1409,165281566.9
+E01,FY2025,tax,Debit Order,outbound,7,1304463.3199999998
+E01,FY2025,tax,EFT,outbound,25,4572728.87
+E01,FY2025,tax,Internal Transfer,outbound,5,401780.70999999996
+E01,FY2025,tax,RTC,outbound,11,1254311.45
+E01,FY2025,tax,SWIFT,outbound,6,757016.3700000001
+E01,FY2026,collections,Debit Order,inbound,1793,925014880.4699789
+E01,FY2026,collections,EFT,inbound,8343,4183591934.902403
+E01,FY2026,collections,Internal Transfer,inbound,2716,1469755609.4783752
+E01,FY2026,collections,RTC,inbound,3650,1848880485.818062
+E01,FY2026,collections,SWIFT,inbound,1823,1019076909.9539855
+E01,FY2026,intercompany_sweeps,Debit Order,inbound,554,292235013.99
+E01,FY2026,intercompany_sweeps,Debit Order,outbound,518,260871393.14
+E01,FY2026,intercompany_sweeps,EFT,inbound,2407,1290753308.48
+E01,FY2026,intercompany_sweeps,EFT,outbound,2458,1173746926.71
+E01,FY2026,intercompany_sweeps,Internal Transfer,inbound,770,371523914.29
+E01,FY2026,intercompany_sweeps,Internal Transfer,outbound,793,381511502.95
+E01,FY2026,intercompany_sweeps,RTC,inbound,1111,571580798.75
+E01,FY2026,intercompany_sweeps,RTC,outbound,1047,608439880.77
+E01,FY2026,intercompany_sweeps,SWIFT,inbound,564,282042478.8
+E01,FY2026,intercompany_sweeps,SWIFT,outbound,492,298251342.91
+E01,FY2026,payroll,Debit Order,outbound,15,262860.35
+E01,FY2026,payroll,EFT,outbound,65,1138363.47
+E01,FY2026,payroll,Internal Transfer,outbound,23,441580.26
+E01,FY2026,payroll,RTC,outbound,32,622584.05
+E01,FY2026,payroll,SWIFT,outbound,18,273553.9
+E01,FY2026,supplier_payments,Debit Order,outbound,1540,178435571.3
+E01,FY2026,supplier_payments,EFT,outbound,7209,822193091.91
+E01,FY2026,supplier_payments,Internal Transfer,outbound,2322,270045349.28
+E01,FY2026,supplier_payments,RTC,outbound,3198,353574902.6
+E01,FY2026,supplier_payments,SWIFT,outbound,1507,180190443.95
+E01,FY2026,tax,Debit Order,outbound,5,428416.77
+E01,FY2026,tax,EFT,outbound,12,1611062.47
+E01,FY2026,tax,Internal Transfer,outbound,10,1151984.99
+E01,FY2026,tax,RTC,outbound,9,1075885.45
+E01,FY2026,tax,SWIFT,outbound,10,1330605.88
+E02,FY2024,collections,Debit Order,inbound,255,240601987.79417074
+E02,FY2024,collections,EFT,inbound,1166,986660114.0432599
+E02,FY2024,collections,Internal Transfer,inbound,415,300447421.78994346
+E02,FY2024,collections,RTC,inbound,540,541617448.9652802
+E02,FY2024,collections,SWIFT,inbound,255,239799171.3570556
+E02,FY2024,intercompany_sweeps,Debit Order,inbound,86,67577692.71
+E02,FY2024,intercompany_sweeps,Debit Order,outbound,78,76290046.39
+E02,FY2024,intercompany_sweeps,EFT,inbound,386,369357546.26
+E02,FY2024,intercompany_sweeps,EFT,outbound,383,308120604.17
+E02,FY2024,intercompany_sweeps,Internal Transfer,inbound,112,59500149.67
+E02,FY2024,intercompany_sweeps,Internal Transfer,outbound,131,89969620.55
+E02,FY2024,intercompany_sweeps,RTC,inbound,152,111118120.41
+E02,FY2024,intercompany_sweeps,RTC,outbound,191,223397356.60999998
+E02,FY2024,intercompany_sweeps,SWIFT,inbound,72,54867490.02
+E02,FY2024,intercompany_sweeps,SWIFT,outbound,74,60015951.93
+E02,FY2024,payroll,Debit Order,outbound,7,171253.06
+E02,FY2024,payroll,EFT,outbound,31,934734.31
+E02,FY2024,payroll,Internal Transfer,outbound,7,201764.83
+E02,FY2024,payroll,RTC,outbound,17,463981.71
+E02,FY2024,payroll,SWIFT,outbound,8,238561.29
+E02,FY2024,supplier_payments,Debit Order,outbound,241,48059112.07
+E02,FY2024,supplier_payments,EFT,outbound,961,174964950.19
+E02,FY2024,supplier_payments,Internal Transfer,outbound,348,69037440.09
+E02,FY2024,supplier_payments,RTC,outbound,455,75984336.17999999
+E02,FY2024,supplier_payments,SWIFT,outbound,203,35718845.68
+E02,FY2024,tax,EFT,outbound,7,1491754.67
+E02,FY2024,tax,Internal Transfer,outbound,8,832793.37
+E02,FY2024,tax,RTC,outbound,5,988306.0099999999
+E02,FY2024,tax,SWIFT,outbound,1,161490.95
+E02,FY2025,collections,Debit Order,inbound,247,215559213.17598152
+E02,FY2025,collections,EFT,inbound,1165,980471795.825796
+E02,FY2025,collections,Internal Transfer,inbound,399,317906942.05332226
+E02,FY2025,collections,RTC,inbound,526,481289436.0213135
+E02,FY2025,collections,SWIFT,inbound,248,205045687.31271693
+E02,FY2025,intercompany_sweeps,Debit Order,inbound,104,89429279.82000001
+E02,FY2025,intercompany_sweeps,Debit Order,outbound,93,81094612.97
+E02,FY2025,intercompany_sweeps,EFT,inbound,394,291678489.1
+E02,FY2025,intercompany_sweeps,EFT,outbound,417,315980054.16
+E02,FY2025,intercompany_sweeps,Internal Transfer,inbound,124,125649451.43
+E02,FY2025,intercompany_sweeps,Internal Transfer,outbound,140,90885280.81
+E02,FY2025,intercompany_sweeps,RTC,inbound,147,108209021.39
+E02,FY2025,intercompany_sweeps,RTC,outbound,190,124667337.99
+E02,FY2025,intercompany_sweeps,SWIFT,inbound,89,55452659.78
+E02,FY2025,intercompany_sweeps,SWIFT,outbound,67,48397620.33
+E02,FY2025,payroll,Debit Order,outbound,8,238414.49
+E02,FY2025,payroll,EFT,outbound,32,849466.6
+E02,FY2025,payroll,Internal Transfer,outbound,9,228456.66
+E02,FY2025,payroll,RTC,outbound,13,362818.98
+E02,FY2025,payroll,SWIFT,outbound,7,234818.19
+E02,FY2025,supplier_payments,Debit Order,outbound,228,39502556.77
+E02,FY2025,supplier_payments,EFT,outbound,1030,186713469.86
+E02,FY2025,supplier_payments,Internal Transfer,outbound,337,61610027.16
+E02,FY2025,supplier_payments,RTC,outbound,426,78947502.75
+E02,FY2025,supplier_payments,SWIFT,outbound,223,36398098.14
+E02,FY2025,tax,Debit Order,outbound,2,233409.76
+E02,FY2025,tax,EFT,outbound,9,2493143.4
+E02,FY2025,tax,Internal Transfer,outbound,3,1032124.22
+E02,FY2025,tax,RTC,outbound,3,517335.24
+E02,FY2025,tax,SWIFT,outbound,1,81866.16
+E02,FY2026,collections,Debit Order,inbound,306,260986258.38176683
+E02,FY2026,collections,EFT,inbound,1339,1098423149.5300822
+E02,FY2026,collections,Internal Transfer,inbound,449,403367320.27783275
+E02,FY2026,collections,RTC,inbound,630,472890452.27147543
+E02,FY2026,collections,SWIFT,inbound,329,284491930.77304035
+E02,FY2026,intercompany_sweeps,Debit Order,inbound,113,82215128.17
+E02,FY2026,intercompany_sweeps,Debit Order,outbound,94,78705411.3
+E02,FY2026,intercompany_sweeps,EFT,inbound,407,354138771.51
+E02,FY2026,intercompany_sweeps,EFT,outbound,425,340534509.63
+E02,FY2026,intercompany_sweeps,Internal Transfer,inbound,145,103722862.54
+E02,FY2026,intercompany_sweeps,Internal Transfer,outbound,142,98928292.83
+E02,FY2026,intercompany_sweeps,RTC,inbound,208,156289380.41
+E02,FY2026,intercompany_sweeps,RTC,outbound,184,112067671.92
+E02,FY2026,intercompany_sweeps,SWIFT,inbound,88,73847662.73
+E02,FY2026,intercompany_sweeps,SWIFT,outbound,115,79151491.06
+E02,FY2026,payroll,Debit Order,outbound,9,296927.74
+E02,FY2026,payroll,EFT,outbound,29,966973.19
+E02,FY2026,payroll,Internal Transfer,outbound,7,190914.92
+E02,FY2026,payroll,RTC,outbound,13,307990.33
+E02,FY2026,payroll,SWIFT,outbound,5,126309.16
+E02,FY2026,supplier_payments,Debit Order,outbound,255,44163522.91
+E02,FY2026,supplier_payments,EFT,outbound,1153,209509112.24
+E02,FY2026,supplier_payments,Internal Transfer,outbound,420,70798933.13
+E02,FY2026,supplier_payments,RTC,outbound,453,68817056.9
+E02,FY2026,supplier_payments,SWIFT,outbound,232,39951640.62
+E02,FY2026,tax,Debit Order,outbound,3,647931.83
+E02,FY2026,tax,EFT,outbound,9,2195700.5300000003
+E02,FY2026,tax,Internal Transfer,outbound,3,1176972.87
+E02,FY2026,tax,RTC,outbound,3,866345.9299999999
+E02,FY2026,tax,SWIFT,outbound,3,491272.65
+E03,FY2024,collections,Debit Order,inbound,1540,616632803.2694856
+E03,FY2024,collections,EFT,inbound,6698,2594595845.2704077
+E03,FY2024,collections,Internal Transfer,inbound,2189,856497985.2830957
+E03,FY2024,collections,RTC,inbound,2971,1118129856.3996017
+E03,FY2024,collections,SWIFT,inbound,1476,613346313.168958
+E03,FY2024,intercompany_sweeps,Debit Order,inbound,420,135062532.25
+E03,FY2024,intercompany_sweeps,Debit Order,outbound,415,190280318.82
+E03,FY2024,intercompany_sweeps,EFT,inbound,1958,739906989.5
+E03,FY2024,intercompany_sweeps,EFT,outbound,1886,679244575.4
+E03,FY2024,intercompany_sweeps,Internal Transfer,inbound,612,209706994.3
+E03,FY2024,intercompany_sweeps,Internal Transfer,outbound,659,267285894.08
+E03,FY2024,intercompany_sweeps,RTC,inbound,830,339713398.74
+E03,FY2024,intercompany_sweeps,RTC,outbound,851,356132040.32
+E03,FY2024,intercompany_sweeps,SWIFT,inbound,448,159103547.91
+E03,FY2024,intercompany_sweeps,SWIFT,outbound,429,215153233.84
+E03,FY2024,payroll,Debit Order,outbound,15,185726.41999999998
+E03,FY2024,payroll,EFT,outbound,56,755325.96
+E03,FY2024,payroll,Internal Transfer,outbound,25,355211.59
+E03,FY2024,payroll,RTC,outbound,19,241967.38
+E03,FY2024,payroll,SWIFT,outbound,11,149645.47
+E03,FY2024,supplier_payments,Debit Order,outbound,1299,107856181.08
+E03,FY2024,supplier_payments,EFT,outbound,5715,483952605.5
+E03,FY2024,supplier_payments,Internal Transfer,outbound,1855,156589045.15
+E03,FY2024,supplier_payments,RTC,outbound,2559,215553024.96
+E03,FY2024,supplier_payments,SWIFT,outbound,1287,117850306.12
+E03,FY2024,tax,Debit Order,outbound,4,427783.07999999996
+E03,FY2024,tax,EFT,outbound,26,3828095.21
+E03,FY2024,tax,Internal Transfer,outbound,6,561793.78
+E03,FY2024,tax,RTC,outbound,4,318778.54000000004
+E03,FY2025,collections,Debit Order,inbound,1264,465721677.8802754
+E03,FY2025,collections,EFT,inbound,5698,2214563241.8047423
+E03,FY2025,collections,Internal Transfer,inbound,1878,724444973.6312777
+E03,FY2025,collections,RTC,inbound,2438,995570748.2253078
+E03,FY2025,collections,SWIFT,inbound,1229,450504582.0872076
+E03,FY2025,intercompany_sweeps,Debit Order,inbound,345,130843839.4
+E03,FY2025,intercompany_sweeps,Debit Order,outbound,400,141392047.42
+E03,FY2025,intercompany_sweeps,EFT,inbound,1566,572519775.95
+E03,FY2025,intercompany_sweeps,EFT,outbound,1627,564849017.1
+E03,FY2025,intercompany_sweeps,Internal Transfer,inbound,577,241408316.83
+E03,FY2025,intercompany_sweeps,Internal Transfer,outbound,560,209308610.68
+E03,FY2025,intercompany_sweeps,RTC,inbound,691,258055556.35
+E03,FY2025,intercompany_sweeps,RTC,outbound,712,280912678.16
+E03,FY2025,intercompany_sweeps,SWIFT,inbound,338,96920668.05
+E03,FY2025,intercompany_sweeps,SWIFT,outbound,343,117646550.51
+E03,FY2025,payroll,Debit Order,outbound,12,160220.22999999998
+E03,FY2025,payroll,EFT,outbound,40,584441.0
+E03,FY2025,payroll,Internal Transfer,outbound,15,194197.99
+E03,FY2025,payroll,RTC,outbound,19,290718.58
+E03,FY2025,payroll,SWIFT,outbound,19,239497.85
+E03,FY2025,supplier_payments,Debit Order,outbound,1024,90942254.48
+E03,FY2025,supplier_payments,EFT,outbound,4831,418127584.23
+E03,FY2025,supplier_payments,Internal Transfer,outbound,1768,153868969.75
+E03,FY2025,supplier_payments,RTC,outbound,2238,196763031.98
+E03,FY2025,supplier_payments,SWIFT,outbound,1079,84971730.84
+E03,FY2025,tax,Debit Order,outbound,3,593410.05
+E03,FY2025,tax,EFT,outbound,12,1157665.6300000001
+E03,FY2025,tax,Internal Transfer,outbound,9,2320508.41
+E03,FY2025,tax,RTC,outbound,4,532689.5
+E03,FY2025,tax,SWIFT,outbound,8,572003.17
+E03,FY2026,collections,Debit Order,inbound,1140,465483958.3245229
+E03,FY2026,collections,EFT,inbound,5025,1978828653.5488026
+E03,FY2026,collections,Internal Transfer,inbound,1628,642413334.7808586
+E03,FY2026,collections,RTC,inbound,2232,871334917.1222389
+E03,FY2026,collections,SWIFT,inbound,1108,432783589.1063644
+E03,FY2026,intercompany_sweeps,Debit Order,inbound,319,127601818.88
+E03,FY2026,intercompany_sweeps,Debit Order,outbound,332,129409422.25
+E03,FY2026,intercompany_sweeps,EFT,inbound,1518,556464669.92
+E03,FY2026,intercompany_sweeps,EFT,outbound,1361,499328020.92
+E03,FY2026,intercompany_sweeps,Internal Transfer,inbound,492,185466963.39000002
+E03,FY2026,intercompany_sweeps,Internal Transfer,outbound,438,158830698.9
+E03,FY2026,intercompany_sweeps,RTC,inbound,624,234871144.45
+E03,FY2026,intercompany_sweeps,RTC,outbound,632,222316636.81
+E03,FY2026,intercompany_sweeps,SWIFT,inbound,347,120931236.55
+E03,FY2026,intercompany_sweeps,SWIFT,outbound,306,130436762.16
+E03,FY2026,payroll,Debit Order,outbound,11,175709.48
+E03,FY2026,payroll,EFT,outbound,73,1061439.73
+E03,FY2026,payroll,Internal Transfer,outbound,16,223903.29
+E03,FY2026,payroll,RTC,outbound,29,415440.36
+E03,FY2026,payroll,SWIFT,outbound,7,117777.58
+E03,FY2026,supplier_payments,Debit Order,outbound,935,81281300.07
+E03,FY2026,supplier_payments,EFT,outbound,4240,356495241.62
+E03,FY2026,supplier_payments,Internal Transfer,outbound,1470,118416472.63
+E03,FY2026,supplier_payments,RTC,outbound,1933,160991005.82
+E03,FY2026,supplier_payments,SWIFT,outbound,909,77760427.17
+E03,FY2026,tax,Debit Order,outbound,3,356491.33999999997
+E03,FY2026,tax,EFT,outbound,15,1386771.1400000001
+E03,FY2026,tax,Internal Transfer,outbound,6,904744.15
+E03,FY2026,tax,RTC,outbound,9,1761934.6
+E03,FY2026,tax,SWIFT,outbound,1,130177.03
+E04,FY2024,collections,Debit Order,inbound,277,89943002.06830184
+E04,FY2024,collections,EFT,inbound,1352,429382622.16228247
+E04,FY2024,collections,Internal Transfer,inbound,423,134927074.45683238
+E04,FY2024,collections,RTC,inbound,622,216912448.60422185
+E04,FY2024,collections,SWIFT,inbound,277,96051588.86842704
+E04,FY2024,intercompany_sweeps,Debit Order,inbound,119,38128484.19
+E04,FY2024,intercompany_sweeps,Debit Order,outbound,88,24196220.9
+E04,FY2024,intercompany_sweeps,EFT,inbound,442,127212904.78
+E04,FY2024,intercompany_sweeps,EFT,outbound,447,156198638.07
+E04,FY2024,intercompany_sweeps,Internal Transfer,inbound,137,44893272.49
+E04,FY2024,intercompany_sweeps,Internal Transfer,outbound,144,44778559.0
+E04,FY2024,intercompany_sweeps,RTC,inbound,195,51001958.29
+E04,FY2024,intercompany_sweeps,RTC,outbound,193,71353200.9
+E04,FY2024,intercompany_sweeps,SWIFT,inbound,83,19006642.37
+E04,FY2024,intercompany_sweeps,SWIFT,outbound,87,31062694.87
+E04,FY2024,payroll,Debit Order,outbound,7,80262.97
+E04,FY2024,payroll,EFT,outbound,38,388724.38
+E04,FY2024,payroll,Internal Transfer,outbound,11,119295.89
+E04,FY2024,payroll,RTC,outbound,21,206196.55
+E04,FY2024,payroll,SWIFT,outbound,4,43733.36
+E04,FY2024,supplier_payments,Debit Order,outbound,280,20179140.32
+E04,FY2024,supplier_payments,EFT,outbound,1140,78354612.07
+E04,FY2024,supplier_payments,Internal Transfer,outbound,392,30064605.02
+E04,FY2024,supplier_payments,RTC,outbound,525,35514936.42
+E04,FY2024,supplier_payments,SWIFT,outbound,265,17237368.18
+E04,FY2024,tax,Debit Order,outbound,6,1455629.29
+E04,FY2024,tax,EFT,outbound,9,581582.95
+E04,FY2024,tax,Internal Transfer,outbound,4,242728.41999999998
+E04,FY2024,tax,RTC,outbound,4,410955.94
+E04,FY2024,tax,SWIFT,outbound,4,463044.99
+E04,FY2025,collections,Debit Order,inbound,307,102841436.84616372
+E04,FY2025,collections,EFT,inbound,1342,427236014.7637038
+E04,FY2025,collections,Internal Transfer,inbound,452,153674595.94902357
+E04,FY2025,collections,RTC,inbound,600,190271034.6303908
+E04,FY2025,collections,SWIFT,inbound,287,91153344.27328125
+E04,FY2025,intercompany_sweeps,Debit Order,inbound,102,38497123.51
+E04,FY2025,intercompany_sweeps,Debit Order,outbound,104,29054642.63
+E04,FY2025,intercompany_sweeps,EFT,inbound,445,141266488.94
+E04,FY2025,intercompany_sweeps,EFT,outbound,404,128953325.17
+E04,FY2025,intercompany_sweeps,Internal Transfer,inbound,135,46774124.26
+E04,FY2025,intercompany_sweeps,Internal Transfer,outbound,104,30989557.169999998
+E04,FY2025,intercompany_sweeps,RTC,inbound,205,71780450.23
+E04,FY2025,intercompany_sweeps,RTC,outbound,230,68799757.94
+E04,FY2025,intercompany_sweeps,SWIFT,inbound,83,19418798.13
+E04,FY2025,intercompany_sweeps,SWIFT,outbound,105,47558138.25
+E04,FY2025,payroll,Debit Order,outbound,10,97359.12
+E04,FY2025,payroll,EFT,outbound,22,249057.76
+E04,FY2025,payroll,Internal Transfer,outbound,14,143585.76
+E04,FY2025,payroll,RTC,outbound,9,85145.35
+E04,FY2025,payroll,SWIFT,outbound,8,102263.93
+E04,FY2025,supplier_payments,Debit Order,outbound,291,18629328.2
+E04,FY2025,supplier_payments,EFT,outbound,1147,80761635.86
+E04,FY2025,supplier_payments,Internal Transfer,outbound,374,25260474.95
+E04,FY2025,supplier_payments,RTC,outbound,528,34314362.29
+E04,FY2025,supplier_payments,SWIFT,outbound,260,19093187.81
+E04,FY2025,tax,Debit Order,outbound,3,243140.84
+E04,FY2025,tax,EFT,outbound,9,590414.6
+E04,FY2025,tax,Internal Transfer,outbound,3,275753.41
+E04,FY2025,tax,RTC,outbound,6,722048.86
+E04,FY2025,tax,SWIFT,outbound,1,96682.87
+E04,FY2026,collections,Debit Order,inbound,340,102042454.60557562
+E04,FY2026,collections,EFT,inbound,1505,453058684.46454984
+E04,FY2026,collections,Internal Transfer,inbound,486,161883322.6571375
+E04,FY2026,collections,RTC,inbound,637,221973521.32016462
+E04,FY2026,collections,SWIFT,inbound,369,111054219.64666785
+E04,FY2026,intercompany_sweeps,Debit Order,inbound,102,29274153.79
+E04,FY2026,intercompany_sweeps,Debit Order,outbound,121,42321906.12
+E04,FY2026,intercompany_sweeps,EFT,inbound,481,166620660.17
+E04,FY2026,intercompany_sweeps,EFT,outbound,504,147946394.77
+E04,FY2026,intercompany_sweeps,Internal Transfer,inbound,167,62195914.65
+E04,FY2026,intercompany_sweeps,Internal Transfer,outbound,168,65159002.97
+E04,FY2026,intercompany_sweeps,RTC,inbound,230,58345440.32
+E04,FY2026,intercompany_sweeps,RTC,outbound,246,76026993.5
+E04,FY2026,intercompany_sweeps,SWIFT,inbound,123,46575642.27
+E04,FY2026,intercompany_sweeps,SWIFT,outbound,118,31419899.65
+E04,FY2026,payroll,Debit Order,outbound,9,103838.28
+E04,FY2026,payroll,EFT,outbound,43,519301.78
+E04,FY2026,payroll,Internal Transfer,outbound,11,117051.32
+E04,FY2026,payroll,RTC,outbound,18,216851.00999999998
+E04,FY2026,payroll,SWIFT,outbound,4,38875.35
+E04,FY2026,supplier_payments,Debit Order,outbound,283,17398951.95
+E04,FY2026,supplier_payments,EFT,outbound,1349,96311657.6
+E04,FY2026,supplier_payments,Internal Transfer,outbound,432,28741407.47
+E04,FY2026,supplier_payments,RTC,outbound,542,39131138.13
+E04,FY2026,supplier_payments,SWIFT,outbound,314,22162518.77
+E04,FY2026,tax,Debit Order,outbound,4,403721.78
+E04,FY2026,tax,EFT,outbound,8,433293.37
+E04,FY2026,tax,Internal Transfer,outbound,1,68231.87
+E04,FY2026,tax,RTC,outbound,3,173849.25
+E04,FY2026,tax,SWIFT,outbound,4,322304.0
+E05,FY2024,collections,Debit Order,inbound,287,96480919.88019288
+E05,FY2024,collections,EFT,inbound,1182,344593606.53595006
+E05,FY2024,collections,Internal Transfer,inbound,426,170756059.14668822
+E05,FY2024,collections,RTC,inbound,557,166702385.99348295
+E05,FY2024,collections,SWIFT,inbound,258,76624582.91469277
+E05,FY2024,intercompany_sweeps,Debit Order,inbound,86,21216497.13
+E05,FY2024,intercompany_sweeps,Debit Order,outbound,98,26770846.63
+E05,FY2024,intercompany_sweeps,EFT,inbound,367,95330074.7
+E05,FY2024,intercompany_sweeps,EFT,outbound,445,139668556.43
+E05,FY2024,intercompany_sweeps,Internal Transfer,inbound,145,38840986.76
+E05,FY2024,intercompany_sweeps,Internal Transfer,outbound,143,40029340.0
+E05,FY2024,intercompany_sweeps,RTC,inbound,162,48857150.01
+E05,FY2024,intercompany_sweeps,RTC,outbound,157,43782867.24
+E05,FY2024,intercompany_sweeps,SWIFT,inbound,69,19007510.080000002
+E05,FY2024,intercompany_sweeps,SWIFT,outbound,100,38084964.65
+E05,FY2024,payroll,Debit Order,outbound,3,37380.02
+E05,FY2024,payroll,EFT,outbound,31,360630.91
+E05,FY2024,payroll,Internal Transfer,outbound,3,34977.06
+E05,FY2024,payroll,RTC,outbound,15,142837.38
+E05,FY2024,payroll,SWIFT,outbound,9,130491.73999999999
+E05,FY2024,supplier_payments,Debit Order,outbound,269,15889921.14
+E05,FY2024,supplier_payments,EFT,outbound,1044,67630832.0
+E05,FY2024,supplier_payments,Internal Transfer,outbound,358,23286671.05
+E05,FY2024,supplier_payments,RTC,outbound,481,31444648.66
+E05,FY2024,supplier_payments,SWIFT,outbound,236,14792583.48
+E05,FY2024,tax,Debit Order,outbound,3,187058.02000000002
+E05,FY2024,tax,EFT,outbound,15,1812037.05
+E05,FY2024,tax,Internal Transfer,outbound,3,320348.08999999997
+E05,FY2024,tax,RTC,outbound,2,109204.44
+E05,FY2024,tax,SWIFT,outbound,2,47493.66
+E05,FY2025,collections,Debit Order,inbound,271,86106410.92617749
+E05,FY2025,collections,EFT,inbound,1234,357294706.5785521
+E05,FY2025,collections,Internal Transfer,inbound,436,150188491.25160447
+E05,FY2025,collections,RTC,inbound,509,152850137.63721952
+E05,FY2025,collections,SWIFT,inbound,299,84777409.72420357
+E05,FY2025,intercompany_sweeps,Debit Order,inbound,80,18954484.15
+E05,FY2025,intercompany_sweeps,Debit Order,outbound,88,29187155.72
+E05,FY2025,intercompany_sweeps,EFT,inbound,407,125320380.8
+E05,FY2025,intercompany_sweeps,EFT,outbound,413,118861286.02
+E05,FY2025,intercompany_sweeps,Internal Transfer,inbound,129,43893985.410000004
+E05,FY2025,intercompany_sweeps,Internal Transfer,outbound,140,33942466.27
+E05,FY2025,intercompany_sweeps,RTC,inbound,171,55964899.09
+E05,FY2025,intercompany_sweeps,RTC,outbound,176,45655689.21
+E05,FY2025,intercompany_sweeps,SWIFT,inbound,85,30820712.12
+E05,FY2025,intercompany_sweeps,SWIFT,outbound,77,16304472.47
+E05,FY2025,payroll,Debit Order,outbound,8,80308.89
+E05,FY2025,payroll,EFT,outbound,25,248271.11000000002
+E05,FY2025,payroll,Internal Transfer,outbound,11,123156.13
+E05,FY2025,payroll,RTC,outbound,12,102685.23
+E05,FY2025,payroll,SWIFT,outbound,7,85569.79
+E05,FY2025,supplier_payments,Debit Order,outbound,253,17417895.35
+E05,FY2025,supplier_payments,EFT,outbound,1018,64513772.73
+E05,FY2025,supplier_payments,Internal Transfer,outbound,372,26432746.82
+E05,FY2025,supplier_payments,RTC,outbound,515,33686427.89
+E05,FY2025,supplier_payments,SWIFT,outbound,228,12981764.45
+E05,FY2025,tax,Debit Order,outbound,1,180665.84
+E05,FY2025,tax,EFT,outbound,9,1269529.52
+E05,FY2025,tax,Internal Transfer,outbound,3,302767.64999999997
+E05,FY2025,tax,RTC,outbound,2,166354.32
+E05,FY2026,collections,Debit Order,inbound,310,82864018.56910606
+E05,FY2026,collections,EFT,inbound,1375,431708123.7688103
+E05,FY2026,collections,Internal Transfer,inbound,466,155648175.48988825
+E05,FY2026,collections,RTC,inbound,623,163883024.12180555
+E05,FY2026,collections,SWIFT,inbound,303,97164417.11576824
+E05,FY2026,intercompany_sweeps,Debit Order,inbound,103,26925321.83
+E05,FY2026,intercompany_sweeps,Debit Order,outbound,106,24124933.84
+E05,FY2026,intercompany_sweeps,EFT,inbound,443,166456308.32
+E05,FY2026,intercompany_sweeps,EFT,outbound,463,124591514.74
+E05,FY2026,intercompany_sweeps,Internal Transfer,inbound,154,38686032.97
+E05,FY2026,intercompany_sweeps,Internal Transfer,outbound,146,39913201.12
+E05,FY2026,intercompany_sweeps,RTC,inbound,201,45433565.88
+E05,FY2026,intercompany_sweeps,RTC,outbound,194,80595926.96000001
+E05,FY2026,intercompany_sweeps,SWIFT,inbound,117,28349460.11
+E05,FY2026,intercompany_sweeps,SWIFT,outbound,116,50981779.96
+E05,FY2026,payroll,Debit Order,outbound,7,66504.42
+E05,FY2026,payroll,EFT,outbound,44,478141.6
+E05,FY2026,payroll,Internal Transfer,outbound,10,99634.06
+E05,FY2026,payroll,RTC,outbound,13,124251.77
+E05,FY2026,payroll,SWIFT,outbound,9,92499.47
+E05,FY2026,supplier_payments,Debit Order,outbound,251,18092515.01
+E05,FY2026,supplier_payments,EFT,outbound,1194,77338597.4
+E05,FY2026,supplier_payments,Internal Transfer,outbound,392,24325256.31
+E05,FY2026,supplier_payments,RTC,outbound,521,35731237.52
+E05,FY2026,supplier_payments,SWIFT,outbound,243,16282175.57
+E05,FY2026,tax,Debit Order,outbound,1,199101.58
+E05,FY2026,tax,EFT,outbound,13,1578624.53
+E05,FY2026,tax,Internal Transfer,outbound,2,189747.15
+E05,FY2026,tax,RTC,outbound,2,196680.77000000002
+E05,FY2026,tax,SWIFT,outbound,4,298876.75
+E06,FY2024,collections,Debit Order,inbound,8,5057890.752341808
+E06,FY2024,collections,EFT,inbound,42,8432560.545291815
+E06,FY2024,collections,Internal Transfer,inbound,21,6373068.454971709
+E06,FY2024,collections,RTC,inbound,19,5365302.028942743
+E06,FY2024,collections,SWIFT,inbound,8,2188978.149845528
+E06,FY2024,intercompany_sweeps,Debit Order,inbound,2,88453.4
+E06,FY2024,intercompany_sweeps,EFT,inbound,4,204091.01
+E06,FY2024,intercompany_sweeps,EFT,outbound,6,1284168.6700000002
+E06,FY2024,intercompany_sweeps,Internal Transfer,outbound,2,378354.94
+E06,FY2024,intercompany_sweeps,RTC,inbound,2,453600.59
+E06,FY2024,intercompany_sweeps,RTC,outbound,1,52488.28
+E06,FY2024,intercompany_sweeps,SWIFT,outbound,1,13970.83
+E06,FY2024,payroll,Internal Transfer,outbound,1,5960.93
+E06,FY2024,supplier_payments,Debit Order,outbound,6,328993.73
+E06,FY2024,supplier_payments,EFT,outbound,63,3357091.7399999998
+E06,FY2024,supplier_payments,Internal Transfer,outbound,20,1804684.48
+E06,FY2024,supplier_payments,RTC,outbound,21,1027650.0700000001
+E06,FY2024,supplier_payments,SWIFT,outbound,14,1014085.48
+E06,FY2025,collections,Debit Order,inbound,9,3728908.215553006
+E06,FY2025,collections,EFT,inbound,48,14977691.732932014
+E06,FY2025,collections,Internal Transfer,inbound,14,4138070.4351193756
+E06,FY2025,collections,RTC,inbound,26,6350806.655819482
+E06,FY2025,collections,SWIFT,inbound,12,3510751.83989836
+E06,FY2025,intercompany_sweeps,Debit Order,outbound,1,29955.59
+E06,FY2025,intercompany_sweeps,EFT,inbound,2,64059.090000000004
+E06,FY2025,intercompany_sweeps,EFT,outbound,5,2441574.5300000003
+E06,FY2025,intercompany_sweeps,Internal Transfer,inbound,2,136840.07
+E06,FY2025,intercompany_sweeps,Internal Transfer,outbound,1,33897.92
+E06,FY2025,intercompany_sweeps,RTC,inbound,1,407084.53
+E06,FY2025,intercompany_sweeps,RTC,outbound,3,1368082.32
+E06,FY2025,intercompany_sweeps,SWIFT,inbound,1,212851.65
+E06,FY2025,supplier_payments,Debit Order,outbound,9,627069.3500000001
+E06,FY2025,supplier_payments,EFT,outbound,63,4066390.77
+E06,FY2025,supplier_payments,Internal Transfer,outbound,28,2236128.7399999998
+E06,FY2025,supplier_payments,RTC,outbound,26,4120578.9899999998
+E06,FY2025,supplier_payments,SWIFT,outbound,19,835393.91
+E06,FY2025,tax,EFT,outbound,3,258427.49
+E06,FY2025,tax,Internal Transfer,outbound,1,41482.48
+E06,FY2025,tax,RTC,outbound,1,12388.35
+E06,FY2026,collections,Debit Order,inbound,8,5150278.949247811
+E06,FY2026,collections,EFT,inbound,47,17919958.801032003
+E06,FY2026,collections,Internal Transfer,inbound,17,3564924.500233107
+E06,FY2026,collections,RTC,inbound,22,4865640.733773365
+E06,FY2026,collections,SWIFT,inbound,8,2439777.0808261386
+E06,FY2026,intercompany_sweeps,Debit Order,inbound,2,164040.75
+E06,FY2026,intercompany_sweeps,Debit Order,outbound,1,397810.92
+E06,FY2026,intercompany_sweeps,EFT,inbound,5,1596760.1099999999
+E06,FY2026,intercompany_sweeps,EFT,outbound,7,1548771.77
+E06,FY2026,intercompany_sweeps,Internal Transfer,inbound,1,18405.56
+E06,FY2026,intercompany_sweeps,Internal Transfer,outbound,4,1800627.38
+E06,FY2026,intercompany_sweeps,RTC,inbound,1,165808.26
+E06,FY2026,intercompany_sweeps,RTC,outbound,2,397744.55
+E06,FY2026,intercompany_sweeps,SWIFT,inbound,1,116947.6
+E06,FY2026,intercompany_sweeps,SWIFT,outbound,2,1560214.46
+E06,FY2026,supplier_payments,Debit Order,outbound,10,536726.61
+E06,FY2026,supplier_payments,EFT,outbound,62,3804373.09
+E06,FY2026,supplier_payments,Internal Transfer,outbound,30,1889026.95
+E06,FY2026,supplier_payments,RTC,outbound,30,2093788.5499999998
+E06,FY2026,supplier_payments,SWIFT,outbound,13,846349.11
+E06,FY2026,tax,EFT,outbound,3,227724.03
+E06,FY2026,tax,Internal Transfer,outbound,1,258969.77
+E06,FY2026,tax,RTC,outbound,1,229542.08
+E07,FY2024,collections,Debit Order,inbound,140,6661619.01
+E07,FY2024,collections,EFT,inbound,698,38413530.07
+E07,FY2024,collections,Internal Transfer,inbound,236,12626050.72
+E07,FY2024,collections,RTC,inbound,268,13998206.92
+E07,FY2024,collections,SWIFT,inbound,153,9013643.28
+E07,FY2024,intercompany_sweeps,Debit Order,inbound,24,2244471.32
+E07,FY2024,intercompany_sweeps,Debit Order,outbound,16,3039067.78
+E07,FY2024,intercompany_sweeps,EFT,inbound,59,12544950.91
+E07,FY2024,intercompany_sweeps,EFT,outbound,81,19140869.32
+E07,FY2024,intercompany_sweeps,Internal Transfer,inbound,33,3862004.71
+E07,FY2024,intercompany_sweeps,Internal Transfer,outbound,34,7782927.01
+E07,FY2024,intercompany_sweeps,RTC,inbound,43,5728505.49
+E07,FY2024,intercompany_sweeps,RTC,outbound,35,7038772.6899999995
+E07,FY2024,intercompany_sweeps,SWIFT,inbound,21,6328152.25
+E07,FY2024,intercompany_sweeps,SWIFT,outbound,17,3105048.26
+E07,FY2024,payroll,EFT,outbound,3,24608.39
+E07,FY2024,payroll,Internal Transfer,outbound,1,5032.35
+E07,FY2024,payroll,RTC,outbound,2,11914.86
+E07,FY2024,payroll,SWIFT,outbound,2,14758.0
+E07,FY2024,supplier_payments,Debit Order,outbound,186,8124106.93
+E07,FY2024,supplier_payments,EFT,outbound,891,40351629.77
+E07,FY2024,supplier_payments,Internal Transfer,outbound,307,12149237.790000001
+E07,FY2024,supplier_payments,RTC,outbound,391,16069205.14
+E07,FY2024,supplier_payments,SWIFT,outbound,195,9946206.02
+E07,FY2024,tax,Debit Order,outbound,6,360123.95999999996
+E07,FY2024,tax,EFT,outbound,25,1492204.98
+E07,FY2024,tax,Internal Transfer,outbound,7,162069.47
+E07,FY2024,tax,RTC,outbound,12,1107523.3599999999
+E07,FY2024,tax,SWIFT,outbound,3,157292.41
+E07,FY2025,collections,Debit Order,inbound,192,11643010.8
+E07,FY2025,collections,EFT,inbound,794,43221304.76
+E07,FY2025,collections,Internal Transfer,inbound,246,14319144.18
+E07,FY2025,collections,RTC,inbound,335,19836421.52
+E07,FY2025,collections,SWIFT,inbound,159,9066744.21
+E07,FY2025,intercompany_sweeps,Debit Order,inbound,19,2319359.83
+E07,FY2025,intercompany_sweeps,Debit Order,outbound,25,3807843.66
+E07,FY2025,intercompany_sweeps,EFT,inbound,76,12682193.4
+E07,FY2025,intercompany_sweeps,EFT,outbound,78,15540609.14
+E07,FY2025,intercompany_sweeps,Internal Transfer,inbound,20,3384444.36
+E07,FY2025,intercompany_sweeps,Internal Transfer,outbound,26,4688326.99
+E07,FY2025,intercompany_sweeps,RTC,inbound,41,11308315.62
+E07,FY2025,intercompany_sweeps,RTC,outbound,45,13312464.28
+E07,FY2025,intercompany_sweeps,SWIFT,inbound,16,3745870.7
+E07,FY2025,intercompany_sweeps,SWIFT,outbound,22,5330545.04
+E07,FY2025,payroll,EFT,outbound,4,33588.11
+E07,FY2025,payroll,RTC,outbound,2,23560.92
+E07,FY2025,supplier_payments,Debit Order,outbound,263,12128375.4
+E07,FY2025,supplier_payments,EFT,outbound,1070,46592795.02
+E07,FY2025,supplier_payments,Internal Transfer,outbound,361,18164811.99
+E07,FY2025,supplier_payments,RTC,outbound,442,18919684.58
+E07,FY2025,supplier_payments,SWIFT,outbound,213,8665865.3
+E07,FY2025,tax,Debit Order,outbound,6,607768.61
+E07,FY2025,tax,EFT,outbound,26,2075628.88
+E07,FY2025,tax,Internal Transfer,outbound,9,276671.68
+E07,FY2025,tax,RTC,outbound,9,474797.01
+E07,FY2025,tax,SWIFT,outbound,8,367568.07
+E07,FY2026,collections,Debit Order,inbound,219,10301678.04
+E07,FY2026,collections,EFT,inbound,901,49198029.92
+E07,FY2026,collections,Internal Transfer,inbound,304,17964660.5
+E07,FY2026,collections,RTC,inbound,410,23678532.4
+E07,FY2026,collections,SWIFT,inbound,223,12381165.61
+E07,FY2026,intercompany_sweeps,Debit Order,inbound,21,5816310.27
+E07,FY2026,intercompany_sweeps,Debit Order,outbound,31,3312235.1
+E07,FY2026,intercompany_sweeps,EFT,inbound,83,27167197.400000002
+E07,FY2026,intercompany_sweeps,EFT,outbound,91,21775825.31
+E07,FY2026,intercompany_sweeps,Internal Transfer,inbound,25,4370149.94
+E07,FY2026,intercompany_sweeps,Internal Transfer,outbound,49,8942319.24
+E07,FY2026,intercompany_sweeps,RTC,inbound,46,8553565.290000001
+E07,FY2026,intercompany_sweeps,RTC,outbound,39,15775526.219999999
+E07,FY2026,intercompany_sweeps,SWIFT,inbound,20,2649666.61
+E07,FY2026,intercompany_sweeps,SWIFT,outbound,18,4748161.36
+E07,FY2026,payroll,Debit Order,outbound,1,7334.42
+E07,FY2026,payroll,EFT,outbound,3,19360.49
+E07,FY2026,payroll,RTC,outbound,1,6578.37
+E07,FY2026,supplier_payments,Debit Order,outbound,292,11968999.43
+E07,FY2026,supplier_payments,EFT,outbound,1279,55019709.0
+E07,FY2026,supplier_payments,Internal Transfer,outbound,434,22190997.97
+E07,FY2026,supplier_payments,RTC,outbound,544,23504952.19
+E07,FY2026,supplier_payments,SWIFT,outbound,277,10784272.92
+E07,FY2026,tax,Debit Order,outbound,9,546517.1900000001
+E07,FY2026,tax,EFT,outbound,29,1217112.01
+E07,FY2026,tax,Internal Transfer,outbound,9,416856.96
+E07,FY2026,tax,RTC,outbound,13,582310.51
+E07,FY2026,tax,SWIFT,outbound,4,108785.08
+E08,FY2024,collections,Debit Order,inbound,10076,815709827.39
+E08,FY2024,collections,EFT,inbound,45963,3798612552.59
+E08,FY2024,collections,Internal Transfer,inbound,14946,1237740212.42
+E08,FY2024,collections,RTC,inbound,20234,1651737479.28
+E08,FY2024,collections,SWIFT,inbound,10150,850663338.38
+E08,FY2024,intercompany_sweeps,Debit Order,inbound,2900,783292661.85
+E08,FY2024,intercompany_sweeps,Debit Order,outbound,2899,825141131.78
+E08,FY2024,intercompany_sweeps,EFT,inbound,12902,3544098889.56
+E08,FY2024,intercompany_sweeps,EFT,outbound,13055,3615467776.64
+E08,FY2024,intercompany_sweeps,Internal Transfer,inbound,4283,1159173385.3
+E08,FY2024,intercompany_sweeps,Internal Transfer,outbound,4406,1225751986.7
+E08,FY2024,intercompany_sweeps,RTC,inbound,5783,1672497370.14
+E08,FY2024,intercompany_sweeps,RTC,outbound,5789,1593233729.56
+E08,FY2024,intercompany_sweeps,SWIFT,inbound,2977,829737533.88
+E08,FY2024,intercompany_sweeps,SWIFT,outbound,3054,859650274.4
+E08,FY2024,payroll,Debit Order,outbound,91,909904.64
+E08,FY2024,payroll,EFT,outbound,350,3554702.33
+E08,FY2024,payroll,Internal Transfer,outbound,115,1182475.47
+E08,FY2024,payroll,RTC,outbound,153,1556405.51
+E08,FY2024,payroll,SWIFT,outbound,84,788945.25
+E08,FY2024,supplier_payments,Debit Order,outbound,8642,534260726.37
+E08,FY2024,supplier_payments,EFT,outbound,39059,2422227763.39
+E08,FY2024,supplier_payments,Internal Transfer,outbound,12892,799754717.16
+E08,FY2024,supplier_payments,RTC,outbound,17505,1101822919.49
+E08,FY2024,supplier_payments,SWIFT,outbound,8808,538631197.97
+E08,FY2024,tax,Debit Order,outbound,21,1450032.08
+E08,FY2024,tax,EFT,outbound,116,10322697.96
+E08,FY2024,tax,Internal Transfer,outbound,38,5176811.56
+E08,FY2024,tax,RTC,outbound,53,4517327.58
+E08,FY2024,tax,SWIFT,outbound,27,2922914.85
+E08,FY2025,collections,Debit Order,inbound,8299,695432286.69
+E08,FY2025,collections,EFT,inbound,37643,3077439646.94
+E08,FY2025,collections,Internal Transfer,inbound,12452,1044778947.03
+E08,FY2025,collections,RTC,inbound,16631,1371078962.51
+E08,FY2025,collections,SWIFT,inbound,8259,702867951.42
+E08,FY2025,intercompany_sweeps,Debit Order,inbound,2374,670443366.48
+E08,FY2025,intercompany_sweeps,Debit Order,outbound,2321,661085829.47
+E08,FY2025,intercompany_sweeps,EFT,inbound,10534,2981235638.37
+E08,FY2025,intercompany_sweeps,EFT,outbound,10755,3098607274.71
+E08,FY2025,intercompany_sweeps,Internal Transfer,inbound,3541,967762257.57
+E08,FY2025,intercompany_sweeps,Internal Transfer,outbound,3492,931725619.34
+E08,FY2025,intercompany_sweeps,RTC,inbound,4725,1312704454.21
+E08,FY2025,intercompany_sweeps,RTC,outbound,4686,1339969514.48
+E08,FY2025,intercompany_sweeps,SWIFT,inbound,2400,664051181.56
+E08,FY2025,intercompany_sweeps,SWIFT,outbound,2354,691011387.39
+E08,FY2025,payroll,Debit Order,outbound,85,903602.82
+E08,FY2025,payroll,EFT,outbound,343,3561042.39
+E08,FY2025,payroll,Internal Transfer,outbound,128,1269552.37
+E08,FY2025,payroll,RTC,outbound,153,1495894.79
+E08,FY2025,payroll,SWIFT,outbound,75,768656.6
+E08,FY2025,supplier_payments,Debit Order,outbound,7253,452896793.03
+E08,FY2025,supplier_payments,EFT,outbound,31817,1995420751.88
+E08,FY2025,supplier_payments,Internal Transfer,outbound,10705,676966995.4
+E08,FY2025,supplier_payments,RTC,outbound,14226,901068795.55
+E08,FY2025,supplier_payments,SWIFT,outbound,7195,442132897.06
+E08,FY2025,tax,Debit Order,outbound,23,1726086.96
+E08,FY2025,tax,EFT,outbound,114,9035391.96
+E08,FY2025,tax,Internal Transfer,outbound,37,2777608.42
+E08,FY2025,tax,RTC,outbound,47,2888812.27
+E08,FY2025,tax,SWIFT,outbound,23,1902720.48
+E08,FY2026,collections,Debit Order,inbound,6420,538401885.97
+E08,FY2026,collections,EFT,inbound,29181,2444435565.3
+E08,FY2026,collections,Internal Transfer,inbound,9826,815573757.03
+E08,FY2026,collections,RTC,inbound,13014,1071700699.25
+E08,FY2026,collections,SWIFT,inbound,6666,567472973.53
+E08,FY2026,intercompany_sweeps,Debit Order,inbound,1852,493011186.67
+E08,FY2026,intercompany_sweeps,Debit Order,outbound,1875,516653397.68
+E08,FY2026,intercompany_sweeps,EFT,inbound,8390,2323720650.03
+E08,FY2026,intercompany_sweeps,EFT,outbound,8376,2285441962.8
+E08,FY2026,intercompany_sweeps,Internal Transfer,inbound,2719,757017124.51
+E08,FY2026,intercompany_sweeps,Internal Transfer,outbound,2736,789951111.18
+E08,FY2026,intercompany_sweeps,RTC,inbound,3681,1004130027.18
+E08,FY2026,intercompany_sweeps,RTC,outbound,3686,1009739902.09
+E08,FY2026,intercompany_sweeps,SWIFT,inbound,1856,527205800.86
+E08,FY2026,intercompany_sweeps,SWIFT,outbound,1870,562563252.52
+E08,FY2026,payroll,Debit Order,outbound,77,791966.98
+E08,FY2026,payroll,EFT,outbound,372,3864249.88
+E08,FY2026,payroll,Internal Transfer,outbound,124,1258286.6
+E08,FY2026,payroll,RTC,outbound,136,1370649.06
+E08,FY2026,payroll,SWIFT,outbound,90,931999.09
+E08,FY2026,supplier_payments,Debit Order,outbound,5522,341711602.14
+E08,FY2026,supplier_payments,EFT,outbound,25297,1584622610.48
+E08,FY2026,supplier_payments,Internal Transfer,outbound,8484,525642636.98
+E08,FY2026,supplier_payments,RTC,outbound,11139,705468723.37
+E08,FY2026,supplier_payments,SWIFT,outbound,5599,356373616.77
+E08,FY2026,tax,Debit Order,outbound,23,1676435.96
+E08,FY2026,tax,EFT,outbound,86,8277285.47
+E08,FY2026,tax,Internal Transfer,outbound,37,3845782.34
+E08,FY2026,tax,RTC,outbound,50,3915939.69
+E08,FY2026,tax,SWIFT,outbound,17,1441540.3800000001
+E09,FY2024,collections,Debit Order,inbound,2587,271674913.49
+E09,FY2024,collections,EFT,inbound,11928,1207470179.98
+E09,FY2024,collections,Internal Transfer,inbound,3932,385364560.34
+E09,FY2024,collections,RTC,inbound,5425,550664851.92
+E09,FY2024,collections,SWIFT,inbound,2764,259529506.56
+E09,FY2024,intercompany_sweeps,Debit Order,inbound,823,284134681.35
+E09,FY2024,intercompany_sweeps,Debit Order,outbound,882,285919860.05
+E09,FY2024,intercompany_sweeps,EFT,inbound,3847,1279199567.73
+E09,FY2024,intercompany_sweeps,EFT,outbound,3893,1401960235.06
+E09,FY2024,intercompany_sweeps,Internal Transfer,inbound,1302,450395548.74
+E09,FY2024,intercompany_sweeps,Internal Transfer,outbound,1283,425937232.05
+E09,FY2024,intercompany_sweeps,RTC,inbound,1740,634846212.47
+E09,FY2024,intercompany_sweeps,RTC,outbound,1704,556854378.43
+E09,FY2024,intercompany_sweeps,SWIFT,inbound,898,305897719.92
+E09,FY2024,intercompany_sweeps,SWIFT,outbound,885,329843957.83
+E09,FY2024,payroll,Debit Order,outbound,67,856184.55
+E09,FY2024,payroll,EFT,outbound,294,3701332.92
+E09,FY2024,payroll,Internal Transfer,outbound,91,1079733.55
+E09,FY2024,payroll,RTC,outbound,130,1621540.02
+E09,FY2024,payroll,SWIFT,outbound,69,879941.76
+E09,FY2024,supplier_payments,Debit Order,outbound,2248,170992801.96
+E09,FY2024,supplier_payments,EFT,outbound,10131,762085912.34
+E09,FY2024,supplier_payments,Internal Transfer,outbound,3422,255792216.09
+E09,FY2024,supplier_payments,RTC,outbound,4601,348687788.38
+E09,FY2024,supplier_payments,SWIFT,outbound,2328,179061806.65
+E09,FY2024,tax,Debit Order,outbound,25,2167810.05
+E09,FY2024,tax,EFT,outbound,88,9190434.49
+E09,FY2024,tax,Internal Transfer,outbound,28,2789797.09
+E09,FY2024,tax,RTC,outbound,36,3421863.22
+E09,FY2024,tax,SWIFT,outbound,29,3615309.15
+E09,FY2025,collections,Debit Order,inbound,2650,265449363.63
+E09,FY2025,collections,EFT,inbound,12021,1194468482.44
+E09,FY2025,collections,Internal Transfer,inbound,3987,392104468.11
+E09,FY2025,collections,RTC,inbound,5269,522638483.08
+E09,FY2025,collections,SWIFT,inbound,2623,264720221.87
+E09,FY2025,intercompany_sweeps,Debit Order,inbound,860,292929990.26
+E09,FY2025,intercompany_sweeps,Debit Order,outbound,876,309705768.55
+E09,FY2025,intercompany_sweeps,EFT,inbound,3963,1288851115.35
+E09,FY2025,intercompany_sweeps,EFT,outbound,3820,1333812465.99
+E09,FY2025,intercompany_sweeps,Internal Transfer,inbound,1342,473397938.52
+E09,FY2025,intercompany_sweeps,Internal Transfer,outbound,1277,437260933.9
+E09,FY2025,intercompany_sweeps,RTC,inbound,1617,572477273.67
+E09,FY2025,intercompany_sweeps,RTC,outbound,1738,533804208.05
+E09,FY2025,intercompany_sweeps,SWIFT,inbound,877,330434782.65
+E09,FY2025,intercompany_sweeps,SWIFT,outbound,834,287250601.68
+E09,FY2025,payroll,Debit Order,outbound,61,770032.38
+E09,FY2025,payroll,EFT,outbound,309,3844189.5
+E09,FY2025,payroll,Internal Transfer,outbound,120,1468897.97
+E09,FY2025,payroll,RTC,outbound,146,1788948.77
+E09,FY2025,payroll,SWIFT,outbound,51,646702.5599999999
+E09,FY2025,supplier_payments,Debit Order,outbound,2264,170606180.14
+E09,FY2025,supplier_payments,EFT,outbound,10326,810056288.88
+E09,FY2025,supplier_payments,Internal Transfer,outbound,3305,253670157.08
+E09,FY2025,supplier_payments,RTC,outbound,4518,349032110.82
+E09,FY2025,supplier_payments,SWIFT,outbound,2308,177455786.52
+E09,FY2025,tax,Debit Order,outbound,18,1861966.86
+E09,FY2025,tax,EFT,outbound,85,8398709.89
+E09,FY2025,tax,Internal Transfer,outbound,22,1456699.3
+E09,FY2025,tax,RTC,outbound,34,3610696.88
+E09,FY2025,tax,SWIFT,outbound,19,1765507.29
+E09,FY2026,collections,Debit Order,inbound,2681,275261492.57
+E09,FY2026,collections,EFT,inbound,11990,1211679495.18
+E09,FY2026,collections,Internal Transfer,inbound,3988,406474347.76
+E09,FY2026,collections,RTC,inbound,5441,574701307.89
+E09,FY2026,collections,SWIFT,inbound,2718,273094540.87
+E09,FY2026,intercompany_sweeps,Debit Order,inbound,898,290216560.03
+E09,FY2026,intercompany_sweeps,Debit Order,outbound,842,330381933.77
+E09,FY2026,intercompany_sweeps,EFT,inbound,3877,1298280662.9
+E09,FY2026,intercompany_sweeps,EFT,outbound,3963,1354532737.77
+E09,FY2026,intercompany_sweeps,Internal Transfer,inbound,1345,490351202.12
+E09,FY2026,intercompany_sweeps,Internal Transfer,outbound,1299,462255954.25
+E09,FY2026,intercompany_sweeps,RTC,inbound,1678,607796505.72
+E09,FY2026,intercompany_sweeps,RTC,outbound,1796,605971939.49
+E09,FY2026,intercompany_sweeps,SWIFT,inbound,896,326756535.6
+E09,FY2026,intercompany_sweeps,SWIFT,outbound,880,323019451.23
+E09,FY2026,payroll,Debit Order,outbound,62,787448.96
+E09,FY2026,payroll,EFT,outbound,282,3470586.31
+E09,FY2026,payroll,Internal Transfer,outbound,88,1132629.16
+E09,FY2026,payroll,RTC,outbound,129,1641114.63
+E09,FY2026,payroll,SWIFT,outbound,50,625777.69
+E09,FY2026,supplier_payments,Debit Order,outbound,2250,173758146.74
+E09,FY2026,supplier_payments,EFT,outbound,10054,749931594.94
+E09,FY2026,supplier_payments,Internal Transfer,outbound,3416,274470463.87
+E09,FY2026,supplier_payments,RTC,outbound,4434,347258534.53
+E09,FY2026,supplier_payments,SWIFT,outbound,2313,186338139.95
+E09,FY2026,tax,Debit Order,outbound,21,2336536.05
+E09,FY2026,tax,EFT,outbound,85,10578824.94
+E09,FY2026,tax,Internal Transfer,outbound,36,4038226.17
+E09,FY2026,tax,RTC,outbound,36,4599846.95
+E09,FY2026,tax,SWIFT,outbound,22,3098258.4899999998
+E10,FY2024,collections,Debit Order,inbound,2423,245568055.18
+E10,FY2024,collections,EFT,inbound,10866,1051919529.55
+E10,FY2024,collections,Internal Transfer,inbound,3599,372068697.6
+E10,FY2024,collections,RTC,inbound,4808,482715595.51
+E10,FY2024,collections,SWIFT,inbound,2483,256200265.13
+E10,FY2024,intercompany_sweeps,Debit Order,inbound,770,251021229.9
+E10,FY2024,intercompany_sweeps,Debit Order,outbound,764,248323625.49
+E10,FY2024,intercompany_sweeps,EFT,inbound,3521,1144215530.49
+E10,FY2024,intercompany_sweeps,EFT,outbound,3548,1189812532.61
+E10,FY2024,intercompany_sweeps,Internal Transfer,inbound,1226,434418310.3
+E10,FY2024,intercompany_sweeps,Internal Transfer,outbound,1140,406813624.23
+E10,FY2024,intercompany_sweeps,RTC,inbound,1516,494867601.08
+E10,FY2024,intercompany_sweeps,RTC,outbound,1571,484944393.67
+E10,FY2024,intercompany_sweeps,SWIFT,inbound,782,239405964.92
+E10,FY2024,intercompany_sweeps,SWIFT,outbound,772,247290199.97
+E10,FY2024,payroll,Debit Order,outbound,74,868296.91
+E10,FY2024,payroll,EFT,outbound,326,3834324.6
+E10,FY2024,payroll,Internal Transfer,outbound,108,1325467.67
+E10,FY2024,payroll,RTC,outbound,161,2002406.3599999999
+E10,FY2024,payroll,SWIFT,outbound,65,797134.84
+E10,FY2024,supplier_payments,Debit Order,outbound,2040,154049523.1
+E10,FY2024,supplier_payments,EFT,outbound,9213,685679617.04
+E10,FY2024,supplier_payments,Internal Transfer,outbound,3111,228028665.06
+E10,FY2024,supplier_payments,RTC,outbound,4200,308051943.72
+E10,FY2024,supplier_payments,SWIFT,outbound,2064,155290850.01
+E10,FY2024,tax,Debit Order,outbound,20,2125461.58
+E10,FY2024,tax,EFT,outbound,93,9284436.02
+E10,FY2024,tax,Internal Transfer,outbound,29,2405466.02
+E10,FY2024,tax,RTC,outbound,40,5417041.96
+E10,FY2024,tax,SWIFT,outbound,17,1605421.33
+E10,FY2025,collections,Debit Order,inbound,3004,296085916.87
+E10,FY2025,collections,EFT,inbound,13089,1276944414.83
+E10,FY2025,collections,Internal Transfer,inbound,4303,428588907.53
+E10,FY2025,collections,RTC,inbound,5846,565001862.31
+E10,FY2025,collections,SWIFT,inbound,2879,289162764.13
+E10,FY2025,intercompany_sweeps,Debit Order,inbound,909,308209296.75
+E10,FY2025,intercompany_sweeps,Debit Order,outbound,895,371056352.06
+E10,FY2025,intercompany_sweeps,EFT,inbound,4344,1425232753.89
+E10,FY2025,intercompany_sweeps,EFT,outbound,4284,1410172594.62
+E10,FY2025,intercompany_sweeps,Internal Transfer,inbound,1386,480224330.58
+E10,FY2025,intercompany_sweeps,Internal Transfer,outbound,1447,459146007.82
+E10,FY2025,intercompany_sweeps,RTC,inbound,1910,675499467.12
+E10,FY2025,intercompany_sweeps,RTC,outbound,1920,632195703.85
+E10,FY2025,intercompany_sweeps,SWIFT,inbound,967,326661727.75
+E10,FY2025,intercompany_sweeps,SWIFT,outbound,1026,354574523.26
+E10,FY2025,payroll,Debit Order,outbound,71,843074.5700000001
+E10,FY2025,payroll,EFT,outbound,282,3376580.69
+E10,FY2025,payroll,Internal Transfer,outbound,120,1379725.81
+E10,FY2025,payroll,RTC,outbound,143,1693294.36
+E10,FY2025,payroll,SWIFT,outbound,86,996135.9
+E10,FY2025,supplier_payments,Debit Order,outbound,2491,190990422.22
+E10,FY2025,supplier_payments,EFT,outbound,11214,848158248.63
+E10,FY2025,supplier_payments,Internal Transfer,outbound,3756,277501427.8
+E10,FY2025,supplier_payments,RTC,outbound,4959,367303935.47
+E10,FY2025,supplier_payments,SWIFT,outbound,2512,196556044.02
+E10,FY2025,tax,Debit Order,outbound,21,2126565.14
+E10,FY2025,tax,EFT,outbound,94,9730918.67
+E10,FY2025,tax,Internal Transfer,outbound,40,3616883.97
+E10,FY2025,tax,RTC,outbound,47,4919438.43
+E10,FY2025,tax,SWIFT,outbound,20,1668389.76
+E10,FY2026,collections,Debit Order,inbound,3388,330121344.86
+E10,FY2026,collections,EFT,inbound,15453,1524602037.27
+E10,FY2026,collections,Internal Transfer,inbound,5116,489361895.34
+E10,FY2026,collections,RTC,inbound,6845,680448095.66
+E10,FY2026,collections,SWIFT,inbound,3460,365297708.19
+E10,FY2026,intercompany_sweeps,Debit Order,inbound,1146,361803254.02
+E10,FY2026,intercompany_sweeps,Debit Order,outbound,1122,330194238.42
+E10,FY2026,intercompany_sweeps,EFT,inbound,5008,1665516699.35
+E10,FY2026,intercompany_sweeps,EFT,outbound,5002,1649300133.6
+E10,FY2026,intercompany_sweeps,Internal Transfer,inbound,1638,534465852.76
+E10,FY2026,intercompany_sweeps,Internal Transfer,outbound,1600,504942100.31
+E10,FY2026,intercompany_sweeps,RTC,inbound,2275,748602199.23
+E10,FY2026,intercompany_sweeps,RTC,outbound,2259,752955582.51
+E10,FY2026,intercompany_sweeps,SWIFT,inbound,1032,335726534.7
+E10,FY2026,intercompany_sweeps,SWIFT,outbound,1093,366169457.71
+E10,FY2026,payroll,Debit Order,outbound,81,1022188.44
+E10,FY2026,payroll,EFT,outbound,306,3692559.08
+E10,FY2026,payroll,Internal Transfer,outbound,108,1333504.59
+E10,FY2026,payroll,RTC,outbound,153,1901255.43
+E10,FY2026,payroll,SWIFT,outbound,56,653485.09
+E10,FY2026,supplier_payments,Debit Order,outbound,2963,226415693.09
+E10,FY2026,supplier_payments,EFT,outbound,13332,1000846751.35
+E10,FY2026,supplier_payments,Internal Transfer,outbound,4475,344088878.65
+E10,FY2026,supplier_payments,RTC,outbound,5948,456776705.21
+E10,FY2026,supplier_payments,SWIFT,outbound,2950,228375406.81
+E10,FY2026,tax,Debit Order,outbound,20,1596813.08
+E10,FY2026,tax,EFT,outbound,92,9548712.9
+E10,FY2026,tax,Internal Transfer,outbound,46,5853033.0
+E10,FY2026,tax,RTC,outbound,42,4231657.42
+E10,FY2026,tax,SWIFT,outbound,21,2925372.38
+E11,FY2024,collections,Debit Order,inbound,12775,980890881.2
+E11,FY2024,collections,EFT,inbound,56506,4289649822.13
+E11,FY2024,collections,Internal Transfer,inbound,19388,1477248307.49
+E11,FY2024,collections,RTC,inbound,25644,1903638977.17
+E11,FY2024,collections,SWIFT,inbound,12727,971503166.72
+E11,FY2024,intercompany_sweeps,Debit Order,inbound,3648,964992074.1
+E11,FY2024,intercompany_sweeps,Debit Order,outbound,3569,935606970.47
+E11,FY2024,intercompany_sweeps,EFT,inbound,16392,4133334971.3
+E11,FY2024,intercompany_sweeps,EFT,outbound,16309,4201181225.37
+E11,FY2024,intercompany_sweeps,Internal Transfer,inbound,5517,1441342614.31
+E11,FY2024,intercompany_sweeps,Internal Transfer,outbound,5426,1401854101.52
+E11,FY2024,intercompany_sweeps,RTC,inbound,7313,1850804700.86
+E11,FY2024,intercompany_sweeps,RTC,outbound,7202,1848180268.85
+E11,FY2024,intercompany_sweeps,SWIFT,inbound,3543,893880983.99
+E11,FY2024,intercompany_sweeps,SWIFT,outbound,3741,976247215.74
+E11,FY2024,payroll,Debit Order,outbound,118,1093796.68
+E11,FY2024,payroll,EFT,outbound,549,5101093.97
+E11,FY2024,payroll,Internal Transfer,outbound,174,1606708.61
+E11,FY2024,payroll,RTC,outbound,239,2126687.97
+E11,FY2024,payroll,SWIFT,outbound,138,1266607.47
+E11,FY2024,supplier_payments,Debit Order,outbound,10941,627375557.77
+E11,FY2024,supplier_payments,EFT,outbound,49388,2847792329.21
+E11,FY2024,supplier_payments,Internal Transfer,outbound,16499,949694358.51
+E11,FY2024,supplier_payments,RTC,outbound,21550,1245736582.92
+E11,FY2024,supplier_payments,SWIFT,outbound,10948,623239669.45
+E11,FY2024,tax,Debit Order,outbound,46,4313639.29
+E11,FY2024,tax,EFT,outbound,171,14558925.31
+E11,FY2024,tax,Internal Transfer,outbound,50,4077380.8000000003
+E11,FY2024,tax,RTC,outbound,61,6234117.4
+E11,FY2024,tax,SWIFT,outbound,47,4355832.14
+E11,FY2025,collections,Debit Order,inbound,12714,951234296.47
+E11,FY2025,collections,EFT,inbound,57401,4344413397.65
+E11,FY2025,collections,Internal Transfer,inbound,18902,1433848927.28
+E11,FY2025,collections,RTC,inbound,25443,1915443866.34
+E11,FY2025,collections,SWIFT,inbound,12593,950086711.2
+E11,FY2025,intercompany_sweeps,Debit Order,inbound,3419,838988954.37
+E11,FY2025,intercompany_sweeps,Debit Order,outbound,3581,953771917.83
+E11,FY2025,intercompany_sweeps,EFT,inbound,16418,4084870617.23
+E11,FY2025,intercompany_sweeps,EFT,outbound,16400,4152821476.17
+E11,FY2025,intercompany_sweeps,Internal Transfer,inbound,5340,1392013703.16
+E11,FY2025,intercompany_sweeps,Internal Transfer,outbound,5328,1463172720.84
+E11,FY2025,intercompany_sweeps,RTC,inbound,7264,1826822663.22
+E11,FY2025,intercompany_sweeps,RTC,outbound,7261,1858797839.98
+E11,FY2025,intercompany_sweeps,SWIFT,inbound,3525,906012581.36
+E11,FY2025,intercompany_sweeps,SWIFT,outbound,3637,870177575.25
+E11,FY2025,payroll,Debit Order,outbound,115,995316.76
+E11,FY2025,payroll,EFT,outbound,510,4699276.59
+E11,FY2025,payroll,Internal Transfer,outbound,194,1829569.93
+E11,FY2025,payroll,RTC,outbound,241,2242424.16
+E11,FY2025,payroll,SWIFT,outbound,121,1151828.28
+E11,FY2025,supplier_payments,Debit Order,outbound,11185,637540592.05
+E11,FY2025,supplier_payments,EFT,outbound,48710,2803222457.99
+E11,FY2025,supplier_payments,Internal Transfer,outbound,16450,952784803.34
+E11,FY2025,supplier_payments,RTC,outbound,21580,1249100160.21
+E11,FY2025,supplier_payments,SWIFT,outbound,10640,610358758.82
+E11,FY2025,tax,Debit Order,outbound,37,3137588.76
+E11,FY2025,tax,EFT,outbound,175,12438991.34
+E11,FY2025,tax,Internal Transfer,outbound,40,2950977.65
+E11,FY2025,tax,RTC,outbound,61,4818651.25
+E11,FY2025,tax,SWIFT,outbound,46,3575866.17
+E11,FY2026,collections,Debit Order,inbound,12705,950489197.91
+E11,FY2026,collections,EFT,inbound,57238,4305968986.41
+E11,FY2026,collections,Internal Transfer,inbound,19037,1459163057.88
+E11,FY2026,collections,RTC,inbound,25341,1920870384.85
+E11,FY2026,collections,SWIFT,inbound,12541,944605804.55
+E11,FY2026,intercompany_sweeps,Debit Order,inbound,3706,909581241.52
+E11,FY2026,intercompany_sweeps,Debit Order,outbound,3509,892569129.39
+E11,FY2026,intercompany_sweeps,EFT,inbound,16297,4113023723.98
+E11,FY2026,intercompany_sweeps,EFT,outbound,16345,4173412229.63
+E11,FY2026,intercompany_sweeps,Internal Transfer,inbound,5521,1365110838.34
+E11,FY2026,intercompany_sweeps,Internal Transfer,outbound,5425,1394252924.62
+E11,FY2026,intercompany_sweeps,RTC,inbound,7245,1813237201.97
+E11,FY2026,intercompany_sweeps,RTC,outbound,7262,1866562823.33
+E11,FY2026,intercompany_sweeps,SWIFT,inbound,3553,892166127.61
+E11,FY2026,intercompany_sweeps,SWIFT,outbound,3699,923524682.31
+E11,FY2026,payroll,Debit Order,outbound,135,1232680.28
+E11,FY2026,payroll,EFT,outbound,556,5184007.47
+E11,FY2026,payroll,Internal Transfer,outbound,179,1642942.21
+E11,FY2026,payroll,RTC,outbound,248,2287370.5
+E11,FY2026,payroll,SWIFT,outbound,113,1036453.78
+E11,FY2026,supplier_payments,Debit Order,outbound,10820,611831959.44
+E11,FY2026,supplier_payments,EFT,outbound,48870,2793239010.19
+E11,FY2026,supplier_payments,Internal Transfer,outbound,16303,947605242.86
+E11,FY2026,supplier_payments,RTC,outbound,21906,1251483780.68
+E11,FY2026,supplier_payments,SWIFT,outbound,11010,627759746.34
+E11,FY2026,tax,Debit Order,outbound,41,3214385.7800000003
+E11,FY2026,tax,EFT,outbound,153,12513597.709999999
+E11,FY2026,tax,Internal Transfer,outbound,41,3685229.58
+E11,FY2026,tax,RTC,outbound,75,7188793.2
+E11,FY2026,tax,SWIFT,outbound,45,3730686.38
+E12,FY2024,collections,Debit Order,inbound,104,6402912.48
+E12,FY2024,collections,EFT,inbound,523,28613132.89
+E12,FY2024,collections,Internal Transfer,inbound,157,8755850.06
+E12,FY2024,collections,RTC,inbound,230,14437130.63
+E12,FY2024,collections,SWIFT,inbound,113,6043003.72
+E12,FY2024,intercompany_sweeps,Debit Order,inbound,13,1762903.31
+E12,FY2024,intercompany_sweeps,Debit Order,outbound,14,2684789.7399999998
+E12,FY2024,intercompany_sweeps,EFT,inbound,52,9609322.75
+E12,FY2024,intercompany_sweeps,EFT,outbound,62,16919199.54
+E12,FY2024,intercompany_sweeps,Internal Transfer,inbound,16,2193271.06
+E12,FY2024,intercompany_sweeps,Internal Transfer,outbound,18,3202018.52
+E12,FY2024,intercompany_sweeps,RTC,inbound,23,3616507.46
+E12,FY2024,intercompany_sweeps,RTC,outbound,21,2170526.89
+E12,FY2024,intercompany_sweeps,SWIFT,inbound,11,2326056.41
+E12,FY2024,intercompany_sweeps,SWIFT,outbound,13,2512808.83
+E12,FY2024,payroll,EFT,outbound,1,8586.86
+E12,FY2024,payroll,RTC,outbound,2,17927.77
+E12,FY2024,payroll,SWIFT,outbound,2,17185.08
+E12,FY2024,supplier_payments,Debit Order,outbound,138,6635071.01
+E12,FY2024,supplier_payments,EFT,outbound,714,33048046.24
+E12,FY2024,supplier_payments,Internal Transfer,outbound,259,12395836.98
+E12,FY2024,supplier_payments,RTC,outbound,326,14684167.65
+E12,FY2024,supplier_payments,SWIFT,outbound,141,6855686.75
+E12,FY2024,tax,Debit Order,outbound,5,184168.07
+E12,FY2024,tax,EFT,outbound,25,1375933.23
+E12,FY2024,tax,Internal Transfer,outbound,3,253271.04
+E12,FY2024,tax,RTC,outbound,5,425235.76
+E12,FY2024,tax,SWIFT,outbound,2,82246.68
+E12,FY2025,collections,Debit Order,inbound,109,9783969.28
+E12,FY2025,collections,EFT,inbound,484,32109842.68
+E12,FY2025,collections,Internal Transfer,inbound,185,11204158.6
+E12,FY2025,collections,RTC,inbound,213,11850931.28
+E12,FY2025,collections,SWIFT,inbound,115,5737108.35
+E12,FY2025,intercompany_sweeps,Debit Order,inbound,11,1918486.98
+E12,FY2025,intercompany_sweeps,Debit Order,outbound,14,5163192.91
+E12,FY2025,intercompany_sweeps,EFT,inbound,66,11924152.35
+E12,FY2025,intercompany_sweeps,EFT,outbound,59,16226047.66
+E12,FY2025,intercompany_sweeps,Internal Transfer,inbound,14,2582139.31
+E12,FY2025,intercompany_sweeps,Internal Transfer,outbound,22,3716793.4000000004
+E12,FY2025,intercompany_sweeps,RTC,inbound,28,4625875.61
+E12,FY2025,intercompany_sweeps,RTC,outbound,19,2267218.55
+E12,FY2025,intercompany_sweeps,SWIFT,inbound,12,3001003.33
+E12,FY2025,intercompany_sweeps,SWIFT,outbound,15,4301806.0
+E12,FY2025,payroll,Debit Order,outbound,1,5443.19
+E12,FY2025,payroll,EFT,outbound,2,9177.7
+E12,FY2025,payroll,Internal Transfer,outbound,1,10931.59
+E12,FY2025,payroll,RTC,outbound,2,11995.01
+E12,FY2025,payroll,SWIFT,outbound,1,7668.22
+E12,FY2025,supplier_payments,Debit Order,outbound,145,6578389.2
+E12,FY2025,supplier_payments,EFT,outbound,730,36173972.15
+E12,FY2025,supplier_payments,Internal Transfer,outbound,230,10606593.59
+E12,FY2025,supplier_payments,RTC,outbound,306,14084687.68
+E12,FY2025,supplier_payments,SWIFT,outbound,188,8618459.97
+E12,FY2025,tax,Debit Order,outbound,8,414170.85
+E12,FY2025,tax,EFT,outbound,11,682886.3200000001
+E12,FY2025,tax,Internal Transfer,outbound,7,252022.57
+E12,FY2025,tax,RTC,outbound,13,824222.54
+E12,FY2025,tax,SWIFT,outbound,4,219193.37
+E12,FY2026,collections,Debit Order,inbound,126,7226314.55
+E12,FY2026,collections,EFT,inbound,507,29808003.13
+E12,FY2026,collections,Internal Transfer,inbound,157,8867296.87
+E12,FY2026,collections,RTC,inbound,223,17531482.51
+E12,FY2026,collections,SWIFT,inbound,114,6856635.88
+E12,FY2026,intercompany_sweeps,Debit Order,inbound,11,860210.48
+E12,FY2026,intercompany_sweeps,Debit Order,outbound,10,667410.95
+E12,FY2026,intercompany_sweeps,EFT,inbound,77,15706730.43
+E12,FY2026,intercompany_sweeps,EFT,outbound,57,7721872.41
+E12,FY2026,intercompany_sweeps,Internal Transfer,inbound,19,4012456.5300000003
+E12,FY2026,intercompany_sweeps,Internal Transfer,outbound,17,4118880.95
+E12,FY2026,intercompany_sweeps,RTC,inbound,34,6615479.75
+E12,FY2026,intercompany_sweeps,RTC,outbound,20,2416194.23
+E12,FY2026,intercompany_sweeps,SWIFT,inbound,11,1833662.23
+E12,FY2026,intercompany_sweeps,SWIFT,outbound,11,1497534.74
+E12,FY2026,payroll,Debit Order,outbound,1,8004.65
+E12,FY2026,supplier_payments,Debit Order,outbound,176,9044459.66
+E12,FY2026,supplier_payments,EFT,outbound,675,31315693.92
+E12,FY2026,supplier_payments,Internal Transfer,outbound,235,10716474.85
+E12,FY2026,supplier_payments,RTC,outbound,323,17787215.93
+E12,FY2026,supplier_payments,SWIFT,outbound,180,9993069.28
+E12,FY2026,tax,Debit Order,outbound,6,885004.66
+E12,FY2026,tax,EFT,outbound,14,1179237.8499999999
+E12,FY2026,tax,Internal Transfer,outbound,4,448825.56
+E12,FY2026,tax,RTC,outbound,9,578172.36
+E12,FY2026,tax,SWIFT,outbound,1,18195.69
+E13,FY2024,collections,Debit Order,inbound,25,814903.4
+E13,FY2024,collections,EFT,inbound,98,3650189.35
+E13,FY2024,collections,Internal Transfer,inbound,31,1312817.75
+E13,FY2024,collections,RTC,inbound,51,1914159.78
+E13,FY2024,collections,SWIFT,inbound,28,1858534.77
+E13,FY2024,intercompany_sweeps,Debit Order,inbound,4,121594.48000000001
+E13,FY2024,intercompany_sweeps,Debit Order,outbound,4,1736738.1099999999
+E13,FY2024,intercompany_sweeps,EFT,inbound,11,2211689.77
+E13,FY2024,intercompany_sweeps,EFT,outbound,12,1390804.92
+E13,FY2024,intercompany_sweeps,Internal Transfer,inbound,7,488482.24
+E13,FY2024,intercompany_sweeps,Internal Transfer,outbound,4,156114.03
+E13,FY2024,intercompany_sweeps,RTC,inbound,5,638161.93
+E13,FY2024,intercompany_sweeps,RTC,outbound,9,611448.89
+E13,FY2024,intercompany_sweeps,SWIFT,inbound,3,227139.94
+E13,FY2024,intercompany_sweeps,SWIFT,outbound,2,203195.46000000002
+E13,FY2024,payroll,EFT,outbound,2,7497.33
+E13,FY2024,supplier_payments,Debit Order,outbound,31,927334.49
+E13,FY2024,supplier_payments,EFT,outbound,156,4920314.2
+E13,FY2024,supplier_payments,Internal Transfer,outbound,41,1300029.95
+E13,FY2024,supplier_payments,RTC,outbound,77,2780223.25
+E13,FY2024,supplier_payments,SWIFT,outbound,29,962325.54
+E13,FY2024,tax,EFT,outbound,4,192575.66999999998
+E13,FY2024,tax,RTC,outbound,6,172399.75
+E13,FY2024,tax,SWIFT,outbound,1,16210.96
+E13,FY2025,collections,Debit Order,inbound,36,1041298.26
+E13,FY2025,collections,EFT,inbound,158,6832244.54
+E13,FY2025,collections,Internal Transfer,inbound,50,2170211.6
+E13,FY2025,collections,RTC,inbound,74,2356632.26
+E13,FY2025,collections,SWIFT,inbound,36,1631550.33
+E13,FY2025,intercompany_sweeps,Debit Order,inbound,7,540920.26
+E13,FY2025,intercompany_sweeps,Debit Order,outbound,4,213648.38
+E13,FY2025,intercompany_sweeps,EFT,inbound,21,2597949.21
+E13,FY2025,intercompany_sweeps,EFT,outbound,15,2323632.31
+E13,FY2025,intercompany_sweeps,Internal Transfer,inbound,2,134693.21000000002
+E13,FY2025,intercompany_sweeps,Internal Transfer,outbound,7,429048.54
+E13,FY2025,intercompany_sweeps,RTC,inbound,2,172871.53
+E13,FY2025,intercompany_sweeps,RTC,outbound,14,1833875.28
+E13,FY2025,intercompany_sweeps,SWIFT,inbound,3,112964.08
+E13,FY2025,intercompany_sweeps,SWIFT,outbound,3,387952.59
+E13,FY2025,supplier_payments,Debit Order,outbound,53,1491026.78
+E13,FY2025,supplier_payments,EFT,outbound,231,7750825.03
+E13,FY2025,supplier_payments,Internal Transfer,outbound,87,2385516.6
+E13,FY2025,supplier_payments,RTC,outbound,103,3291640.39
+E13,FY2025,supplier_payments,SWIFT,outbound,43,1319286.1
+E13,FY2025,tax,Debit Order,outbound,2,264424.13
+E13,FY2025,tax,EFT,outbound,7,195184.64
+E13,FY2025,tax,Internal Transfer,outbound,2,66561.79000000001
+E13,FY2025,tax,RTC,outbound,1,78024.03
+E13,FY2025,tax,SWIFT,outbound,2,62374.01
+E13,FY2026,collections,Debit Order,inbound,49,2661476.46
+E13,FY2026,collections,EFT,inbound,188,6368040.04
+E13,FY2026,collections,Internal Transfer,inbound,70,2497130.87
+E13,FY2026,collections,RTC,inbound,81,3166649.07
+E13,FY2026,collections,SWIFT,inbound,46,1674721.5999999999
+E13,FY2026,intercompany_sweeps,Debit Order,inbound,3,276806.97
+E13,FY2026,intercompany_sweeps,Debit Order,outbound,4,988236.99
+E13,FY2026,intercompany_sweeps,EFT,inbound,22,3490830.88
+E13,FY2026,intercompany_sweeps,EFT,outbound,27,2222559.23
+E13,FY2026,intercompany_sweeps,Internal Transfer,inbound,10,1240776.46
+E13,FY2026,intercompany_sweeps,Internal Transfer,outbound,9,399996.83
+E13,FY2026,intercompany_sweeps,RTC,inbound,9,1048594.78
+E13,FY2026,intercompany_sweeps,RTC,outbound,8,298072.57
+E13,FY2026,intercompany_sweeps,SWIFT,inbound,3,569190.27
+E13,FY2026,intercompany_sweeps,SWIFT,outbound,5,376338.78
+E13,FY2026,payroll,EFT,outbound,2,7559.67
+E13,FY2026,supplier_payments,Debit Order,outbound,60,2212627.18
+E13,FY2026,supplier_payments,EFT,outbound,297,9598301.31
+E13,FY2026,supplier_payments,Internal Transfer,outbound,80,2630920.1
+E13,FY2026,supplier_payments,RTC,outbound,132,3911420.58
+E13,FY2026,supplier_payments,SWIFT,outbound,68,2330036.82
+E13,FY2026,tax,Debit Order,outbound,2,146111.38999999998
+E13,FY2026,tax,EFT,outbound,6,129482.3
+E13,FY2026,tax,Internal Transfer,outbound,1,25096.3
+E13,FY2026,tax,RTC,outbound,1,68210.31
+E13,FY2026,tax,SWIFT,outbound,1,29099.54
+E14,FY2024,collections,Debit Order,inbound,646,57854805.589999996
+E14,FY2024,collections,EFT,inbound,2901,235133639.61
+E14,FY2024,collections,Internal Transfer,inbound,908,69685826.67
+E14,FY2024,collections,RTC,inbound,1336,113126336.43
+E14,FY2024,collections,SWIFT,inbound,638,48733595.1
+E14,FY2024,intercompany_sweeps,Debit Order,inbound,207,52247844.03
+E14,FY2024,intercompany_sweeps,Debit Order,outbound,203,42481600.79
+E14,FY2024,intercompany_sweeps,EFT,inbound,981,264523064.28
+E14,FY2024,intercompany_sweeps,EFT,outbound,932,269345427.36
+E14,FY2024,intercompany_sweeps,Internal Transfer,inbound,305,74504050.14
+E14,FY2024,intercompany_sweeps,Internal Transfer,outbound,347,108093439.5
+E14,FY2024,intercompany_sweeps,RTC,inbound,431,106136909.66
+E14,FY2024,intercompany_sweeps,RTC,outbound,434,109805961.94
+E14,FY2024,intercompany_sweeps,SWIFT,inbound,184,50760544.33
+E14,FY2024,intercompany_sweeps,SWIFT,outbound,220,51202885.04
+E14,FY2024,payroll,Debit Order,outbound,14,131874.87
+E14,FY2024,payroll,EFT,outbound,73,673540.89
+E14,FY2024,payroll,Internal Transfer,outbound,25,256262.16
+E14,FY2024,payroll,RTC,outbound,26,263053.87
+E14,FY2024,payroll,SWIFT,outbound,14,131901.7
+E14,FY2024,supplier_payments,Debit Order,outbound,535,29918671.04
+E14,FY2024,supplier_payments,EFT,outbound,2564,150037472.79
+E14,FY2024,supplier_payments,Internal Transfer,outbound,790,54329239.93
+E14,FY2024,supplier_payments,RTC,outbound,1127,71046127.57
+E14,FY2024,supplier_payments,SWIFT,outbound,554,38212437.72
+E14,FY2024,tax,Debit Order,outbound,7,339998.81
+E14,FY2024,tax,EFT,outbound,26,2321187.9899999998
+E14,FY2024,tax,Internal Transfer,outbound,12,1067611.17
+E14,FY2024,tax,RTC,outbound,13,999980.86
+E14,FY2024,tax,SWIFT,outbound,4,255182.37
+E14,FY2025,collections,Debit Order,inbound,612,42466804.160000004
+E14,FY2025,collections,EFT,inbound,2960,242313091.69
+E14,FY2025,collections,Internal Transfer,inbound,1002,74214005.57000001
+E14,FY2025,collections,RTC,inbound,1267,102043026.34
+E14,FY2025,collections,SWIFT,inbound,648,45648678.75
+E14,FY2025,intercompany_sweeps,Debit Order,inbound,234,72624392.21
+E14,FY2025,intercompany_sweeps,Debit Order,outbound,225,43916561.98
+E14,FY2025,intercompany_sweeps,EFT,inbound,940,237051366.41
+E14,FY2025,intercompany_sweeps,EFT,outbound,969,226865398.12
+E14,FY2025,intercompany_sweeps,Internal Transfer,inbound,308,91937102.28
+E14,FY2025,intercompany_sweeps,Internal Transfer,outbound,325,78611391.97
+E14,FY2025,intercompany_sweeps,RTC,inbound,457,113980348.72
+E14,FY2025,intercompany_sweeps,RTC,outbound,430,112162340.17
+E14,FY2025,intercompany_sweeps,SWIFT,inbound,226,68299254.11
+E14,FY2025,intercompany_sweeps,SWIFT,outbound,210,57040639.95
+E14,FY2025,payroll,Debit Order,outbound,16,166766.74
+E14,FY2025,payroll,EFT,outbound,79,743671.31
+E14,FY2025,payroll,Internal Transfer,outbound,25,257455.14
+E14,FY2025,payroll,RTC,outbound,29,299564.81
+E14,FY2025,payroll,SWIFT,outbound,9,66713.12
+E14,FY2025,supplier_payments,Debit Order,outbound,547,35215823.58
+E14,FY2025,supplier_payments,EFT,outbound,2550,146909533.4
+E14,FY2025,supplier_payments,Internal Transfer,outbound,817,48379881.37
+E14,FY2025,supplier_payments,RTC,outbound,1042,63908428.47
+E14,FY2025,supplier_payments,SWIFT,outbound,581,32628743.03
+E14,FY2025,tax,EFT,outbound,21,1826676.75
+E14,FY2025,tax,Internal Transfer,outbound,6,729560.51
+E14,FY2025,tax,RTC,outbound,4,173327.95
+E14,FY2025,tax,SWIFT,outbound,4,329742.11000000004
+E14,FY2026,collections,Debit Order,inbound,644,53154428.27
+E14,FY2026,collections,EFT,inbound,3036,234368411.82
+E14,FY2026,collections,Internal Transfer,inbound,982,67922132.5
+E14,FY2026,collections,RTC,inbound,1357,107791224.02
+E14,FY2026,collections,SWIFT,inbound,691,54403398.32
+E14,FY2026,intercompany_sweeps,Debit Order,inbound,236,71036826.54
+E14,FY2026,intercompany_sweeps,Debit Order,outbound,188,51785798.34
+E14,FY2026,intercompany_sweeps,EFT,inbound,934,252888500.95
+E14,FY2026,intercompany_sweeps,EFT,outbound,971,232898815.06
+E14,FY2026,intercompany_sweeps,Internal Transfer,inbound,328,74316759.2
+E14,FY2026,intercompany_sweeps,Internal Transfer,outbound,319,76981657.79
+E14,FY2026,intercompany_sweeps,RTC,inbound,448,131442159.25999999
+E14,FY2026,intercompany_sweeps,RTC,outbound,397,90849996.42
+E14,FY2026,intercompany_sweeps,SWIFT,inbound,186,47718752.32
+E14,FY2026,intercompany_sweeps,SWIFT,outbound,190,54062165.17
+E14,FY2026,payroll,Debit Order,outbound,22,220394.26
+E14,FY2026,payroll,EFT,outbound,73,723314.39
+E14,FY2026,payroll,Internal Transfer,outbound,25,269657.19
+E14,FY2026,payroll,RTC,outbound,30,277758.79
+E14,FY2026,payroll,SWIFT,outbound,16,162016.94
+E14,FY2026,supplier_payments,Debit Order,outbound,529,34196611.6
+E14,FY2026,supplier_payments,EFT,outbound,2440,141815827.9
+E14,FY2026,supplier_payments,Internal Transfer,outbound,828,48927709.2
+E14,FY2026,supplier_payments,RTC,outbound,1162,66048465.74
+E14,FY2026,supplier_payments,SWIFT,outbound,625,35824763.36
+E14,FY2026,tax,Debit Order,outbound,4,251021.51
+E14,FY2026,tax,EFT,outbound,19,1272327.72
+E14,FY2026,tax,Internal Transfer,outbound,8,572275.9299999999
+E14,FY2026,tax,RTC,outbound,8,608257.05
+E14,FY2026,tax,SWIFT,outbound,7,250923.12
+E15,FY2024,collections,Debit Order,inbound,429,33070652.48
+E15,FY2024,collections,EFT,inbound,1965,158143677.72
+E15,FY2024,collections,Internal Transfer,inbound,655,52027396.28
+E15,FY2024,collections,RTC,inbound,884,70576529.46
+E15,FY2024,collections,SWIFT,inbound,445,34084168.99
+E15,FY2024,intercompany_sweeps,Debit Order,inbound,130,30733508.18
+E15,FY2024,intercompany_sweeps,Debit Order,outbound,126,25203768.31
+E15,FY2024,intercompany_sweeps,EFT,inbound,589,168694003.26
+E15,FY2024,intercompany_sweeps,EFT,outbound,616,185574026.48
+E15,FY2024,intercompany_sweeps,Internal Transfer,inbound,210,56200501.96
+E15,FY2024,intercompany_sweeps,Internal Transfer,outbound,221,89366052.51
+E15,FY2024,intercompany_sweeps,RTC,inbound,273,64605068.09
+E15,FY2024,intercompany_sweeps,RTC,outbound,297,98184096.23
+E15,FY2024,intercompany_sweeps,SWIFT,inbound,149,47318329.36
+E15,FY2024,intercompany_sweeps,SWIFT,outbound,132,34818272.949999996
+E15,FY2024,payroll,Debit Order,outbound,10,110309.84
+E15,FY2024,payroll,EFT,outbound,49,501861.43
+E15,FY2024,payroll,Internal Transfer,outbound,13,126204.88
+E15,FY2024,payroll,RTC,outbound,25,221055.47
+E15,FY2024,payroll,SWIFT,outbound,11,92643.20999999999
+E15,FY2024,supplier_payments,Debit Order,outbound,370,22525168.87
+E15,FY2024,supplier_payments,EFT,outbound,1616,105121558.61
+E15,FY2024,supplier_payments,Internal Transfer,outbound,557,37690765.51
+E15,FY2024,supplier_payments,RTC,outbound,712,43448298.089999996
+E15,FY2024,supplier_payments,SWIFT,outbound,350,22410924.31
+E15,FY2024,tax,Debit Order,outbound,3,334047.19
+E15,FY2024,tax,EFT,outbound,16,901502.61
+E15,FY2024,tax,Internal Transfer,outbound,6,234873.92
+E15,FY2024,tax,RTC,outbound,4,470443.9
+E15,FY2024,tax,SWIFT,outbound,1,122699.97
+E15,FY2025,collections,Debit Order,inbound,418,37330474.36
+E15,FY2025,collections,EFT,inbound,1921,154730568.2
+E15,FY2025,collections,Internal Transfer,inbound,661,46971755.48
+E15,FY2025,collections,RTC,inbound,854,77027641.95
+E15,FY2025,collections,SWIFT,inbound,482,39759109.42
+E15,FY2025,intercompany_sweeps,Debit Order,inbound,145,46438276.07
+E15,FY2025,intercompany_sweeps,Debit Order,outbound,133,33226523.58
+E15,FY2025,intercompany_sweeps,EFT,inbound,648,192801938.1
+E15,FY2025,intercompany_sweeps,EFT,outbound,627,171787069.02
+E15,FY2025,intercompany_sweeps,Internal Transfer,inbound,213,48450859.73
+E15,FY2025,intercompany_sweeps,Internal Transfer,outbound,200,56366714.59
+E15,FY2025,intercompany_sweeps,RTC,inbound,264,67662012.25
+E15,FY2025,intercompany_sweeps,RTC,outbound,271,79595287.79
+E15,FY2025,intercompany_sweeps,SWIFT,inbound,138,43752924.95
+E15,FY2025,intercompany_sweeps,SWIFT,outbound,133,30955941.02
+E15,FY2025,payroll,Debit Order,outbound,11,109463.12
+E15,FY2025,payroll,EFT,outbound,54,563405.85
+E15,FY2025,payroll,Internal Transfer,outbound,12,156470.25
+E15,FY2025,payroll,RTC,outbound,14,147114.56
+E15,FY2025,payroll,SWIFT,outbound,11,111022.55
+E15,FY2025,supplier_payments,Debit Order,outbound,365,23055417.18
+E15,FY2025,supplier_payments,EFT,outbound,1641,99207787.67
+E15,FY2025,supplier_payments,Internal Transfer,outbound,545,32504598.84
+E15,FY2025,supplier_payments,RTC,outbound,755,44705819.14
+E15,FY2025,supplier_payments,SWIFT,outbound,366,24517210.01
+E15,FY2025,tax,Debit Order,outbound,2,60094.48
+E15,FY2025,tax,EFT,outbound,9,889619.48
+E15,FY2025,tax,Internal Transfer,outbound,7,464670.67
+E15,FY2025,tax,RTC,outbound,5,418572.97
+E15,FY2025,tax,SWIFT,outbound,4,264397.51
+E15,FY2026,collections,Debit Order,inbound,474,37485010.86
+E15,FY2026,collections,EFT,inbound,1924,165044224.58
+E15,FY2026,collections,Internal Transfer,inbound,641,55015759.45
+E15,FY2026,collections,RTC,inbound,855,72936634.59
+E15,FY2026,collections,SWIFT,inbound,436,38176984.08
+E15,FY2026,intercompany_sweeps,Debit Order,inbound,134,35387077.11
+E15,FY2026,intercompany_sweeps,Debit Order,outbound,139,32497397.85
+E15,FY2026,intercompany_sweeps,EFT,inbound,659,188330533.39000002
+E15,FY2026,intercompany_sweeps,EFT,outbound,591,208154006.23
+E15,FY2026,intercompany_sweeps,Internal Transfer,inbound,212,51687644.84
+E15,FY2026,intercompany_sweeps,Internal Transfer,outbound,231,61524207.12
+E15,FY2026,intercompany_sweeps,RTC,inbound,282,73487399.32
+E15,FY2026,intercompany_sweeps,RTC,outbound,301,116297101.59
+E15,FY2026,intercompany_sweeps,SWIFT,inbound,123,39707793.66
+E15,FY2026,intercompany_sweeps,SWIFT,outbound,128,42630428.589999996
+E15,FY2026,payroll,Debit Order,outbound,14,121826.79000000001
+E15,FY2026,payroll,EFT,outbound,37,357536.13
+E15,FY2026,payroll,Internal Transfer,outbound,19,181570.41
+E15,FY2026,payroll,RTC,outbound,19,185027.99
+E15,FY2026,payroll,SWIFT,outbound,16,166171.38
+E15,FY2026,supplier_payments,Debit Order,outbound,356,19992739.41
+E15,FY2026,supplier_payments,EFT,outbound,1668,111054427.13
+E15,FY2026,supplier_payments,Internal Transfer,outbound,540,32049112.54
+E15,FY2026,supplier_payments,RTC,outbound,756,48861593.74
+E15,FY2026,supplier_payments,SWIFT,outbound,345,24457635.669999998
+E15,FY2026,tax,Debit Order,outbound,1,20366.52
+E15,FY2026,tax,EFT,outbound,14,972142.2999999999
+E15,FY2026,tax,Internal Transfer,outbound,8,886684.2
+E15,FY2026,tax,RTC,outbound,10,1881534.54
+E15,FY2026,tax,SWIFT,outbound,4,193832.19
+E16,FY2024,collections,Debit Order,inbound,2825,270553674.79
+E16,FY2024,collections,EFT,inbound,12510,1219522183.92
+E16,FY2024,collections,Internal Transfer,inbound,4197,409954303.35
+E16,FY2024,collections,RTC,inbound,5527,540680852.68
+E16,FY2024,collections,SWIFT,inbound,2703,260901731.88
+E16,FY2024,intercompany_sweeps,Debit Order,inbound,910,306300873.49
+E16,FY2024,intercompany_sweeps,Debit Order,outbound,927,348175045.27
+E16,FY2024,intercompany_sweeps,EFT,inbound,4006,1336610733.35
+E16,FY2024,intercompany_sweeps,EFT,outbound,3935,1328209344.27
+E16,FY2024,intercompany_sweeps,Internal Transfer,inbound,1333,490859928.88
+E16,FY2024,intercompany_sweeps,Internal Transfer,outbound,1398,425746336.53
+E16,FY2024,intercompany_sweeps,RTC,inbound,1795,608975595.71
+E16,FY2024,intercompany_sweeps,RTC,outbound,1808,631176467.26
+E16,FY2024,intercompany_sweeps,SWIFT,inbound,872,290277301.43
+E16,FY2024,intercompany_sweeps,SWIFT,outbound,876,247823796.13
+E16,FY2024,payroll,Debit Order,outbound,71,838518.31
+E16,FY2024,payroll,EFT,outbound,296,3510947.04
+E16,FY2024,payroll,Internal Transfer,outbound,103,1255725.12
+E16,FY2024,payroll,RTC,outbound,127,1607463.04
+E16,FY2024,payroll,SWIFT,outbound,62,757277.47
+E16,FY2024,supplier_payments,Debit Order,outbound,2351,172275135.98
+E16,FY2024,supplier_payments,EFT,outbound,10730,805186893.74
+E16,FY2024,supplier_payments,Internal Transfer,outbound,3563,265718453.06
+E16,FY2024,supplier_payments,RTC,outbound,4794,361633010.97
+E16,FY2024,supplier_payments,SWIFT,outbound,2415,183457349.62
+E16,FY2024,tax,Debit Order,outbound,23,2576244.4
+E16,FY2024,tax,EFT,outbound,112,14001211.84
+E16,FY2024,tax,Internal Transfer,outbound,20,1900479.5
+E16,FY2024,tax,RTC,outbound,48,5140922.79
+E16,FY2024,tax,SWIFT,outbound,18,2493518.81
+E16,FY2025,collections,Debit Order,inbound,2644,254878906.18
+E16,FY2025,collections,EFT,inbound,12401,1254030319.43
+E16,FY2025,collections,Internal Transfer,inbound,4265,414788804.9
+E16,FY2025,collections,RTC,inbound,5557,524727139.33
+E16,FY2025,collections,SWIFT,inbound,2725,258757557.02
+E16,FY2025,intercompany_sweeps,Debit Order,inbound,911,292739253.54
+E16,FY2025,intercompany_sweeps,Debit Order,outbound,910,311964823.19
+E16,FY2025,intercompany_sweeps,EFT,inbound,4089,1358129415.25
+E16,FY2025,intercompany_sweeps,EFT,outbound,4144,1389580819.92
+E16,FY2025,intercompany_sweeps,Internal Transfer,inbound,1311,433536617.68
+E16,FY2025,intercompany_sweeps,Internal Transfer,outbound,1351,431943640.4
+E16,FY2025,intercompany_sweeps,RTC,inbound,1846,569719706.05
+E16,FY2025,intercompany_sweeps,RTC,outbound,1874,548977541.64
+E16,FY2025,intercompany_sweeps,SWIFT,inbound,903,324507311.05
+E16,FY2025,intercompany_sweeps,SWIFT,outbound,891,294820877.79
+E16,FY2025,payroll,Debit Order,outbound,60,727436.32
+E16,FY2025,payroll,EFT,outbound,288,3585222.91
+E16,FY2025,payroll,Internal Transfer,outbound,125,1466667.23
+E16,FY2025,payroll,RTC,outbound,153,1924726.19
+E16,FY2025,payroll,SWIFT,outbound,59,651586.9
+E16,FY2025,supplier_payments,Debit Order,outbound,2393,177411183.17
+E16,FY2025,supplier_payments,EFT,outbound,10415,772610578.86
+E16,FY2025,supplier_payments,Internal Transfer,outbound,3436,262979827.24
+E16,FY2025,supplier_payments,RTC,outbound,4815,357481561.15
+E16,FY2025,supplier_payments,SWIFT,outbound,2358,165367477.13
+E16,FY2025,tax,Debit Order,outbound,21,1784936.78
+E16,FY2025,tax,EFT,outbound,97,11310604.6
+E16,FY2025,tax,Internal Transfer,outbound,26,2212231.92
+E16,FY2025,tax,RTC,outbound,34,3743091.77
+E16,FY2025,tax,SWIFT,outbound,23,2979917.71
+E16,FY2026,collections,Debit Order,inbound,2768,258513101.47
+E16,FY2026,collections,EFT,inbound,12428,1207281304.07
+E16,FY2026,collections,Internal Transfer,inbound,4149,401585494.94
+E16,FY2026,collections,RTC,inbound,5547,530448156.83
+E16,FY2026,collections,SWIFT,inbound,2752,281007854.92
+E16,FY2026,intercompany_sweeps,Debit Order,inbound,921,290253900.15
+E16,FY2026,intercompany_sweeps,Debit Order,outbound,874,293945341.98
+E16,FY2026,intercompany_sweeps,EFT,inbound,4003,1364637780.53
+E16,FY2026,intercompany_sweeps,EFT,outbound,3957,1273850951.6299999
+E16,FY2026,intercompany_sweeps,Internal Transfer,inbound,1334,458437953.94
+E16,FY2026,intercompany_sweeps,Internal Transfer,outbound,1352,461015578.52
+E16,FY2026,intercompany_sweeps,RTC,inbound,1807,619390962.63
+E16,FY2026,intercompany_sweeps,RTC,outbound,1827,686670749.68
+E16,FY2026,intercompany_sweeps,SWIFT,inbound,896,261013736.78
+E16,FY2026,intercompany_sweeps,SWIFT,outbound,886,278789134.53
+E16,FY2026,payroll,Debit Order,outbound,73,902560.09
+E16,FY2026,payroll,EFT,outbound,309,3676415.05
+E16,FY2026,payroll,Internal Transfer,outbound,94,1180356.8
+E16,FY2026,payroll,RTC,outbound,125,1510718.26
+E16,FY2026,payroll,SWIFT,outbound,87,1034348.25
+E16,FY2026,supplier_payments,Debit Order,outbound,2359,166301852.19
+E16,FY2026,supplier_payments,EFT,outbound,10677,792328739.6
+E16,FY2026,supplier_payments,Internal Transfer,outbound,3523,249588912.21
+E16,FY2026,supplier_payments,RTC,outbound,4645,357796075.49
+E16,FY2026,supplier_payments,SWIFT,outbound,2367,172533789.29
+E16,FY2026,tax,Debit Order,outbound,17,2690560.21
+E16,FY2026,tax,EFT,outbound,86,11936923.13
+E16,FY2026,tax,Internal Transfer,outbound,20,2152484.7600000002
+E16,FY2026,tax,RTC,outbound,35,3544284.77
+E16,FY2026,tax,SWIFT,outbound,29,3029840.8200000003
+E17,FY2024,collections,Debit Order,inbound,95,12115832.6
+E17,FY2024,collections,EFT,inbound,457,37513983.06
+E17,FY2024,collections,Internal Transfer,inbound,149,11266352.58
+E17,FY2024,collections,RTC,inbound,205,15656407.41
+E17,FY2024,collections,SWIFT,inbound,92,6213960.83
+E17,FY2024,intercompany_sweeps,Debit Order,inbound,18,1615997.38
+E17,FY2024,intercompany_sweeps,Debit Order,outbound,6,1287408.62
+E17,FY2024,intercompany_sweeps,EFT,inbound,56,21978993.81
+E17,FY2024,intercompany_sweeps,EFT,outbound,43,14124171.13
+E17,FY2024,intercompany_sweeps,Internal Transfer,inbound,9,4699350.25
+E17,FY2024,intercompany_sweeps,Internal Transfer,outbound,17,8329612.149999999
+E17,FY2024,intercompany_sweeps,RTC,inbound,26,4510631.82
+E17,FY2024,intercompany_sweeps,RTC,outbound,21,4083962.85
+E17,FY2024,intercompany_sweeps,SWIFT,inbound,9,1218187.0
+E17,FY2024,intercompany_sweeps,SWIFT,outbound,11,1470340.71
+E17,FY2024,payroll,EFT,outbound,2,17048.620000000003
+E17,FY2024,payroll,Internal Transfer,outbound,2,22188.309999999998
+E17,FY2024,payroll,RTC,outbound,1,9818.09
+E17,FY2024,supplier_payments,Debit Order,outbound,131,8898001.77
+E17,FY2024,supplier_payments,EFT,outbound,605,40432643.85
+E17,FY2024,supplier_payments,Internal Transfer,outbound,194,13124746.21
+E17,FY2024,supplier_payments,RTC,outbound,273,18991933.36
+E17,FY2024,supplier_payments,SWIFT,outbound,135,9113775.39
+E17,FY2024,tax,Debit Order,outbound,1,136757.65
+E17,FY2024,tax,EFT,outbound,11,815751.39
+E17,FY2024,tax,Internal Transfer,outbound,1,26050.96
+E17,FY2024,tax,RTC,outbound,7,380505.33999999997
+E17,FY2024,tax,SWIFT,outbound,3,165298.28
+E17,FY2025,collections,Debit Order,inbound,102,8979471.2
+E17,FY2025,collections,EFT,inbound,499,40724845.4
+E17,FY2025,collections,Internal Transfer,inbound,165,14531132.290000001
+E17,FY2025,collections,RTC,inbound,218,18916574.56
+E17,FY2025,collections,SWIFT,inbound,82,6344274.5200000005
+E17,FY2025,intercompany_sweeps,Debit Order,inbound,14,9596471.68
+E17,FY2025,intercompany_sweeps,Debit Order,outbound,16,3831696.4200000004
+E17,FY2025,intercompany_sweeps,EFT,inbound,49,13793389.93
+E17,FY2025,intercompany_sweeps,EFT,outbound,55,22378255.29
+E17,FY2025,intercompany_sweeps,Internal Transfer,inbound,11,1684550.12
+E17,FY2025,intercompany_sweeps,Internal Transfer,outbound,14,3122783.94
+E17,FY2025,intercompany_sweeps,RTC,inbound,20,4068654.85
+E17,FY2025,intercompany_sweeps,RTC,outbound,24,8307322.109999999
+E17,FY2025,intercompany_sweeps,SWIFT,inbound,11,3051334.08
+E17,FY2025,intercompany_sweeps,SWIFT,outbound,9,2581359.94
+E17,FY2025,payroll,Internal Transfer,outbound,1,13324.79
+E17,FY2025,payroll,RTC,outbound,2,13378.95
+E17,FY2025,payroll,SWIFT,outbound,1,8368.47
+E17,FY2025,supplier_payments,Debit Order,outbound,126,7976899.12
+E17,FY2025,supplier_payments,EFT,outbound,589,38656263.43
+E17,FY2025,supplier_payments,Internal Transfer,outbound,198,11792740.42
+E17,FY2025,supplier_payments,RTC,outbound,248,17324442.55
+E17,FY2025,supplier_payments,SWIFT,outbound,136,9154848.26
+E17,FY2025,tax,Debit Order,outbound,4,527840.2899999999
+E17,FY2025,tax,EFT,outbound,20,1376863.24
+E17,FY2025,tax,Internal Transfer,outbound,5,420926.15
+E17,FY2025,tax,RTC,outbound,7,932169.23
+E17,FY2025,tax,SWIFT,outbound,7,280650.56
+E17,FY2026,collections,Debit Order,inbound,102,7183110.3
+E17,FY2026,collections,EFT,inbound,434,39579303.33
+E17,FY2026,collections,Internal Transfer,inbound,153,13038548.13
+E17,FY2026,collections,RTC,inbound,191,20322715.7
+E17,FY2026,collections,SWIFT,inbound,104,6795252.01
+E17,FY2026,intercompany_sweeps,Debit Order,inbound,7,3672097.92
+E17,FY2026,intercompany_sweeps,Debit Order,outbound,11,2038310.1500000001
+E17,FY2026,intercompany_sweeps,EFT,inbound,53,25561603.56
+E17,FY2026,intercompany_sweeps,EFT,outbound,48,10229551.87
+E17,FY2026,intercompany_sweeps,Internal Transfer,inbound,26,5025529.04
+E17,FY2026,intercompany_sweeps,Internal Transfer,outbound,16,4138222.6
+E17,FY2026,intercompany_sweeps,RTC,inbound,24,8510531.59
+E17,FY2026,intercompany_sweeps,RTC,outbound,26,3556299.71
+E17,FY2026,intercompany_sweeps,SWIFT,inbound,12,4071308.27
+E17,FY2026,intercompany_sweeps,SWIFT,outbound,9,1289146.3
+E17,FY2026,payroll,Internal Transfer,outbound,1,11156.12
+E17,FY2026,payroll,RTC,outbound,1,5849.76
+E17,FY2026,supplier_payments,Debit Order,outbound,146,9180559.05
+E17,FY2026,supplier_payments,EFT,outbound,626,39643981.88
+E17,FY2026,supplier_payments,Internal Transfer,outbound,202,12506482.91
+E17,FY2026,supplier_payments,RTC,outbound,278,20615674.14
+E17,FY2026,supplier_payments,SWIFT,outbound,131,9784006.36
+E17,FY2026,tax,Debit Order,outbound,5,649947.49
+E17,FY2026,tax,EFT,outbound,11,826220.01
+E17,FY2026,tax,Internal Transfer,outbound,7,649713.9600000001
+E17,FY2026,tax,RTC,outbound,8,502653.26
+E17,FY2026,tax,SWIFT,outbound,4,192819.9
+E18,FY2024,collections,Debit Order,inbound,1303,113876529.05
+E18,FY2024,collections,EFT,inbound,5953,488673136.34
+E18,FY2024,collections,Internal Transfer,inbound,2024,163185880.36
+E18,FY2024,collections,RTC,inbound,2610,202148785.46
+E18,FY2024,collections,SWIFT,inbound,1295,105745746.3
+E18,FY2024,intercompany_sweeps,Debit Order,inbound,389,108217571.09
+E18,FY2024,intercompany_sweeps,Debit Order,outbound,472,156746170.06
+E18,FY2024,intercompany_sweeps,EFT,inbound,2026,565834126.04
+E18,FY2024,intercompany_sweeps,EFT,outbound,1970,550092270.96
+E18,FY2024,intercompany_sweeps,Internal Transfer,inbound,637,171236620.44
+E18,FY2024,intercompany_sweeps,Internal Transfer,outbound,624,164034103.48
+E18,FY2024,intercompany_sweeps,RTC,inbound,892,252956355.54
+E18,FY2024,intercompany_sweeps,RTC,outbound,874,264077348.26
+E18,FY2024,intercompany_sweeps,SWIFT,inbound,395,102924166.38
+E18,FY2024,intercompany_sweeps,SWIFT,outbound,429,116326499.50999999
+E18,FY2024,payroll,Debit Order,outbound,21,246290.13
+E18,FY2024,payroll,EFT,outbound,152,1478758.02
+E18,FY2024,payroll,Internal Transfer,outbound,47,458498.93
+E18,FY2024,payroll,RTC,outbound,78,789685.83
+E18,FY2024,payroll,SWIFT,outbound,32,315066.58
+E18,FY2024,supplier_payments,Debit Order,outbound,1127,69268517.78
+E18,FY2024,supplier_payments,EFT,outbound,5434,339383071.07
+E18,FY2024,supplier_payments,Internal Transfer,outbound,1711,102359036.01
+E18,FY2024,supplier_payments,RTC,outbound,2241,134777356.55
+E18,FY2024,supplier_payments,SWIFT,outbound,1171,77675615.72
+E18,FY2024,tax,Debit Order,outbound,8,710300.8
+E18,FY2024,tax,EFT,outbound,44,4247385.23
+E18,FY2024,tax,Internal Transfer,outbound,16,1527412.83
+E18,FY2024,tax,RTC,outbound,17,2196616.28
+E18,FY2024,tax,SWIFT,outbound,7,658896.62
+E18,FY2025,collections,Debit Order,inbound,1367,116309900.5
+E18,FY2025,collections,EFT,inbound,6209,516339430.45
+E18,FY2025,collections,Internal Transfer,inbound,1960,164954728.44
+E18,FY2025,collections,RTC,inbound,2696,216387417.48
+E18,FY2025,collections,SWIFT,inbound,1365,111102238.9
+E18,FY2025,intercompany_sweeps,Debit Order,inbound,444,117490912.2
+E18,FY2025,intercompany_sweeps,Debit Order,outbound,436,118930933.89
+E18,FY2025,intercompany_sweeps,EFT,inbound,2041,582597091.43
+E18,FY2025,intercompany_sweeps,EFT,outbound,1999,552626084.58
+E18,FY2025,intercompany_sweeps,Internal Transfer,inbound,639,176316675.92
+E18,FY2025,intercompany_sweeps,Internal Transfer,outbound,652,216554019.7
+E18,FY2025,intercompany_sweeps,RTC,inbound,884,262664470.58
+E18,FY2025,intercompany_sweeps,RTC,outbound,950,240831958.9
+E18,FY2025,intercompany_sweeps,SWIFT,inbound,439,105464620.6
+E18,FY2025,intercompany_sweeps,SWIFT,outbound,427,116226153.85
+E18,FY2025,payroll,Debit Order,outbound,40,380912.95
+E18,FY2025,payroll,EFT,outbound,171,1735691.65
+E18,FY2025,payroll,Internal Transfer,outbound,48,461453.56
+E18,FY2025,payroll,RTC,outbound,69,659709.79
+E18,FY2025,payroll,SWIFT,outbound,25,247416.63
+E18,FY2025,supplier_payments,Debit Order,outbound,1209,69575477.73
+E18,FY2025,supplier_payments,EFT,outbound,5332,339671264.9
+E18,FY2025,supplier_payments,Internal Transfer,outbound,1775,106710878.45
+E18,FY2025,supplier_payments,RTC,outbound,2366,143576182.74
+E18,FY2025,supplier_payments,SWIFT,outbound,1242,75123487.26
+E18,FY2025,tax,Debit Order,outbound,10,1011918.33
+E18,FY2025,tax,EFT,outbound,50,4497574.2
+E18,FY2025,tax,Internal Transfer,outbound,10,691838.19
+E18,FY2025,tax,RTC,outbound,22,2225766.45
+E18,FY2025,tax,SWIFT,outbound,11,956260.6799999999
+E18,FY2026,collections,Debit Order,inbound,1559,131753150.14
+E18,FY2026,collections,EFT,inbound,6865,573699328.61
+E18,FY2026,collections,Internal Transfer,inbound,2301,190834478.36
+E18,FY2026,collections,RTC,inbound,3126,255105356.15
+E18,FY2026,collections,SWIFT,inbound,1555,117053179.21
+E18,FY2026,intercompany_sweeps,Debit Order,inbound,503,152001365.89
+E18,FY2026,intercompany_sweeps,Debit Order,outbound,481,130806458.75
+E18,FY2026,intercompany_sweeps,EFT,inbound,2255,623670699.44
+E18,FY2026,intercompany_sweeps,EFT,outbound,2150,571173381.44
+E18,FY2026,intercompany_sweeps,Internal Transfer,inbound,755,210876368.37
+E18,FY2026,intercompany_sweeps,Internal Transfer,outbound,733,198938541.17
+E18,FY2026,intercompany_sweeps,RTC,inbound,990,264916302.77
+E18,FY2026,intercompany_sweeps,RTC,outbound,974,250207384.0
+E18,FY2026,intercompany_sweeps,SWIFT,inbound,500,128100335.41
+E18,FY2026,intercompany_sweeps,SWIFT,outbound,495,116085016.9
+E18,FY2026,payroll,Debit Order,outbound,43,393799.59
+E18,FY2026,payroll,EFT,outbound,142,1421699.16
+E18,FY2026,payroll,Internal Transfer,outbound,50,488263.48
+E18,FY2026,payroll,RTC,outbound,79,804159.74
+E18,FY2026,payroll,SWIFT,outbound,40,380926.35
+E18,FY2026,supplier_payments,Debit Order,outbound,1330,82174384.96
+E18,FY2026,supplier_payments,EFT,outbound,5831,357685238.64
+E18,FY2026,supplier_payments,Internal Transfer,outbound,1906,115741860.86
+E18,FY2026,supplier_payments,RTC,outbound,2640,160249393.71
+E18,FY2026,supplier_payments,SWIFT,outbound,1328,86540075.22
+E18,FY2026,tax,Debit Order,outbound,7,893668.13
+E18,FY2026,tax,EFT,outbound,53,4558146.86
+E18,FY2026,tax,Internal Transfer,outbound,21,1829055.01
+E18,FY2026,tax,RTC,outbound,22,1152336.23
+E18,FY2026,tax,SWIFT,outbound,13,1364084.73
+E19,FY2024,collections,Debit Order,inbound,1351,81833084.94
+E19,FY2024,collections,EFT,inbound,6060,362691322.57
+E19,FY2024,collections,Internal Transfer,inbound,1990,116225469.27
+E19,FY2024,collections,RTC,inbound,2612,147639276.97
+E19,FY2024,collections,SWIFT,inbound,1313,77642955.24
+E19,FY2024,intercompany_sweeps,Debit Order,inbound,456,100016557.71
+E19,FY2024,intercompany_sweeps,Debit Order,outbound,460,77351459.46
+E19,FY2024,intercompany_sweeps,EFT,inbound,1902,414858857.35
+E19,FY2024,intercompany_sweeps,EFT,outbound,2011,421146906.08
+E19,FY2024,intercompany_sweeps,Internal Transfer,inbound,649,118820319.21000001
+E19,FY2024,intercompany_sweeps,Internal Transfer,outbound,611,139378232.32
+E19,FY2024,intercompany_sweeps,RTC,inbound,880,190887535.53
+E19,FY2024,intercompany_sweeps,RTC,outbound,802,165907372.78
+E19,FY2024,intercompany_sweeps,SWIFT,inbound,400,67722509.72
+E19,FY2024,intercompany_sweeps,SWIFT,outbound,453,92937364.07
+E19,FY2024,payroll,Debit Order,outbound,32,207146.0
+E19,FY2024,payroll,EFT,outbound,161,1174539.16
+E19,FY2024,payroll,Internal Transfer,outbound,55,383414.32
+E19,FY2024,payroll,RTC,outbound,68,470767.99
+E19,FY2024,payroll,SWIFT,outbound,38,273150.11
+E19,FY2024,supplier_payments,Debit Order,outbound,1194,52777476.16
+E19,FY2024,supplier_payments,EFT,outbound,5212,229664582.54
+E19,FY2024,supplier_payments,Internal Transfer,outbound,1661,75773735.9
+E19,FY2024,supplier_payments,RTC,outbound,2297,101892135.53
+E19,FY2024,supplier_payments,SWIFT,outbound,1124,51314291.0
+E19,FY2024,tax,Debit Order,outbound,9,591652.41
+E19,FY2024,tax,EFT,outbound,41,2751137.93
+E19,FY2024,tax,Internal Transfer,outbound,15,1309565.25
+E19,FY2024,tax,RTC,outbound,25,1615030.82
+E19,FY2024,tax,SWIFT,outbound,14,999122.15
+E19,FY2025,collections,Debit Order,inbound,1379,80316571.21
+E19,FY2025,collections,EFT,inbound,6100,350119127.97
+E19,FY2025,collections,Internal Transfer,inbound,2001,113458636.89
+E19,FY2025,collections,RTC,inbound,2622,153558419.82
+E19,FY2025,collections,SWIFT,inbound,1389,80961376.39
+E19,FY2025,intercompany_sweeps,Debit Order,inbound,426,80342733.31
+E19,FY2025,intercompany_sweeps,Debit Order,outbound,446,106524054.15
+E19,FY2025,intercompany_sweeps,EFT,inbound,2018,403143012.83
+E19,FY2025,intercompany_sweeps,EFT,outbound,1953,383054404.73
+E19,FY2025,intercompany_sweeps,Internal Transfer,inbound,660,127218928.79
+E19,FY2025,intercompany_sweeps,Internal Transfer,outbound,655,122523150.14
+E19,FY2025,intercompany_sweeps,RTC,inbound,870,165201024.22
+E19,FY2025,intercompany_sweeps,RTC,outbound,894,175579202.53
+E19,FY2025,intercompany_sweeps,SWIFT,inbound,420,84285921.58
+E19,FY2025,intercompany_sweeps,SWIFT,outbound,420,80755443.47
+E19,FY2025,payroll,Debit Order,outbound,33,244552.85
+E19,FY2025,payroll,EFT,outbound,172,1259600.13
+E19,FY2025,payroll,Internal Transfer,outbound,37,271501.96
+E19,FY2025,payroll,RTC,outbound,74,555241.9
+E19,FY2025,payroll,SWIFT,outbound,34,244282.31
+E19,FY2025,supplier_payments,Debit Order,outbound,1194,52408068.79
+E19,FY2025,supplier_payments,EFT,outbound,5173,232785576.71
+E19,FY2025,supplier_payments,Internal Transfer,outbound,1705,74573493.64
+E19,FY2025,supplier_payments,RTC,outbound,2315,107741204.33
+E19,FY2025,supplier_payments,SWIFT,outbound,1137,55326875.93
+E19,FY2025,tax,Debit Order,outbound,10,419303.7
+E19,FY2025,tax,EFT,outbound,46,3218858.15
+E19,FY2025,tax,Internal Transfer,outbound,15,1407643.59
+E19,FY2025,tax,RTC,outbound,20,1197981.86
+E19,FY2025,tax,SWIFT,outbound,11,568447.59
+E19,FY2026,collections,Debit Order,inbound,1572,94272004.49
+E19,FY2026,collections,EFT,inbound,6846,399559043.65
+E19,FY2026,collections,Internal Transfer,inbound,2314,137379053.43
+E19,FY2026,collections,RTC,inbound,3023,175741610.56
+E19,FY2026,collections,SWIFT,inbound,1474,84990578.45
+E19,FY2026,intercompany_sweeps,Debit Order,inbound,532,112382053.72
+E19,FY2026,intercompany_sweeps,Debit Order,outbound,517,96185932.85
+E19,FY2026,intercompany_sweeps,EFT,inbound,2256,449662654.99
+E19,FY2026,intercompany_sweeps,EFT,outbound,2291,486447951.01
+E19,FY2026,intercompany_sweeps,Internal Transfer,inbound,719,140519303.48
+E19,FY2026,intercompany_sweeps,Internal Transfer,outbound,747,143780520.21
+E19,FY2026,intercompany_sweeps,RTC,inbound,982,209584860.3
+E19,FY2026,intercompany_sweeps,RTC,outbound,990,234239609.99
+E19,FY2026,intercompany_sweeps,SWIFT,inbound,473,104253366.63
+E19,FY2026,intercompany_sweeps,SWIFT,outbound,504,95187090.48
+E19,FY2026,payroll,Debit Order,outbound,35,269878.75
+E19,FY2026,payroll,EFT,outbound,143,1080779.63
+E19,FY2026,payroll,Internal Transfer,outbound,53,383013.28
+E19,FY2026,payroll,RTC,outbound,53,400825.92
+E19,FY2026,payroll,SWIFT,outbound,40,292399.4
+E19,FY2026,supplier_payments,Debit Order,outbound,1269,58085320.55
+E19,FY2026,supplier_payments,EFT,outbound,5759,263279233.31
+E19,FY2026,supplier_payments,Internal Transfer,outbound,1945,85809902.66
+E19,FY2026,supplier_payments,RTC,outbound,2593,116709468.5
+E19,FY2026,supplier_payments,SWIFT,outbound,1294,55939902.53
+E19,FY2026,tax,Debit Order,outbound,5,95974.81
+E19,FY2026,tax,EFT,outbound,48,2851745.37
+E19,FY2026,tax,Internal Transfer,outbound,13,832688.12
+E19,FY2026,tax,RTC,outbound,19,1336369.83
+E19,FY2026,tax,SWIFT,outbound,17,807924.93
+E20,FY2024,collections,Debit Order,inbound,22,787804.99
+E20,FY2024,collections,EFT,inbound,89,2213174.69
+E20,FY2024,collections,Internal Transfer,inbound,24,1148472.83
+E20,FY2024,collections,RTC,inbound,40,1272009.32
+E20,FY2024,collections,SWIFT,inbound,13,277739.4
+E20,FY2024,supplier_payments,Debit Order,outbound,41,1001377.73
+E20,FY2024,supplier_payments,EFT,outbound,119,2445791.42
+E20,FY2024,supplier_payments,Internal Transfer,outbound,49,1289777.78
+E20,FY2024,supplier_payments,RTC,outbound,50,1676050.92
+E20,FY2024,supplier_payments,SWIFT,outbound,25,358091.95
+E20,FY2024,tax,Debit Order,outbound,1,15136.22
+E20,FY2024,tax,EFT,outbound,4,277574.56
+E20,FY2024,tax,RTC,outbound,3,127645.79000000001
+E20,FY2025,collections,Debit Order,inbound,23,665242.3
+E20,FY2025,collections,EFT,inbound,99,2725441.33
+E20,FY2025,collections,Internal Transfer,inbound,36,1141142.68
+E20,FY2025,collections,RTC,inbound,43,1007984.02
+E20,FY2025,collections,SWIFT,inbound,21,773655.95
+E20,FY2025,payroll,RTC,outbound,1,4739.5
+E20,FY2025,supplier_payments,Debit Order,outbound,20,457284.29
+E20,FY2025,supplier_payments,EFT,outbound,101,2605286.15
+E20,FY2025,supplier_payments,Internal Transfer,outbound,39,1184534.24
+E20,FY2025,supplier_payments,RTC,outbound,68,1141813.69
+E20,FY2025,supplier_payments,SWIFT,outbound,26,482531.67
+E20,FY2025,tax,Debit Order,outbound,1,15573.34
+E20,FY2025,tax,EFT,outbound,3,107043.54000000001
+E20,FY2025,tax,RTC,outbound,2,66947.14
+E20,FY2026,collections,Debit Order,inbound,15,359231.53
+E20,FY2026,collections,EFT,inbound,83,2702301.91
+E20,FY2026,collections,Internal Transfer,inbound,31,825177.72
+E20,FY2026,collections,RTC,inbound,28,1413528.69
+E20,FY2026,collections,SWIFT,inbound,24,451947.52
+E20,FY2026,payroll,Internal Transfer,outbound,1,4680.83
+E20,FY2026,supplier_payments,Debit Order,outbound,24,475343.21
+E20,FY2026,supplier_payments,EFT,outbound,117,2600994.15
+E20,FY2026,supplier_payments,Internal Transfer,outbound,46,1094584.05
+E20,FY2026,supplier_payments,RTC,outbound,49,1156061.97
+E20,FY2026,supplier_payments,SWIFT,outbound,32,750191.7200000001
+E20,FY2026,tax,Debit Order,outbound,2,163432.49
+E20,FY2026,tax,EFT,outbound,1,16747.39
+E20,FY2026,tax,RTC,outbound,1,3418.91
+E20,FY2026,tax,SWIFT,outbound,1,29169.5

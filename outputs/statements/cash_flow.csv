@@ -1,0 +1,301 @@
+entity_id,entity_name,line_item,FY2024,FY2025,FY2026
+E01,BHP Group,Receipts from customers,9030266199.733294,9286848770.130972,10061486336.032804
+E01,BHP Group,Payments to suppliers,-2091275620.75,-2211751003.28,-2394979495.81
+E01,BHP Group,Payments to employees,-3142129.57,-2864428.52,-2738942.03
+E01,BHP Group,Taxation paid,-6912309.44,-8290300.72,-5597955.5600000005
+E01,BHP Group,Net cash from operating activities,6928936139.973294,7063943037.6109705,7658169942.632805
+E01,BHP Group,Intragroup sweeps received,2214330873.69,2412574029.51,2808135514.31
+E01,BHP Group,Intragroup sweeps paid,-2369646968.96,-2371640022.56,-2722821046.48
+E01,BHP Group,Cross-border intragroup received,501383519.88,485010351.71,406274329.11
+E01,BHP Group,Cross-border intragroup paid,-465151394.8,-532714662.31,-470875281.83
+E01,BHP Group,Net intragroup and financing flows,-119083970.19,-6770303.649999738,20713515.109999955
+E01,BHP Group,Net movement in cash,6809852169.783295,7057172733.960971,7678883457.742805
+E01,BHP Group,Memo - gross cash inflows,11745980593.303293,12184433151.350971,13275896179.452805
+E01,BHP Group,Memo - gross cash outflows,-4936128423.52,-5127260417.39,-5597012721.71
+E01,BHP Group,Memo - foreign currency gross flows,2083260326.99,2174463452.4100003,2082856263.12
+E01,BHP Group,Operating cash conversion,0.7673014268591483,0.7606393958228899,0.7611370414733758
+E02,Glencore,Receipts from customers,2995478549.8797097,2806957445.2491302,3101572678.184198
+E02,Glencore,Payments to suppliers,-1055848521.4899999,-1028656854.82,-1089978262.73
+E02,Glencore,Payments to employees,-2010295.2,-1913974.92,-1889115.34
+E02,Glencore,Taxation paid,-3474345.0,-4357878.78,-5378223.81
+E02,Glencore,Net cash from operating activities,1934145388.18971,1772028736.72913,2004327076.304198
+E02,Glencore,Intragroup sweeps received,662420999.07,670418901.52,770213805.36
+E02,Glencore,Intragroup sweeps paid,-757793579.65,-661024906.26,-709387376.74
+E02,Glencore,Cross-border intragroup received,499242633.90999997,640420646.77,549407571.17
+E02,Glencore,Cross-border intragroup paid,-539470713.51,-537367201.18,-536367191.23
+E02,Glencore,Net intragroup and financing flows,-135600660.17999995,112447440.85000002,73866808.55999994
+E02,Glencore,Net movement in cash,1798544728.0097098,1884476177.5791302,2078193884.864198
+E02,Glencore,Memo - gross cash inflows,4157142182.8597097,4117796993.53913,4421194054.714198
+E02,Glencore,Memo - gross cash outflows,-2358597454.85,-2233320815.96,-2343000169.85
+E02,Glencore,Memo - foreign currency gross flows,2377149590.63,2409957418.9500003,2323926326.28
+E02,Glencore,Operating cash conversion,0.6456882785114184,0.6312987536481354,0.6462292792305685
+E03,Anglo American,Receipts from customers,6260780163.5315485,5218024479.548811,4629634158.362787
+E03,Anglo American,Payments to suppliers,-1587248959.42,-1326493943.74,-1111928996.25
+E03,Anglo American,Payments to employees,-1687876.82,-1469075.65,-1994270.44
+E03,Anglo American,Taxation paid,-5136450.61,-5176276.76,-4540118.26
+E03,Anglo American,Net cash from operating activities,4666706876.681549,3884885183.398811,3511170773.412787
+E03,Anglo American,Intragroup sweeps received,1583493462.7,1299748156.58,1225335833.19
+E03,Anglo American,Intragroup sweeps paid,-1708096062.46,-1314108903.87,-1140321541.04
+E03,Anglo American,Cross-border intragroup received,352101922.33,274878664.96999997,179495962.98
+E03,Anglo American,Cross-border intragroup paid,-419191877.49,-325362334.07,-261108693.0
+E03,Anglo American,Net intragroup and financing flows,-191692554.92000002,-64844416.389999986,3401562.1300000846
+E03,Anglo American,Net movement in cash,4475014321.761549,3820040767.008811,3514572335.542787
+E03,Anglo American,Memo - gross cash inflows,8196375548.561548,6792651301.098811,6034465954.532787
+E03,Anglo American,Memo - gross cash outflows,-3721361226.8,-2972610534.09,-2519893618.99
+E03,Anglo American,Memo - foreign currency gross flows,1738318956.57,1349280627.4199998,996378910.4
+E03,Anglo American,Operating cash conversion,0.7453874365154481,0.7445126404877899,0.7584121451735765
+E04,AngloGold Ashanti,Receipts from customers,1227000940.9500656,1221527422.8425632,1311158097.5740955
+E04,AngloGold Ashanti,Payments to suppliers,-403512843.91,-461984199.13,-409190484.29999995
+E04,AngloGold Ashanti,Payments to employees,-838213.15,-677411.92,-995917.74
+E04,AngloGold Ashanti,Taxation paid,-3153941.59,-1928040.58,-1401400.27
+E04,AngloGold Ashanti,Net cash from operating activities,819495942.3000655,756937771.2125632,899570295.2640955
+E04,AngloGold Ashanti,Intragroup sweeps received,280243262.12,317736985.07,363011811.2
+E04,AngloGold Ashanti,Intragroup sweeps paid,-327589313.74,-305355421.16,-362874197.01
+E04,AngloGold Ashanti,Cross-border intragroup received,189141021.58,162934936.33,190576137.97
+E04,AngloGold Ashanti,Cross-border intragroup paid,-183569367.1,-189579909.27,-191325851.83
+E04,AngloGold Ashanti,Net intragroup and financing flows,-41774397.139999986,-14263409.030000031,-612099.6700000167
+E04,AngloGold Ashanti,Net movement in cash,777721545.1600655,742674362.1825631,898958195.5940955
+E04,AngloGold Ashanti,Memo - gross cash inflows,1696385224.6500654,1702199344.242563,1864746046.7440956
+E04,AngloGold Ashanti,Memo - gross cash outflows,-918663679.49,-959524982.06,-965787851.15
+E04,AngloGold Ashanti,Memo - foreign currency gross flows,854656775.37,892791052.0000001,848492695.0600001
+E04,AngloGold Ashanti,Operating cash conversion,0.6678853413637407,0.6196649842302568,0.686088349626548
+E05,Gold Fields,Receipts from customers,1085366203.831007,1098905973.6977572,1145855483.7053783
+E05,Gold Fields,Payments to suppliers,-388717061.45,-444991305.7900001,-428980463.29
+E05,Gold Fields,Payments to employees,-706317.11,-639991.15,-861031.32
+E05,Gold Fields,Taxation paid,-2476141.26,-1919317.33,-2463030.78
+E05,Gold Fields,Net cash from operating activities,693466684.011007,651355359.4277571,713550958.3153783
+E05,Gold Fields,Intragroup sweeps received,223252218.68,274954461.57,305850689.11
+E05,Gold Fields,Intragroup sweeps paid,-288336574.95,-243951069.69,-320207356.62
+E05,Gold Fields,Cross-border intragroup received,253849227.05,197362170.53,195509079.78
+E05,Gold Fields,Cross-border intragroup paid,-253669723.07,-193085937.87,-232443292.26
+E05,Gold Fields,Net intragroup and financing flows,-64904852.28999996,35279624.53999999,-51290879.98999998
+E05,Gold Fields,Net movement in cash,628561831.721007,686634983.9677571,662260078.3253783
+E05,Gold Fields,Memo - gross cash inflows,1562467649.561007,1571222605.7977571,1647215252.5953782
+E05,Gold Fields,Memo - gross cash outflows,-933905817.8399999,-884587621.83,-984955174.27
+E05,Gold Fields,Memo - foreign currency gross flows,973400004.5999999,948095624.53,899750778.16
+E05,Gold Fields,Operating cash conversion,0.6389241544128461,0.592730747687159,0.6227233437919699
+E06,Valterra Platinum,Receipts from customers,82560942.4413936,82577519.33932224,92639565.46511242
+E06,Valterra Platinum,Payments to suppliers,-55290231.589999996,-62729246.019999996,-60021573.72
+E06,Valterra Platinum,Payments to employees,-5960.93,0.0,0.0
+E06,Valterra Platinum,Taxation paid,0.0,-312298.32,-716235.88
+E06,Valterra Platinum,Net cash from operating activities,27264749.921393603,19535974.999322243,31901755.86511242
+E06,Valterra Platinum,Intragroup sweeps received,746145.0,820835.3400000001,2061962.28
+E06,Valterra Platinum,Intragroup sweeps paid,-1728982.72,-3873510.3600000003,-5705169.08
+E06,Valterra Platinum,Cross-border intragroup received,36182865.58,40245816.44,45285480.150000006
+E06,Valterra Platinum,Cross-border intragroup paid,-35075769.09,-51831938.9,-47675765.92
+E06,Valterra Platinum,Net intragroup and financing flows,124258.76999999583,-14638797.480000004,-6033492.569999993
+E06,Valterra Platinum,Net movement in cash,27389008.6913936,4897177.519322239,25868263.295112427
+E06,Valterra Platinum,Memo - gross cash inflows,119489953.0213936,123644171.11932224,139987007.89511243
+E06,Valterra Platinum,Memo - gross cash outflows,-92100944.33,-118746993.6,-114118744.6
+E06,Valterra Platinum,Memo - foreign currency gross flows,174159503.27,192792730.06,202511540.88
+E06,Valterra Platinum,Operating cash conversion,0.3302378717484682,0.2365774021261921,0.34436426493306965
+E07,OUTsurance Group,Receipts from customers,190824528.87,353306866.32,408159864.11
+E07,OUTsurance Group,Payments to suppliers,-194563149.25,-348417589.88,-474104173.27
+E07,OUTsurance Group,Payments to employees,-56313.6,-57149.03,-33273.28
+E07,OUTsurance Group,Taxation paid,-3279214.18,-3802434.25,-2871581.75
+E07,OUTsurance Group,Net cash from operating activities,-7074148.1599999955,1029693.1599999974,-68849164.18999997
+E07,OUTsurance Group,Intragroup sweeps received,30708084.68,33440183.91,48556889.51
+E07,OUTsurance Group,Intragroup sweeps paid,-40106685.06,-42679789.11,-54554067.23
+E07,OUTsurance Group,Cross-border intragroup received,83910614.8,158440152.92,204890423.18
+E07,OUTsurance Group,Cross-border intragroup paid,-112196947.82000001,-171392163.92,-286655313.63
+E07,OUTsurance Group,Net intragroup and financing flows,-37684933.40000002,-22191616.199999988,-87762068.16999999
+E07,OUTsurance Group,Net movement in cash,-44759081.56000002,-21161923.03999999,-156611232.35999995
+E07,OUTsurance Group,Memo - gross cash inflows,305443228.35,545187203.15,661607176.8
+E07,OUTsurance Group,Memo - gross cash outflows,-350202309.91,-566349126.1899999,-818218409.16
+E07,OUTsurance Group,Memo - foreign currency gross flows,414141805.09,828998615.28,1136816776.21
+E07,OUTsurance Group,Operating cash conversion,-0.037071482381697836,0.0029144442357578616,-0.16868185787969825
+E08,Sanlam,Receipts from customers,9091517770.77,7630186663.09,6154836080.87
+E08,Sanlam,Payments to suppliers,-6227449495.589999,-5256092984.34,-4289380708.1499996
+E08,Sanlam,Payments to employees,-7992433.2,-7998748.97,-8217151.61
+E08,Sanlam,Taxation paid,-24389784.03,-18330620.09,-19156983.84
+E08,Sanlam,Net cash from operating activities,2831686057.9500012,2347764309.69,1838081237.2700005
+E08,Sanlam,Intragroup sweeps received,7988799840.73,6596196898.19,5105084789.25
+E08,Sanlam,Intragroup sweeps paid,-8119244899.08,-6722399625.39,-5164349626.27
+E08,Sanlam,Cross-border intragroup received,600488220.22,647716830.07,548678398.8
+E08,Sanlam,Cross-border intragroup paid,-683262302.39,-651329237.25,-623399146.89
+E08,Sanlam,Net intragroup and financing flows,-213219140.52000034,-129815134.38000071,-133985585.11000049
+E08,Sanlam,Net movement in cash,2618466917.430001,2217949175.3099995,1704095652.1599998
+E08,Sanlam,Memo - gross cash inflows,17680805831.72,14874100391.349998,11808599268.919998
+E08,Sanlam,Memo - gross cash outflows,-15062338914.289997,-12656151216.04,-10104503616.759998
+E08,Sanlam,Memo - foreign currency gross flows,2851557054.53,2825241687.24,2664890263.89
+E08,Sanlam,Operating cash conversion,0.31146461232844,0.3076942168462265,0.2986401608619581
+E09,Shoprite Holdings,Receipts from customers,3599594026.42,3536915569.84,3607277398.31
+E09,Shoprite Holdings,Payments to suppliers,-2624109843.54,-2662724423.58,-2682046975.1400003
+E09,Shoprite Holdings,Payments to employees,-8138732.8,-8518771.18,-7657556.75
+E09,Shoprite Holdings,Taxation paid,-21185214.0,-17093580.22,-24651692.6
+E09,Shoprite Holdings,Net cash from operating activities,946160236.0800002,848578794.8600003,892921173.8199996
+E09,Shoprite Holdings,Intragroup sweeps received,2954473730.21,2958091100.45,3013401466.37
+E09,Shoprite Holdings,Intragroup sweeps paid,-3000515663.42,-2901833978.17,-3076162016.51
+E09,Shoprite Holdings,Cross-border intragroup received,699201581.36,841505491.85,699734406.73
+E09,Shoprite Holdings,Cross-border intragroup paid,-774419397.45,-816933899.6,-840127094.91
+E09,Shoprite Holdings,Net intragroup and financing flows,-121259749.30000007,80828714.52999973,-203153238.3200003
+E09,Shoprite Holdings,Net movement in cash,824900486.7800001,929407509.39,689767935.4999993
+E09,Shoprite Holdings,Memo - gross cash inflows,7253269337.99,7336512162.14,7320413271.41
+E09,Shoprite Holdings,Memo - gross cash outflows,-6428368851.21,-6407104652.75,-6630645335.91
+E09,Shoprite Holdings,Memo - foreign currency gross flows,3306000311.0599995,3457877842.2999997,3356217810.79
+E09,Shoprite Holdings,Operating cash conversion,0.2628519297274782,0.23992056867175585,0.24753327100331424
+E10,Bid Corporation,Receipts from customers,3507819994.0799994,4172569392.17,5008688995.77
+E10,Bid Corporation,Payments to suppliers,-2665990952.82,-3357440852.54,-3955698671.7
+E10,Bid Corporation,Payments to employees,-8827630.38,-8288811.33,-8602992.63
+E10,Bid Corporation,Taxation paid,-20837826.91,-22062195.97,-24155588.78
+E10,Bid Corporation,Net cash from operating activities,812163583.9699993,784777532.33,1020231742.6600007
+E10,Bid Corporation,Intragroup sweeps received,2563928636.69,3215827576.09,3646114540.06
+E10,Bid Corporation,Intragroup sweeps paid,-2577184375.97,-3227145181.61,-3603561512.55
+E10,Bid Corporation,Cross-border intragroup received,866856442.97,1184450819.19,1343032692.64
+E10,Bid Corporation,Cross-border intragroup paid,-863631225.0600001,-1203140197.04,-1504515310.59
+E10,Bid Corporation,Net intragroup and financing flows,-10030521.369999766,-30006983.369999886,-118929590.44000006
+E10,Bid Corporation,Net movement in cash,802133062.5999995,754770548.9600002,901302152.2200006
+E10,Bid Corporation,Memo - gross cash inflows,6938605073.74,8572847787.450001,9997836228.47
+E10,Bid Corporation,Memo - gross cash outflows,-6136472011.14,-7818077238.49,-9096534076.25
+E10,Bid Corporation,Memo - foreign currency gross flows,3964725873.03,5181307317.129999,6165601154.27
+E10,Bid Corporation,Operating cash conversion,0.23152943575800744,0.18808016322093232,0.20369237210008834
+E11,Pepkor Holdings,Receipts from customers,11282527419.97,11407537510.270002,11257437378.69
+E11,Pepkor Holdings,Payments to suppliers,-8091054508.819999,-8239040781.94,-8218470169.97
+E11,Pepkor Holdings,Payments to employees,-11194894.7,-10918415.72,-11383454.24
+E11,Pepkor Holdings,Taxation paid,-33539894.94,-26922075.17,-30332692.65
+E11,Pepkor Holdings,Net cash from operating activities,3146738121.5100007,3130656237.440003,2997251061.8300004
+E11,Pepkor Holdings,Intragroup sweeps received,9284355344.56,9048708519.34,9093119133.42
+E11,Pepkor Holdings,Intragroup sweeps paid,-9363069781.95,-9298741530.07,-9250321789.28
+E11,Pepkor Holdings,Cross-border intragroup received,1410729688.62,1543832988.26,1445449315.75
+E11,Pepkor Holdings,Cross-border intragroup paid,-1499889909.31,-1628541760.56,-1547180446.6200001
+E11,Pepkor Holdings,Net intragroup and financing flows,-167874658.08000135,-334741783.0299995,-258933786.73000073
+E11,Pepkor Holdings,Net movement in cash,2978863463.4299994,2795914454.4100037,2738317275.0999994
+E11,Pepkor Holdings,Memo - gross cash inflows,21977612453.149998,22000079017.87,21796005827.86
+E11,Pepkor Holdings,Memo - gross cash outflows,-18998748989.72,-19204164563.460003,-19057688552.76
+E11,Pepkor Holdings,Memo - foreign currency gross flows,6367431874.15,6970919069.68,6655520139.919999
+E11,Pepkor Holdings,Operating cash conversion,0.27890365379837634,0.27443751419809304,0.26624630109013164
+E12,Clicks Group,Receipts from customers,355507963.12,333704383.08,330276515.25
+E12,Clicks Group,Payments to suppliers,-343137075.29999995,-385802908.79,-358550444.4
+E12,Clicks Group,Payments to employees,-43699.71000000001,-45215.71,-8004.65
+E12,Clicks Group,Taxation paid,-2320854.7800000003,-2392495.65,-3109436.12
+E12,Clicks Group,Net cash from operating activities,10006333.33000005,-54536237.07000004,-31391369.919999976
+E12,Clicks Group,Intragroup sweeps received,19508060.990000002,24051657.58,29028539.419999998
+E12,Clicks Group,Intragroup sweeps paid,-27489343.52,-31675058.52,-16421893.28
+E12,Clicks Group,Cross-border intragroup received,215527050.16,231814047.5,216664424.51
+E12,Clicks Group,Cross-border intragroup paid,-236857412.57,-208310647.64,-249152051.98
+E12,Clicks Group,Net intragroup and financing flows,-29311644.939999998,15879998.920000017,-19880981.330000013
+E12,Clicks Group,Net movement in cash,-19305311.609999947,-38656238.15000002,-51272351.249999985
+E12,Clicks Group,Memo - gross cash inflows,590543074.27,589570088.16,575969479.1800001
+E12,Clicks Group,Memo - gross cash outflows,-609848385.8799999,-628226326.31,-627241830.43
+E12,Clicks Group,Memo - foreign currency gross flows,1013158662.74,1012883874.2299999,1005496789.56
+E12,Clicks Group,Operating cash conversion,0.028146580015206188,-0.16342679279979938,-0.09504572220715889
+E13,NEPI Rockcastle,Receipts from customers,50314126.86,84657358.4,92194217.46
+E13,NEPI Rockcastle,Payments to suppliers,-60390187.42,-93990446.48,-112152815.21
+E13,NEPI Rockcastle,Payments to employees,-7497.33,0.0,-7559.67
+E13,NEPI Rockcastle,Taxation paid,-381186.38,-666568.6,-397999.83999999997
+E13,NEPI Rockcastle,Net cash from operating activities,-10464744.270000003,-9999656.679999998,-20364157.26
+E13,NEPI Rockcastle,Intragroup sweeps received,3687068.36,3559398.29,6626199.36
+E13,NEPI Rockcastle,Intragroup sweeps paid,-4098301.4099999997,-5188157.1,-4285204.4
+E13,NEPI Rockcastle,Cross-border intragroup received,29001947.41,55689029.38,70993652.5
+E13,NEPI Rockcastle,Cross-border intragroup paid,-31983238.37,-52532675.8,-65936155.55
+E13,NEPI Rockcastle,Net intragroup and financing flows,-3392524.0100000016,1527594.7700000033,7398491.909999996
+E13,NEPI Rockcastle,Net movement in cash,-13857268.280000005,-8472061.909999995,-12965665.350000005
+E13,NEPI Rockcastle,Memo - gross cash inflows,83003142.63,143905786.07000002,169814069.32
+E13,NEPI Rockcastle,Memo - gross cash outflows,-96860410.91,-152377847.98,-182779734.67000002
+E13,NEPI Rockcastle,Memo - foreign currency gross flows,151248667.57999998,256599278.17000002,304225516.69
+E13,NEPI Rockcastle,Operating cash conversion,-0.20798819184755704,-0.11811916729969686,-0.220883237810824
+E14,Prosus,Receipts from customers,1028824982.46,1088134693.61,1020641813.8699999
+E14,Prosus,Payments to suppliers,-875760202.46,-929285019.5400001,-938915922.83
+E14,Prosus,Payments to employees,-1456633.49,-1534171.1199999999,-1653141.57
+E14,Prosus,Taxation paid,-4983961.2,-3059307.32,-2954805.33
+E14,Prosus,Net cash from operating activities,146624185.31,154256195.62999982,77117944.13999985
+E14,Prosus,Intragroup sweeps received,548172412.44,583892463.73,577402998.27
+E14,Prosus,Intragroup sweeps paid,-580929314.63,-518596332.19,-506578432.78
+E14,Prosus,Cross-border intragroup received,434176249.21,428703374.18,423617793.27
+E14,Prosus,Cross-border intragroup paid,-466664691.36,-471263981.47,-434591871.29
+E14,Prosus,Net intragroup and financing flows,-65245344.339999974,22735524.25,59850487.46999997
+E14,Prosus,Net movement in cash,81378840.97000003,176991719.87999982,136968431.60999984
+E14,Prosus,Memo - gross cash inflows,2011173644.1100001,2100730531.52,2021662605.4099998
+E14,Prosus,Memo - gross cash outflows,-1929794803.1400003,-1923738811.64,-1884694173.8000002
+E14,Prosus,Memo - foreign currency gross flows,1937347973.04,2083659052.4400003,1973314428.53
+E14,Prosus,Operating cash conversion,0.14251615951180563,0.14176204153388297,0.07555828410320492
+E15,Naspers,Receipts from customers,850202238.33,911755712.88,873123581.92
+E15,Naspers,Payments to suppliers,-808041425.3599999,-763948316.11,-841903861.09
+E15,Naspers,Payments to employees,-1052074.83,-1087476.33,-1012132.7
+E15,Naspers,Taxation paid,-2063567.59,-2097355.11,-3954559.75
+E15,Naspers,Net cash from operating activities,39045170.550000146,144622565.32999995,26253028.379999924
+E15,Naspers,Intragroup sweeps received,367551410.85,399106011.1,388600448.32
+E15,Naspers,Intragroup sweeps paid,-433146216.48,-371931536.0,-461103141.38
+E15,Naspers,Cross-border intragroup received,408265925.16,412590621.7,456169182.22
+E15,Naspers,Cross-border intragroup paid,-410587342.3,-509923524.3,-487236325.56
+E15,Naspers,Net intragroup and financing flows,-67916222.76999998,-70158427.5,-103569836.39999998
+E15,Naspers,Net movement in cash,-28871052.219999835,74464137.82999995,-77316808.02000006
+E15,Naspers,Memo - gross cash inflows,1626019574.3400002,1723452345.68,1717893212.46
+E15,Naspers,Memo - gross cash outflows,-1654890626.56,-1648988207.8500001,-1795210020.48
+E15,Naspers,Memo - foreign currency gross flows,1897997790.8300002,2018407792.74,2053358828.74
+E15,Naspers,Operating cash conversion,0.04592456804947276,0.15861986197286854,0.030067941037933574
+E16,MTN Group,Receipts from customers,4386125278.62,4374909372.12,4294907664.2200003
+E16,MTN Group,Payments to suppliers,-3599538770.1899996,-3753826735.68,-3566435097.73
+E16,MTN Group,Payments to employees,-7969930.98,-8355639.55,-8304398.45
+E16,MTN Group,Taxation paid,-26112377.34,-22030782.78,-23354093.69
+E16,MTN Group,Net cash from operating activities,752504200.1100003,590696214.1100001,696814074.3500001
+E16,MTN Group,Intragroup sweeps received,3033024432.86,2978632303.57,2993734334.03
+E16,MTN Group,Intragroup sweeps paid,-2981130989.46,-2977287702.94,-2994271756.34
+E16,MTN Group,Cross-border intragroup received,1391943897.45,1345394657.57,1352395881.65
+E16,MTN Group,Cross-border intragroup paid,-1549614072.27,-1638473377.21,-1413292817.69
+E16,MTN Group,Net intragroup and financing flows,-105776731.41999984,-291734119.01,-61434358.349999905
+E16,MTN Group,Net movement in cash,646727468.6900004,298962095.10000014,635379716.0000002
+E16,MTN Group,Memo - gross cash inflows,8811093608.93,8698936333.26,8641037879.9
+E16,MTN Group,Memo - gross cash outflows,-8164366140.24,-8399974238.160001,-8005658163.9
+E16,MTN Group,Memo - foreign currency gross flows,6437338428.539999,6669570788.17,6209646180.280001
+E16,MTN Group,Operating cash conversion,0.17156468461538324,0.13501907442342279,0.1622419220219834
+E17,Vodacom Group,Receipts from customers,934893922.98,1008558602.2,844970574.35
+E17,Vodacom Group,Payments to suppliers,-940068047.6200001,-949899038.52,-897072756.6600001
+E17,Vodacom Group,Payments to employees,-49055.020000000004,-35072.21,-17005.88
+E17,Vodacom Group,Taxation paid,-1524363.62,-3538449.47,-2821354.62
+E17,Vodacom Group,Net cash from operating activities,-6747543.280000105,55086042.00000007,-54940542.81000006
+E17,Vodacom Group,Intragroup sweeps received,34023160.26,32194400.66,46841070.38
+E17,Vodacom Group,Intragroup sweeps paid,-29295495.46,-40221417.7,-21251530.63
+E17,Vodacom Group,Cross-border intragroup received,623614041.13,621814648.37,639721929.7
+E17,Vodacom Group,Cross-border intragroup paid,-696054410.44,-661611573.44,-707619176.58
+E17,Vodacom Group,Net intragroup and financing flows,-67712704.51000011,-47823942.110000014,-42307707.129999995
+E17,Vodacom Group,Net movement in cash,-74460247.79000022,7262099.890000053,-97248249.94000006
+E17,Vodacom Group,Memo - gross cash inflows,1592531124.37,1662567651.23,1531533574.43
+E17,Vodacom Group,Memo - gross cash outflows,-1666991372.1600003,-1655305551.3400002,-1628781824.3700001
+E17,Vodacom Group,Memo - foreign currency gross flows,3021302785.11,3067482370.7799997,2910734803.48
+E17,Vodacom Group,Operating cash conversion,-0.007217442657549988,0.054618583273038555,-0.06502065808890858
+E18,The Bidvest Group,Receipts from customers,1485255405.53,1549561038.45,1706627785.05
+E18,The Bidvest Group,Payments to suppliers,-1236563660.4099998,-1237864256.54,-1264081425.55
+E18,The Bidvest Group,Payments to employees,-3288299.49,-3485184.58,-3488848.32
+E18,The Bidvest Group,Taxation paid,-9340611.76,-9383357.85,-9797290.96
+E18,The Bidvest Group,Net cash from operating activities,236062833.87000012,298828239.4800001,429260220.22
+E18,The Bidvest Group,Intragroup sweeps received,1201168839.49,1244533770.73,1379565071.88
+E18,The Bidvest Group,Intragroup sweeps paid,-1251276392.27,-1245169150.92,-1267210782.26
+E18,The Bidvest Group,Cross-border intragroup received,351832795.48,330645145.57,331435460.36
+E18,The Bidvest Group,Cross-border intragroup paid,-426962326.96,-404683207.92,-382949648.49
+E18,The Bidvest Group,Net intragroup and financing flows,-125237084.25999993,-74673442.54000008,60840101.49000013
+E18,The Bidvest Group,Net movement in cash,110825749.6100002,224154796.94,490100321.71000016
+E18,The Bidvest Group,Memo - gross cash inflows,3038257040.5,3124739954.7500005,3417628317.2900004
+E18,The Bidvest Group,Memo - gross cash outflows,-2927431290.89,-2900585157.81,-2927527995.58
+E18,The Bidvest Group,Memo - foreign currency gross flows,1703520513.7400002,1663002641.63,1614257873.59
+E18,The Bidvest Group,Operating cash conversion,0.15893753558551313,0.19284702703864634,0.2515253905862219
+E19,Aspen Pharmacare,Receipts from customers,1185149212.3899999,1136949051.78,1284336668.3799999
+E19,Aspen Pharmacare,Payments to suppliers,-904856643.3700001,-934303257.46,-997538497.6999999
+E19,Aspen Pharmacare,Payments to employees,-2509017.58,-2575179.15,-2426896.98
+E19,Aspen Pharmacare,Taxation paid,-7266508.56,-6812234.890000001,-5924703.06
+E19,Aspen Pharmacare,Net cash from operating activities,270517042.87999976,193258380.2799999,278446570.6399999
+E19,Aspen Pharmacare,Intragroup sweeps received,892305779.52,860191620.73,1016402239.12
+E19,Aspen Pharmacare,Intragroup sweeps paid,-896721334.71,-868436255.02,-1055841104.54
+E19,Aspen Pharmacare,Cross-border intragroup received,292985788.4,284165416.67,275480182.56
+E19,Aspen Pharmacare,Cross-border intragroup paid,-353716631.81,-316605256.78,-327397759.84
+E19,Aspen Pharmacare,Net intragroup and financing flows,-65146398.60000008,-40684474.39999992,-91356442.69999993
+E19,Aspen Pharmacare,Net movement in cash,205370644.27999967,152573905.88,187090127.94
+E19,Aspen Pharmacare,Memo - gross cash inflows,2370440780.31,2281306089.18,2576219090.06
+E19,Aspen Pharmacare,Memo - gross cash outflows,-2165070136.03,-2128732183.3,-2389128962.12
+E19,Aspen Pharmacare,Memo - foreign currency gross flows,1439253945.85,1370773631.01,1412986990.35
+E19,Aspen Pharmacare,Operating cash conversion,0.22825568295697443,0.16997980690290024,0.2168018538248378
+E20,Shaftesbury Capital plc,Receipts from customers,47188054.69,63056150.68,62869662.089999996
+E20,Shaftesbury Capital plc,Payments to suppliers,-58333271.93,-71710941.25,-55563078.26
+E20,Shaftesbury Capital plc,Payments to employees,0.0,-4739.5,-4680.83
+E20,Shaftesbury Capital plc,Taxation paid,-420356.57,-189564.02,-212768.29
+E20,Shaftesbury Capital plc,Net cash from operating activities,-11565573.810000002,-8849094.09,7089134.709999998
+E20,Shaftesbury Capital plc,Intragroup sweeps received,0.0,0.0,0.0
+E20,Shaftesbury Capital plc,Intragroup sweeps paid,0.0,0.0,0.0
+E20,Shaftesbury Capital plc,Cross-border intragroup received,1716562.84,2672968.59,2210816.65
+E20,Shaftesbury Capital plc,Cross-border intragroup paid,-4650807.640000001,-2493258.89,-2564956.13
+E20,Shaftesbury Capital plc,Net intragroup and financing flows,-2934244.8000000007,179709.69999999972,-354139.48
+E20,Shaftesbury Capital plc,Net movement in cash,-14499818.610000003,-8669384.39,6734995.229999999
+E20,Shaftesbury Capital plc,Memo - gross cash inflows,48904617.53,65729119.269999996,65080478.739999995
+E20,Shaftesbury Capital plc,Memo - gross cash outflows,-63404436.14,-74398503.66,-58345483.51
+E20,Shaftesbury Capital plc,Memo - foreign currency gross flows,99418406.07,127748403.09,111379150.66
+E20,Shaftesbury Capital plc,Operating cash conversion,-0.24509537182618713,-0.14033673154119022,0.11275923035583789

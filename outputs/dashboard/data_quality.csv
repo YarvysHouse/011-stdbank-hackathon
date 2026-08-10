@@ -1,0 +1,4 @@
+dataset,rows,entities,duplicate_ids,date_from,date_to,total_value_zar,memo_missing_pct
+transactional_banking,2792063,20,85516,2023-07-01,2026-06-30,403873852624.62994,99.87
+trade_finance,20215,20,6,2023-07-01,2026-06-30,38305641003.35,99.53
+cross_border_payments,240191,20,594,2023-07-01,2026-06-30,133235605738.91,99.81
