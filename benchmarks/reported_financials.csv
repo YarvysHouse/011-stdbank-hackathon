@@ -1,0 +1,137 @@
+entity_id,entity_name,fiscal_year,line_item,metric_type,reported_value,source,note
+E01,BHP Group,FY2024,EBITDA margin proxy,ratio,0.4102195551403212,OCR extract of published statements,EBITDA / revenue
+E01,BHP Group,FY2024,EBITDA proxy,amount,424675200000.0,OCR extract of published statements,operating profit + D&A
+E01,BHP Group,FY2024,Net cash from operating activities,amount,517433400000.00006,OCR extract of published statements,
+E01,BHP Group,FY2024,Total revenue,amount,1035238800000.0001,OCR extract of published statements,
+E01,BHP Group,FY2025,EBITDA margin proxy,ratio,0.4877687175685693,OCR extract of published statements,EBITDA / revenue
+E01,BHP Group,FY2025,EBITDA proxy,amount,455072800000.0,OCR extract of published statements,operating profit + D&A
+E01,BHP Group,FY2025,Net cash from operating activities,amount,478023000000.0,OCR extract of published statements,
+E01,BHP Group,FY2025,Total revenue,amount,932968400000.0,OCR extract of published statements,
+E02,Glencore,FY2024,Net cash from operating activities,amount,205269600000.00003,OCR extract of published statements,
+E02,Glencore,FY2025,Cost of sales and supplier payments,amount,-4082150800000.0,OCR extract of published statements,
+E02,Glencore,FY2025,Gross margin proxy,ratio,0.02879485935984481,OCR extract of published statements,(revenue - cost of sales) / revenue
+E02,Glencore,FY2025,Net cash from operating activities,amount,183001000000.0,OCR extract of published statements,
+E02,Glencore,FY2025,Total revenue,amount,4203180800000.0,OCR extract of published statements,
+E02,Glencore,FY2026,Cost of sales and supplier payments,amount,-4325928799999.9995,OCR extract of published statements,
+E02,Glencore,FY2026,Gross margin proxy,ratio,0.02368553941866818,OCR extract of published statements,(revenue - cost of sales) / revenue
+E02,Glencore,FY2026,Net cash from operating activities,amount,100991799999.99998,OCR extract of published statements,
+E02,Glencore,FY2026,Total revenue,amount,4430876500000.0,OCR extract of published statements,
+E03,Anglo American,FY2024,EBITDA proxy,amount,122555400000.0,OCR extract of published statements,operating profit + D&A
+E03,Anglo American,FY2024,Net cash from operating activities,amount,120825600000.00002,OCR extract of published statements,
+E03,Anglo American,FY2024,Taxation paid,amount,-37218600000.0,OCR extract of published statements,
+E03,Anglo American,FY2025,EBITDA proxy,amount,57566600000.0,OCR extract of published statements,operating profit + D&A
+E03,Anglo American,FY2025,Net cash from operating activities,amount,101283000000.0,OCR extract of published statements,
+E03,Anglo American,FY2026,Net cash from operating activities,amount,102441699999.99998,OCR extract of published statements,
+E05,Gold Fields,FY2026,Cost of sales and supplier payments,amount,-65886319999.99999,OCR extract of published statements,
+E05,Gold Fields,FY2026,Gross margin proxy,ratio,0.5793996320546662,OCR extract of published statements,(revenue - cost of sales) / revenue
+E05,Gold Fields,FY2026,Total revenue,amount,156648270000.0,OCR extract of published statements,
+E06,Valterra Platinum,FY2025,Net cash from operating activities,amount,32142000000.0,OCR extract of published statements,
+E06,Valterra Platinum,FY2025,Taxation paid,amount,-2182000000.0,OCR extract of published statements,
+E06,Valterra Platinum,FY2026,Net cash from operating activities,amount,31000000.0,OCR extract of published statements,
+E06,Valterra Platinum,FY2026,Taxation paid,amount,32000000.0,OCR extract of published statements,
+E07,OUTsurance Group,FY2024,Employee costs,amount,670000000.0,OCR extract of published statements,
+E07,OUTsurance Group,FY2025,Employee costs,amount,31000000.0,OCR extract of published statements,
+E10,Bid Corporation,FY2024,Net cash from operating activities,amount,15768523000.0,OCR extract of published statements,
+E10,Bid Corporation,FY2024,Taxation paid,amount,7.034532226169982e+24,OCR extract of published statements,
+E10,Bid Corporation,FY2024,Total revenue,amount,235591182000.0,OCR extract of published statements,
+E10,Bid Corporation,FY2025,Net cash from operating activities,amount,4400.0,OCR extract of published statements,
+E10,Bid Corporation,FY2025,Taxation paid,amount,6.232942194739082e+24,OCR extract of published statements,
+E10,Bid Corporation,FY2025,Total revenue,amount,4100.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2024,Employee costs,amount,462000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2024,Net cash from operating activities,amount,11920000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2024,Taxation paid,amount,-1181000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2025,Employee costs,amount,24000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2025,Net cash from operating activities,amount,28000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2025,Taxation paid,amount,6300000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2026,Employee costs,amount,433000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2026,Net cash from operating activities,amount,11920000000.0,OCR extract of published statements,
+E11,Pepkor Holdings,FY2026,Taxation paid,amount,6300000.0,OCR extract of published statements,
+E12,Clicks Group,FY2024,Cost of sales and supplier payments,amount,-32307830000.0,OCR extract of published statements,
+E12,Clicks Group,FY2024,Gross margin proxy,ratio,0.2749675879094083,OCR extract of published statements,(revenue - cost of sales) / revenue
+E12,Clicks Group,FY2024,Net cash from operating activities,amount,5863647000.0,OCR extract of published statements,
+E12,Clicks Group,FY2024,Taxation paid,amount,-968671000.0,OCR extract of published statements,
+E12,Clicks Group,FY2024,Total revenue,amount,44560532000.0,OCR extract of published statements,
+E12,Clicks Group,FY2025,Cost of sales and supplier payments,amount,-34805221000.0,OCR extract of published statements,
+E12,Clicks Group,FY2025,Gross margin proxy,ratio,0.28398768824596055,OCR extract of published statements,(revenue - cost of sales) / revenue
+E12,Clicks Group,FY2025,Net cash from operating activities,amount,6001230000.0,OCR extract of published statements,
+E12,Clicks Group,FY2025,Taxation paid,amount,-1068149000.0,OCR extract of published statements,
+E12,Clicks Group,FY2025,Total revenue,amount,48609808000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2024,Net cash from operating activities,amount,7337920000000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2024,Taxation paid,amount,-605240000000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2025,Net cash from operating activities,amount,8453683700000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2025,Taxation paid,amount,-567281200000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2026,Net cash from operating activities,amount,9343109400000.0,OCR extract of published statements,
+E13,NEPI Rockcastle,FY2026,Taxation paid,amount,-694178800000.0,OCR extract of published statements,
+E14,Prosus,FY2024,Net cash from operating activities,amount,11141400000.0,OCR extract of published statements,
+E14,Prosus,FY2024,Taxation paid,amount,-2064600000.0000002,OCR extract of published statements,
+E14,Prosus,FY2024,Total revenue,amount,114762000000.00002,OCR extract of published statements,
+E14,Prosus,FY2025,Net cash from operating activities,amount,34944000000.0,OCR extract of published statements,
+E14,Prosus,FY2025,Taxation paid,amount,-2511600000.0,OCR extract of published statements,
+E14,Prosus,FY2025,Total revenue,amount,236600000.0,OCR extract of published statements,
+E14,Prosus,FY2026,Net cash from operating activities,amount,28801099999.999996,OCR extract of published statements,
+E15,Naspers,FY2024,Net cash from operating activities,amount,144000000.0,OCR extract of published statements,
+E15,Naspers,FY2024,Taxation paid,amount,-144000000.0,OCR extract of published statements,
+E15,Naspers,FY2025,Net cash from operating activities,amount,610000000.0,OCR extract of published statements,
+E15,Naspers,FY2025,Taxation paid,amount,-113000000.0,OCR extract of published statements,
+E15,Naspers,FY2026,Net cash from operating activities,amount,519000000.0,OCR extract of published statements,
+E15,Naspers,FY2026,Taxation paid,amount,-252000000.0,OCR extract of published statements,
+E16,MTN Group,FY2024,Employee cost ratio,ratio,0.06830395917776491,OCR extract of published statements,employee costs / revenue
+E16,MTN Group,FY2024,Employee costs,amount,-15099000000.0,OCR extract of published statements,
+E16,MTN Group,FY2024,Net cash from operating activities,amount,93127000000.0,OCR extract of published statements,
+E16,MTN Group,FY2024,Taxation paid,amount,-15824000000.0,OCR extract of published statements,
+E16,MTN Group,FY2024,Total revenue,amount,221056000000.0,OCR extract of published statements,
+E16,MTN Group,FY2025,Employee cost ratio,ratio,0.07482407008473359,OCR extract of published statements,employee costs / revenue
+E16,MTN Group,FY2025,Employee costs,amount,-14067000000.0,OCR extract of published statements,
+E16,MTN Group,FY2025,Net cash from operating activities,amount,70502000000.0,OCR extract of published statements,
+E16,MTN Group,FY2025,Taxation paid,amount,-10152000000.0,OCR extract of published statements,
+E16,MTN Group,FY2025,Total revenue,amount,188001000000.0,OCR extract of published statements,
+E16,MTN Group,FY2026,Employee cost ratio,ratio,1.2233977478843198e-05,OCR extract of published statements,employee costs / revenue
+E16,MTN Group,FY2026,Employee costs,amount,2300000.0,OCR extract of published statements,
+E16,MTN Group,FY2026,Net cash from operating activities,amount,2600000.0,OCR extract of published statements,
+E16,MTN Group,FY2026,Taxation paid,amount,3300000.0,OCR extract of published statements,
+E16,MTN Group,FY2026,Total revenue,amount,188001000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2024,Cost of sales and supplier payments,amount,-57700000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2024,EBITDA margin proxy,ratio,0.38595827190990345,OCR extract of published statements,EBITDA / revenue
+E17,Vodacom Group,FY2024,EBITDA proxy,amount,58123000000.0,OCR extract of published statements,operating profit + D&A
+E17,Vodacom Group,FY2024,Employee cost ratio,ratio,0.0673067984116233,OCR extract of published statements,employee costs / revenue
+E17,Vodacom Group,FY2024,Employee costs,amount,-10136000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2024,Gross margin proxy,ratio,0.6168506049377798,OCR extract of published statements,(revenue - cost of sales) / revenue
+E17,Vodacom Group,FY2024,Net cash from operating activities,amount,57123000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2024,Taxation paid,amount,-8112000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2024,Total revenue,amount,150594000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2025,Cost of sales and supplier payments,amount,-59340000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2025,EBITDA margin proxy,ratio,0.37920342646179717,OCR extract of published statements,EBITDA / revenue
+E17,Vodacom Group,FY2025,EBITDA proxy,amount,57725000000.0,OCR extract of published statements,operating profit + D&A
+E17,Vodacom Group,FY2025,Employee cost ratio,ratio,0.06854894335433268,OCR extract of published statements,employee costs / revenue
+E17,Vodacom Group,FY2025,Employee costs,amount,-10435000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2025,Gross margin proxy,ratio,0.610187417475218,OCR extract of published statements,(revenue - cost of sales) / revenue
+E17,Vodacom Group,FY2025,Net cash from operating activities,amount,60865000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2025,Taxation paid,amount,-8066000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2025,Total revenue,amount,152227000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2026,Cost of sales and supplier payments,amount,-64262000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2026,EBITDA proxy,amount,68393000000.0,OCR extract of published statements,operating profit + D&A
+E17,Vodacom Group,FY2026,Employee costs,amount,-11082000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2026,Net cash from operating activities,amount,65837000000.0,OCR extract of published statements,
+E17,Vodacom Group,FY2026,Taxation paid,amount,-9818000000.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2024,Net cash from operating activities,amount,14615937000.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2024,Taxation paid,amount,-2487162000.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2024,Total revenue,amount,126605406000.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2025,Net cash from operating activities,amount,5800.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2025,Taxation paid,amount,6200.0,OCR extract of published statements,
+E18,The Bidvest Group,FY2025,Total revenue,amount,5100.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2024,Cost of sales and supplier payments,amount,-24234000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2024,Gross margin proxy,ratio,0.44113645273620367,OCR extract of published statements,(revenue - cost of sales) / revenue
+E19,Aspen Pharmacare,FY2024,Net cash from operating activities,amount,9725000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2024,Taxation paid,amount,-2149000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2024,Total revenue,amount,43363000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2025,Cost of sales and supplier payments,amount,21000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2025,Gross margin proxy,ratio,-0.10526315789473684,OCR extract of published statements,(revenue - cost of sales) / revenue
+E19,Aspen Pharmacare,FY2025,Net cash from operating activities,amount,8461000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2025,Taxation paid,amount,-1757000000.0,OCR extract of published statements,
+E19,Aspen Pharmacare,FY2025,Total revenue,amount,19000000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2024,Net cash from operating activities,amount,697320000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2024,Total revenue,amount,4565340000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2025,Net cash from operating activities,amount,2554450000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2025,Total revenue,amount,5336850000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2026,Net cash from operating activities,amount,3884920000.0,OCR extract of published statements,
+E20,Shaftesbury Capital plc,FY2026,Total revenue,amount,5757490000.0,OCR extract of published statements,

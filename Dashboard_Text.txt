@@ -1,0 +1,35 @@
+0. Total Summary
+- Hero section - single heading line visual (full viewport)
+  - % of Missed Wallet (red - key visual)
+  - Pie Chart (total market vs Syn Bank Capture)
+
+  - Amount of Missed Wallet (red - second key visual)
+
+- Total Recorded Incomes (for all entities) at:
+  - Syn Bank vs Market Financials
+- Total Recorded Expenditure (for all entities):
+  - Syn Bank vs Market Financials
+- Discrepancy (Amount, %)
+
+- Ordered Discrepancy list (double sided horizontal bar plot per entity)
+
+
+1. Sector Analysis
+- All sector split (circular plot)
+- Per sector discrepancies (circular plot)
+- Per Sector Tabs (Of Syn Bank Transactions (incomes vs Expenses)
+  - Show Entities (no. of total), (% of Syn Bank)
+  - Geographical Location of Transactions (Size as Amount Proxy)
+
+2. Per Entity Analysis - Custom Financials Sectors 
+- Total Transaction Amount 
+- Field of business
+- Transaction Groups (Syn Bank) - as collected in Financials Grouping 
+  - Per Year, Per Financials Line, Compare differences to Actual Documentations
+  - Highlight Transactions that apply, and those that don't 
+
+3. Total Opportunity for Growth 
+- Greatest Missed Segments (amount, %)
+- Greatest Potential for revenue (count of transactions, avg cost of transaction for a Bank)
+- Greatest Applicability (% of entity transaction amounts)
+
