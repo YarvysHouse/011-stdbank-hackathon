@@ -5,6 +5,14 @@ Data/
 # Hackathon briefs and T&Cs
 Hackathon Briefs and TCs/
 
+# Rendered page images - 114MB of OCR intermediates, regenerable from the PDFs
+# in public_financial_statements/ by extract_statements.py
+outputs/pages/
+
+# LibreOffice / Excel lock files, written while a workbook is open
+.~lock.*#
+~$*
+
 # Python
 __pycache__/
 *.py[cod]
