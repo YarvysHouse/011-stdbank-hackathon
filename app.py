@@ -8,6 +8,7 @@ Four sections, navigated from the left rail:
     2  Per Entity          one entity's financials grouping, line by line
     3  Opportunity         what the gap is worth to the bank
     4  Reported Recon      the extraction worklist against the computed pack
+    5  Trade              net import position, GDP impact and the trade channels
 
 Run with::
 
@@ -51,6 +52,7 @@ SECTIONS = [
     "2 · Per Entity Analysis",
     "3 · Opportunity for Growth",
     "4 · Reported vs Computed",
+    "5 · Trade & Cross-Border",
 ]
 
 st.set_page_config(
@@ -265,6 +267,8 @@ panel = data["entity_panel"]
 pack = data["statement_pack"]
 channels_all = data["channel_mix"]
 countries_all = data["country_flows"]
+trade_all = data["trade_profile"]
+corridors_all = data["corridor_mix"]
 
 ENTITY_LABEL = dict(zip(entities["entity_id"], entities["entity_name"]))
 ENTITY_SECTOR = dict(zip(entities["entity_id"], entities["sector"]))
@@ -336,6 +340,12 @@ channels = channels_all[
 ]
 countries = countries_all[
     countries_all["entity_id"].isin(scope) & countries_all["fiscal_year"].isin(years)
+]
+trade = trade_all[
+    trade_all["entity_id"].isin(scope) & trade_all["fiscal_year"].isin(years)
+]
+corridors = corridors_all[
+    corridors_all["entity_id"].isin(scope) & corridors_all["fiscal_year"].isin(years)
 ]
 
 bank = bank_view(panel_f, channels)
@@ -904,7 +914,7 @@ elif active == SECTIONS[3]:
 # 4 - Reported vs Computed
 # ==========================================================================
 
-else:
+elif active == SECTIONS[4]:
     st.markdown(
         '<div class="muted">Figures checked back against the source PDFs in '
         '<code>benchmarks/extraction_worklist</code>, against the same line computed from '
@@ -1078,3 +1088,180 @@ else:
             file_name="reported_vs_computed.csv",
             mime="text/csv",
         )
+
+
+# ==========================================================================
+# 5 - Trade & Cross-Border
+# ==========================================================================
+
+else:
+    st.markdown(
+        '<div class="muted">Net import position is <b>imports less exports</b>, so a '
+        'positive figure is a net importer and reads as a drag on GDP; a negative figure '
+        'is a net exporter contributing to it. Note this is the reverse of the '
+        'national-accounts sign, where net exports enter GDP positively - the magnitudes '
+        'are the same, the sign is flipped.</div>',
+        unsafe_allow_html=True,
+    )
+    st.write("")
+
+    if panel_f.empty:
+        st.warning("No entities in scope. Widen the sector or year filters.")
+    else:
+        # Trade finance instruments carry the import and export legs; the trade
+        # corridor of the cross-border book is the settlement that goes with
+        # them. Both are trade, so both count toward trade intensity, but only
+        # the instrument legs have a direction to net off.
+        trade_flow = (
+            panel_f.groupby(["entity_id", "entity_name", "sector"], as_index=False)
+            .agg(
+                imports=("tf_import", "sum"),
+                exports=("tf_export", "sum"),
+                tf_value=("tf_total_value_zar", "sum"),
+                xb_trade=("xb_corridor_trade", "sum"),
+                total_flow=("total_flow_zar", "sum"),
+                open_exposure=("tf_open_exposure_zar", "sum"),
+                tenor=("tf_weighted_avg_tenor_days", "mean"),
+                countries=("tf_countries", "max"),
+            )
+        )
+        trade_flow["net_import"] = trade_flow["imports"] - trade_flow["exports"]
+        trade_flow["trade_value"] = trade_flow["tf_value"] + trade_flow["xb_trade"]
+        trade_flow["intensity"] = (
+            trade_flow["trade_value"] / trade_flow["total_flow"].replace(0, np.nan)
+        )
+        trade_flow["position"] = np.where(
+            trade_flow["net_import"] > 0, "net importer", "net exporter"
+        )
+
+        book_net = trade_flow["net_import"].sum()
+        card_row([
+            card("Gross trade value", zar(trade_flow["trade_value"].sum()),
+                 "instruments plus trade corridor"),
+            card("Imports", zar(trade_flow["imports"].sum()), "import leg of the instruments"),
+            card("Exports", zar(trade_flow["exports"].sum()), "export leg of the instruments"),
+            card("Net import position", zar(book_net),
+                 "drag on GDP" if book_net > 0 else "contribution to GDP",
+                 "down" if book_net > 0 else "up"),
+            card("Median trade intensity", pct(trade_flow["intensity"].median()),
+                 "trade ÷ total routed value"),
+        ])
+        st.write("")
+
+        # One height for both columns so the two panels line up.
+        trade_height = max(340, 40 * len(trade_flow))
+        left, right = st.columns([3, 2])
+
+        with left:
+            section("Net import position by entity",
+                    "Imports less exports. Bars to the right are net importers - value "
+                    "leaving the country - and bars to the left are net exporters.")
+            ordered = trade_flow.sort_values("net_import")
+            fig = go.Figure(go.Bar(
+                y=ordered["entity_name"], x=ordered["net_import"], orientation="h",
+                marker_color=[NEG if v > 0 else POS for v in ordered["net_import"]],
+                customdata=np.stack([ordered["imports"], ordered["exports"]], axis=-1),
+                hovertemplate="%{y}<br>Net R %{x:,.0f}<br>Imports R %{customdata[0]:,.0f}"
+                              "<br>Exports R %{customdata[1]:,.0f}<extra></extra>",
+            ))
+            fig.add_vline(x=0, line_color=BORDER)
+            fig.update_layout(xaxis_title="ZAR  (right: net importer · left: net exporter)")
+            st.plotly_chart(style(fig, trade_height, legend=False), width="stretch")
+
+        with right:
+            section("Imports against exports, by year",
+                    "The book's trade balance over the years in scope.")
+            by_year = (
+                panel_f.groupby("fiscal_year", as_index=False)
+                .agg(imports=("tf_import", "sum"), exports=("tf_export", "sum"))
+            )
+            by_year["net_import"] = by_year["imports"] - by_year["exports"]
+            fig = go.Figure()
+            fig.add_bar(x=by_year["fiscal_year"], y=by_year["imports"],
+                        name="Imports", marker_color=NEG)
+            fig.add_bar(x=by_year["fiscal_year"], y=by_year["exports"],
+                        name="Exports", marker_color=POS)
+            fig.add_trace(go.Scatter(
+                x=by_year["fiscal_year"], y=by_year["net_import"], name="Net import position",
+                mode="lines+markers", line=dict(color=ACCENT, width=2),
+            ))
+            fig.update_layout(barmode="group", yaxis_title="ZAR")
+            st.plotly_chart(style(fig, trade_height), width="stretch")
+
+        st.divider()
+        section("Trade intensity",
+                "Trade value as a share of everything the entity routes through Syn Bank. "
+                "A high share is a relationship the bank holds through trade rather than "
+                "through domestic collections.")
+
+        intensity = trade_flow.dropna(subset=["intensity"]).sort_values("intensity")
+        fig = go.Figure(go.Bar(
+            y=intensity["entity_name"], x=intensity["intensity"], orientation="h",
+            marker_color=[POS if v >= 0.3 else WARN if v >= 0.15 else MUTED
+                          for v in intensity["intensity"]],
+            customdata=intensity["trade_value"],
+            hovertemplate="%{y}<br>%{x:.1%} of routed value"
+                          "<br>R %{customdata:,.0f} trade<extra></extra>",
+        ))
+        fig.update_layout(xaxis_tickformat=".0%",
+                          xaxis_title="Trade value ÷ total routed value")
+        st.plotly_chart(style(fig, max(320, 40 * len(intensity)), legend=False),
+                        width="stretch")
+
+        st.divider()
+        section("Trade channel mix",
+                "How the trade value moves: the three trade finance instruments, and the "
+                "cross-border trade corridor that settles alongside them. Shares are of "
+                "each entity's own trade value, so the rows are comparable across "
+                "entities of very different size.")
+
+        instruments = (
+            trade.groupby(["entity_id", "instrument_type"], as_index=False)["value_zar"].sum()
+            .rename(columns={"instrument_type": "channel"})
+        )
+        corridor_trade = (
+            corridors[corridors["corridor_type"] == "trade"]
+            .groupby("entity_id", as_index=False)["value_zar"].sum()
+            .assign(channel="cross-border trade corridor")
+        )
+        mix = pd.concat([instruments, corridor_trade], ignore_index=True)
+        mix["entity_name"] = mix["entity_id"].map(ENTITY_LABEL)
+        mix["share"] = mix["value_zar"] / mix.groupby("entity_id")["value_zar"].transform("sum")
+
+        order = trade_flow.sort_values("trade_value")["entity_name"].tolist()
+        fig = go.Figure()
+        for colour, channel in zip(SEQUENCE, sorted(mix["channel"].unique())):
+            part = mix[mix["channel"] == channel]
+            fig.add_bar(
+                y=part["entity_name"], x=part["share"], orientation="h",
+                name=channel.replace("_", " "), marker_color=colour,
+                customdata=part["value_zar"],
+                hovertemplate="%{y}<br>%{x:.1%}<br>R %{customdata:,.0f}<extra></extra>",
+            )
+        fig.update_layout(barmode="stack", xaxis_tickformat=".0%",
+                          xaxis_title="Share of the entity's trade value",
+                          yaxis=dict(categoryorder="array", categoryarray=order))
+        st.plotly_chart(style(fig, max(340, 42 * len(order))), width="stretch")
+
+        st.divider()
+        section("Trade book by entity",
+                "Open exposure is the value of instruments still live at year end; tenor is "
+                "the value-weighted average across them.")
+
+        show = trade_flow[[
+            "entity_id", "entity_name", "sector", "imports", "exports", "net_import",
+            "position", "trade_value", "intensity", "open_exposure", "tenor", "countries",
+        ]].sort_values("net_import", ascending=False).copy()
+        for column in ("imports", "exports", "net_import", "trade_value", "open_exposure"):
+            show[column] = show[column].map(zar)
+        show["intensity"] = show["intensity"].map(pct)
+        show["tenor"] = show["tenor"].map(lambda v: "-" if pd.isna(v) else f"{v:,.0f} days")
+        show["countries"] = show["countries"].map(
+            lambda v: "-" if pd.isna(v) else f"{int(v)}")
+        table(show.rename(columns={
+            "entity_id": "Entity", "entity_name": "Name", "sector": "Sector",
+            "imports": "Imports", "exports": "Exports", "net_import": "Net import position",
+            "position": "Position", "trade_value": "Trade value",
+            "intensity": "Trade intensity", "open_exposure": "Open exposure",
+            "tenor": "Avg tenor", "countries": "Countries",
+        }))
