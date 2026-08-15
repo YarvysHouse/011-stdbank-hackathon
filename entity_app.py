@@ -8,8 +8,8 @@ Tabs, left to right:
     2 Sector                 sector split, and reported against computed per sector
     3 Entity Analysis        incomes, payments and reference types per entity
     4 Geography              counterparty countries, income against payment
-    5 Opportunity            missed wallet and the revenue it would carry
-    6 Future Projection      published CAGR compounded forward at flat share
+    5 Opportunity            growth capacity by year, then current gap and future growth
+    6 AI Analyst             Gemini answering over the same aggregations, tool-called
 
 Each tab opens with a generated read of its own figures - see `insight()`.
 """
@@ -218,7 +218,7 @@ def highlight(row):
 # --------------------------------------------------------------------------
 
 tabs = st.tabs(["1 · Portfolio Summary", "2 · Sector", "3 · Entity Analysis",
-                "4 · Geography", "5 · Opportunity", "6 · Future Projection", "7 · AI Analyst"])
+                "4 · Geography", "5 · Opportunity", "6 · AI Analyst"])
 
 # 1 - PORTFOLIO SUMMARY -----------------------------------------------------
 with tabs[0]:
@@ -652,8 +652,100 @@ with tabs[3]:
                      hide_index=True, width="stretch")
 
 # 5 - OPPORTUNITY -----------------------------------------------------------
+# Current gap and future growth on one page: the same client is a target for one
+# and a defence for the other, and splitting them across tabs made that easy to miss.
 with tabs[4]:
-    st.title("Opportunities for Growth")
+    st.title("Opportunity")
+
+    # -- growth capacity: both halves in one revenue stream, year by year -----
+    st.subheader("Growth capacity")
+    st.caption("What each client could be worth to Syn Bank in fee income, year by year. Two "
+               "components on different clocks: what the bank already routes, compounding at the "
+               "client's own growth rate, plus a phased-in share of the wallet gap. Move the year "
+               "and the ranking reorders — a client can lead today and be overtaken by one growing "
+               "into a larger book.")
+
+    g1, g2, g3 = st.columns(3)
+    cap_year = g1.slider("Year", 0, BASE_HORIZON, 0, key="cap_year",
+                         help="0 is today. The ranking below re-sorts at each year.")
+    capture_pct = g2.slider("Share of the gap won by year 5 (%)", 0.0, 5.0, 1.0, 0.25,
+                            key="cap_rate",
+                            help="Phased in evenly. At 0% the ranking is pure organic growth.")
+    cap_bps = g3.slider("Fee on value routed (bps)", 1, 100, BASE_BPS, key="cap_bps")
+
+    cap_missed = missed_wallet(reliable_lines(comparison_df), cap_bps, BASE_FEE_PER_TXN)
+    cap_proj = project(projection_df, BASE_HORIZON, cap_bps)
+
+    cap = (summary_df[ID_COLS]
+           .merge(cap_missed[["entity_id", "missed_amount", "fee_revenue"]], on="entity_id", how="left")
+           .merge(cap_proj[["entity_id", "cagr_pct", "bank_now"]], on="entity_id", how="left")
+           .fillna({"missed_amount": 0.0, "fee_revenue": 0.0, "cagr_pct": 0.0, "bank_now": 0.0}))
+
+    def capacity(frame, year):
+        """Fee income in `year`: routed flow compounding, plus the gap phased in linearly."""
+        organic = frame["bank_now"] * (1 + frame["cagr_pct"] / 100) ** year
+        captured = frame["fee_revenue"] * capture_pct / 100 * (year / BASE_HORIZON)
+        return organic, captured, organic + captured
+
+    cap["organic"], cap["captured"], cap["total"] = capacity(cap, cap_year)
+    _, _, cap["total_now"] = capacity(cap, 0)
+    _, _, cap["total_end"] = capacity(cap, BASE_HORIZON)
+
+    ranked_now = cap.sort_values("total_now", ascending=False)["entity_name"].tolist()
+    ranked_end = cap.sort_values("total_end", ascending=False)["entity_name"].tolist()
+    movers = [(n, ranked_now.index(n) - ranked_end.index(n)) for n in ranked_now]
+    climber = max(movers, key=lambda m: m[1])
+
+    lead_now, lead_end = ranked_now[0], ranked_end[0]
+    top_row = cap.loc[cap["entity_name"] == lead_end].iloc[0]
+
+    insight(
+        f"At today's book <b>{lead_now}</b> earns the most fee income, and by year {BASE_HORIZON} "
+        + (f"<b>{lead_end}</b> has taken the lead." if lead_end != lead_now
+           else f"it still leads.")
+        + f" Across the book that is {zar(cap['total_now'].sum())} today against "
+        f"{zar(cap['total_end'].sum())} in year {BASE_HORIZON}, of which "
+        f"{zar(cap['fee_revenue'].sum() * capture_pct / 100)} comes from winning "
+        f"{capture_pct:.2f}% of the gap rather than from growth. "
+        + (f"<b>{climber[0]}</b> climbs {climber[1]} place{'s' if climber[1] > 1 else ''} over the "
+           f"horizon — the sharpest reordering on the board."
+           if climber[1] > 0 else "No client changes rank over the horizon at these settings."),
+        f"Rank is not static, so coverage should not be either. <b>{lead_end}</b> ends the horizon "
+        f"largest at {zar(top_row['total_end'])} — worth assigning against where it lands, not where "
+        f"it sits today.")
+
+    top_n = cap.sort_values("total", ascending=False).head(12)
+    fig = go.Figure()
+    fig.add_bar(y=top_n["entity_name"], x=top_n["organic"], orientation="h",
+                name="Routed today, compounding", marker_color=CATEGORICAL[0],
+                marker_line=dict(width=2, color=SURFACE),
+                hovertemplate="%{y}<br>organic R %{x:,.0f}<extra></extra>")
+    fig.add_bar(y=top_n["entity_name"], x=top_n["captured"], orientation="h",
+                name="Gap captured", marker_color=CATEGORICAL[1],
+                marker_line=dict(width=2, color=SURFACE),
+                hovertemplate="%{y}<br>captured R %{x:,.0f}<extra></extra>")
+    fig.update_layout(barmode="stack", bargap=0.25, yaxis=dict(autorange="reversed"),
+                      xaxis_title=f"Fee income in year {cap_year} (ZAR)",
+                      legend=dict(orientation="h", y=-0.12))
+    st.plotly_chart(frame_style(fig, 520), width="stretch")
+
+    c1, c2, c3 = st.columns(3)
+    c1.metric(f"Book fee income, year {cap_year}", zar(cap["total"].sum()),
+              f"{zar(cap['total'].sum() - cap['total_now'].sum())} vs today", delta_color="off")
+    c2.metric("Strongest today", lead_now)
+    c3.metric(f"Strongest in year {BASE_HORIZON}", lead_end)
+
+    with st.expander("Every client, ranked at this year"):
+        st.dataframe(
+            cap.sort_values("total", ascending=False)[
+                ID_COLS + ["cagr_pct", "bank_now", "organic", "captured", "total", "missed_amount"]]
+            .style.format({"cagr_pct": "{:,.2f}%", "bank_now": "{:,.0f}", "organic": "{:,.0f}",
+                           "captured": "{:,.0f}", "total": "{:,.0f}", "missed_amount": "{:,.0f}"}),
+            hide_index=True, width="stretch")
+
+    st.divider()
+    st.header("Current opportunity")
+    st.caption("The gap as it stands today — reported financials the bank does not currently see.")
 
     opp_scope = st.radio("View", ["All", "By sector", "By entity"], horizontal=True, key="opp_scope")
 
@@ -736,9 +828,12 @@ with tabs[4]:
                        "implied_txns": "{:,.0f}", "fee_revenue": "{:,.0f}"}),
         hide_index=True, width="stretch")
 
-# 6 - FUTURE PROJECTION -----------------------------------------------------
-with tabs[5]:
-    st.title("Future Projection")
+# 5 continued - FUTURE OPPORTUNITY ------------------------------------------
+# Re-entering tabs[4] appends to the same tab, which keeps this block's
+# indentation and controls exactly as they were when it was its own tab.
+with tabs[4]:
+    st.divider()
+    st.header("Future opportunity")
     st.caption("Published revenue CAGR compounded forward, with the bank's current share of "
                "each client held flat — so the projection sizes growth already committed to, "
                "not share the bank has yet to win.")
@@ -807,8 +902,8 @@ with tabs[5]:
     if dropped:
         st.caption(f"Excluded for want of a reported revenue line: {', '.join(dropped)}.")
 
-# 7 - AI ANALYST ------------------------------------------------------------
-with tabs[6]:
+# 6 - AI ANALYST ------------------------------------------------------------
+with tabs[5]:
     st.title("AI Analyst")
     st.caption("Ask the book a question. Gemini answers by calling the same aggregations these "
                "tabs render — it has no access to the underlying rows and cannot run code against "

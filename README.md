@@ -63,20 +63,30 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 
 **Portfolio summary and opportunity heatmap** — *page 1*:
 
-- Page 1 opens book-wide before any filter: entities, transactions, book flow, cross-border, reported financials, share carried, addressable gap, and the 5-year growth uplift. Quoted at a fixed 15 bps + R5/txn over 5 years, so the headline never moves under someone else's slider; pages 5 and 6 make those adjustable.
+- Page 1 opens book-wide before any filter: entities, transactions, book flow, cross-border, reported financials, share carried, addressable gap, and the 5-year growth uplift. Quoted at a fixed 15 bps + R5/txn over 5 years, so the headline never moves under someone else's slider; page 5 makes those adjustable.
 - **Opportunity heatmap** — 19 clients × 5 measures: wallet gap, volume potential, share headroom, client growth, projected uplift.
 - Cells are **percentile rank within the book**, not absolute value — the five measures are in different units (ZAR, transactions, %), so ranking is what makes them comparable across a row. Hover gives the underlying figure.
-- Every column is oriented so darker = more opportunity; share headroom inverts wallet share so thinly banked clients read hot.
-- Rows sorted by mean percentile. Dark across all five is a coverage failure; dark in one column is a product sale.
+- Every column is oriented so brighter = more opportunity; share headroom inverts wallet share so thinly banked clients read hot.
+- The ramp runs dark→light because the configured theme is dark: the low end sits near the surface and the high end lifts off it, which is the reverse of a light build.
+- Rows sorted by mean percentile. Bright across all five is a coverage failure; bright in one column is a product sale.
 - NEPI Rockcastle leads at 75.8, Glencore and Clicks Group both 74.7; Aspen Pharmacare last at 22.1.
-- Sizing maths is shared with pages 5 and 6 (`reliable_lines`, `missed_wallet`, `project`) so the summary cannot drift from the tabs it summarises.
+- Sizing maths is shared with page 5 and the AI tools (`sizing.py`) so the summary cannot drift from what it summarises.
 
 ## 5. Analysis and recommendation outputs
 
+**Growth capacity** — *page 5, top section*:
+
+- Current and future opportunity sit on one page: the same client is a target for one and a defence for the other, and splitting them across tabs made that easy to miss.
+- The top section ranks clients by what they could be worth in fee income at a chosen year, with a **year slider (0–5)** that reorders the board.
+- Two components on different clocks — `organic = bank_now × (1 + cagr)^year`, compounding at the client's own growth rate, plus `captured = fee_on_gap × capture% × year/5`, the wallet gap phased in linearly.
+- Stacked bars keep the split visible, so a client leading on captured gap never reads as one leading on growth.
+- **Capture rate is a slider (default 1%)** because the two components are orders of magnitude apart: the gap is ~R58tn against R7tn of client revenue, so an unweighted sum would drown the growth signal entirely. At 0% the ranking is pure organic growth.
+- The reordering is real: at 0% capture six clients change rank over the horizon; at 1% NEPI Rockcastle climbs 17 places to lead.
+
 - Every dashboard page opens with a generated read of its own figures — key insight plus one suggested move.
 - Computed live from whatever that page's slicers currently resolve to, not a fixed snapshot.
-- These are **rule-based, not a model call** — branching logic over real statistics, so figures are always correct and they run offline. The generative layer is separate, on page 7 (section 7 below).
-- Sizing on *page 5 · Opportunity*:
+- These are **rule-based, not a model call** — branching logic over real statistics, so figures are always correct and they run offline. The generative layer is separate, on page 6 (section 7 below).
+- Sizing on *page 5 · Opportunity → Current opportunity*:
   - `missed = max(reported − computed, 0)` per entity-year.
   - `avg_ticket = (incomes + payments) ÷ transactions`.
   - `implied_txns = missed ÷ avg_ticket`.
@@ -91,19 +101,19 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 - Group package recommended when the three clear **60%** of transactions.
 - Every entity clears it (AngloGold 80.1%, Bidvest 88.7%, book-wide 90.7%) — INV, SWEEP and PO dominate throughout.
 
-## 6. Future projection — *page 6*
+## 6. Future projection — *page 5 · Future opportunity*
 
 - Growth rates hand-entered per entity in `benchmarks/entity_cagr.csv`.
 - Base is the **latest reported revenue**, not bank flow: CAGR is published on the company top line, so compounding bank flow by it would assume share grows with the client — the thing under test.
 - `projected_revenue = base_revenue × (1 + cagr)^years`.
 - `routed = projected_revenue × current_wallet_share`.
 - `bank_revenue = routed × bps/10,000`. Horizon and bps are sliders.
-- **Current share held flat** — the tab sizes growth already committed to; winning share is page 5's job.
+- **Current share held flat** — this section sizes growth already committed to; winning share is the Current opportunity section's job.
 - At 5 years / 15 bps: client revenue R7.20tn → **R9.33tn**, bank fee income R57.3m → **R77.7m**, uplift **R20.4m** with no new mandates.
 - Fastest growers: Gold Fields 13.1%, Pepkor 12.3%, OUTsurance 12.2%. Two entities contracting (Anglo American −0.98%, Bidvest −4.70%).
 - Sanlam is excluded — no reported revenue line, so no base to compound. 19 of 20 project.
 
-## 7. Generative AI — the analyst on page 7
+## 7. Generative AI — the analyst on page 6
 
 A chat panel over the book. Gemini answers by **calling the same aggregations the tabs render**, so every figure it quotes is one the dashboard already computes and the analysis was validated against.
 
@@ -182,7 +192,7 @@ uv run streamlit run entity_app.py
 | `build_artifacts.py` | Precompute the six tables to parquet |
 | `sizing.py` | The sizing maths, pure — shared by the dashboard and the analyst |
 | `ai_analyst.py` | Gemini tools, the tool loop, and the `--check` wiring test |
-| `entity_app.py` | Seven-tab Streamlit dashboard |
+| `entity_app.py` | Six-tab Streamlit dashboard |
 | `benchmarks/` | Extraction worklist (reported-side denominator) and `entity_cagr.csv` |
 | `public_financial_statements/` | Source PDFs behind every reported figure |
 | `outputs/artifacts/` | What the deployed app reads |
