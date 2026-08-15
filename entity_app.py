@@ -21,7 +21,7 @@ import streamlit as st
 
 from build_artifacts import ARTIFACTS_, build
 
-TABLES = ["summary", "reference", "reference_counts", "comparison", "geo"]
+TABLES = ["summary", "reference", "reference_counts", "comparison", "geo", "projection"]
 
 st.set_page_config(page_title="Syn Bank Entity Analysis", layout="wide")
 
@@ -78,7 +78,7 @@ def build_tables():
     tables = build()
     return tuple(tables[name] for name in TABLES)
 
-summary_df, reference_df, reference_count_df, comparison_df, geo_df = build_tables()
+summary_df, reference_df, reference_count_df, comparison_df, geo_df, projection_df = build_tables()
 
 REFERENCE_TYPES = [c for c in reference_df.columns if c not in ID_COLS]
 SECTORS = sorted(summary_df["sector"].dropna().unique())
@@ -207,7 +207,7 @@ def highlight(row):
 # --------------------------------------------------------------------------
 
 tabs = st.tabs(["1 · Reported vs Computed", "2 · Sector", "3 · Entity Analysis",
-                "4 · Geography", "5 · Opportunity"])
+                "4 · Geography", "5 · Opportunity", "6 · Future Projection"])
 
 # 1 - REPORTED VS COMPUTED --------------------------------------------------
 with tabs[0]:
@@ -385,6 +385,55 @@ with tabs[2]:
                            else (reference_count_view, "Transactions"))
     st.plotly_chart(reference_bar(bar_view, dim, bar_title), width="stretch")
 
+    # -- top products and the case for bundling them ------------------------
+    st.divider()
+    st.subheader("Top 3 products & group discount")
+
+    counts = reference_count_view[reference_count_view["entity_name"] != "TOTAL"][REFERENCE_TYPES].sum()
+    values = reference_view[reference_view["entity_name"] != "TOTAL"][REFERENCE_TYPES].sum()
+    total_txns = counts.sum()
+
+    top3 = counts.nlargest(3)
+    bundle = pd.DataFrame({
+        "reference_type": top3.index,
+        "transactions": top3.to_numpy(dtype=float),
+        "pct_of_transactions": top3.to_numpy(dtype=float) / total_txns * 100,
+        "net_zar": [values[t] for t in top3.index],
+    })
+    bundle.loc[len(bundle)] = ["COMBINED", top3.sum(), top3.sum() / total_txns * 100,
+                               sum(values[t] for t in top3.index)]
+
+    combined_pct = top3.sum() / total_txns * 100
+    # a bundle only prices sensibly when the three carry most of the traffic
+    qualifies = combined_pct >= 60
+
+    st.dataframe(bundle.style.format({"transactions": "{:,.0f}", "pct_of_transactions": "{:,.1f}%",
+                                      "net_zar": "{:,.0f}"}),
+                 hide_index=True, width="stretch")
+
+    d1, d2 = st.columns(2)
+    d1.metric("Combined share of transactions", f"{combined_pct:.1f}%")
+    d2.metric("Group package", "Recommended" if qualifies else "Not yet")
+
+    names = ", ".join(f"<b>{t}</b>" for t in top3.index)
+    insight(
+        f"{choice} runs {int(total_txns):,} transactions across {len(REFERENCE_TYPES)} reference types. "
+        f"The three heaviest — {names} — carry <b>{combined_pct:.1f}%</b> of them "
+        f"({int(top3.sum()):,} transactions). Selection is on transaction count rather than value: a "
+        f"pricing bundle is billed per instruction, so the volume concentration is what determines "
+        f"whether a discount recovers its margin. "
+        + (f"At {combined_pct:.0f}% the three cover most of the traffic, so a single negotiated rate "
+           f"across them is priceable against predictable volume."
+           if qualifies else
+           f"At {combined_pct:.0f}% the traffic is too spread for these three alone to anchor a package — "
+           f"a bundle here discounts a minority of instructions while leaving the rest at rack rate."),
+        (f"Offer a bundled per-instruction rate on {names} in exchange for a volume commitment — "
+         f"the concentration makes the discount self-funding, and it locks the flows that are "
+         f"cheapest to keep."
+         if qualifies else
+         f"Widen the bundle beyond three references, or price {top3.index[0]} alone — on this mix a "
+         f"three-product package gives away margin without securing enough of the relationship."))
+
 # 4 - GEOGRAPHY -------------------------------------------------------------
 with tabs[3]:
     st.title("Geographical Location of Transactions")
@@ -554,3 +603,83 @@ with tabs[4]:
         .style.format({"missed_amount": "{:,.0f}", "avg_ticket": "{:,.0f}",
                        "implied_txns": "{:,.0f}", "fee_revenue": "{:,.0f}"}),
         hide_index=True, width="stretch")
+
+# 6 - FUTURE PROJECTION -----------------------------------------------------
+with tabs[5]:
+    st.title("Future Projection")
+    st.caption("Published revenue CAGR compounded forward, with the bank's current share of "
+               "each client held flat — so the projection sizes growth already committed to, "
+               "not share the bank has yet to win.")
+
+    f1, f2 = st.columns(2)
+    horizon = f1.slider("Projection horizon (years)", 1, 10, 5)
+    proj_bps = f2.slider("Fee on value routed (bps)", 1, 100, 15, key="proj_bps")
+
+    proj = projection_df.dropna(subset=["base_revenue", "cagr_pct"]).copy()
+    dropped = projection_df[projection_df["base_revenue"].isna()]["entity_name"].tolist()
+
+    growth = (1 + proj["cagr_pct"] / 100) ** horizon
+    proj["projected_revenue"] = proj["base_revenue"] * growth
+    proj["revenue_growth"] = proj["projected_revenue"] - proj["base_revenue"]
+    proj["routed_now"] = proj["base_revenue"] * proj["wallet_share_pct"] / 100
+    proj["routed_future"] = proj["projected_revenue"] * proj["wallet_share_pct"] / 100
+    proj["bank_now"] = proj["routed_now"] * proj_bps / 10_000
+    proj["bank_future"] = proj["routed_future"] * proj_bps / 10_000
+    proj["bank_uplift"] = proj["bank_future"] - proj["bank_now"]
+
+    fastest = proj.nlargest(3, "cagr_pct")
+    top_uplift = proj.loc[proj["bank_uplift"].idxmax()]
+    shrinking = proj[proj["cagr_pct"] < 0]
+
+    insight(
+        f"Compounded over {horizon} years, the book's clients grow from "
+        f"{zar(proj['base_revenue'].sum())} to <b>{zar(proj['projected_revenue'].sum())}</b> of "
+        f"published revenue. Holding today's share flat, Syn Bank's modelled fee income rises from "
+        f"{zar(proj['bank_now'].sum())} to <b>{zar(proj['bank_future'].sum())}</b> — an uplift of "
+        f"{zar(proj['bank_uplift'].sum())} earned without winning a single new mandate. Fastest growers "
+        f"are <b>{'</b>, <b>'.join(fastest['entity_name'])}</b> "
+        f"({', '.join(f'{c:.1f}%' for c in fastest['cagr_pct'])} CAGR)"
+        + (f", while {len(shrinking)} entities are contracting." if len(shrinking) else "."),
+        f"<b>{top_uplift['entity_name']}</b> carries the largest uplift at {zar(top_uplift['bank_uplift'])} "
+        f"on {top_uplift['cagr_pct']:.1f}% growth — defend that mandate first, since retaining existing "
+        f"share there returns more than chasing a comparable gap elsewhere.")
+
+    k1, k2, k3 = st.columns(3)
+    k1.metric(f"Client revenue in {horizon}y", zar(proj["projected_revenue"].sum()))
+    k2.metric("Bank fee income", zar(proj["bank_future"].sum()))
+    k3.metric("Uplift at flat share", zar(proj["bank_uplift"].sum()))
+
+    st.subheader("Fastest growing entities")
+    d = proj.sort_values("cagr_pct", ascending=False)
+    fig = go.Figure(go.Bar(y=d["entity_name"], x=d["cagr_pct"], orientation="h",
+                           marker_color=np.where(d["cagr_pct"] >= 0, POS, NEG),
+                           marker_line=dict(width=2, color=SURFACE),
+                           hovertemplate="%{y}<br>%{x:.2f}% CAGR<extra></extra>"))
+    fig.update_layout(bargap=0.25, yaxis=dict(autorange="reversed"), xaxis_title="Revenue CAGR (%)")
+    st.plotly_chart(frame_style(fig, 620), width="stretch")
+
+    st.subheader("Projected bank fee income")
+    st.caption("Top eight entities by uplift, compounded year by year at current share.")
+
+    years = list(range(horizon + 1))
+    lead = proj.nlargest(8, "bank_uplift")
+    fig = go.Figure()
+    for colour, (_, row) in zip(CATEGORICAL, lead.iterrows()):
+        path = [row["bank_now"] * (1 + row["cagr_pct"] / 100) ** y for y in years]
+        fig.add_trace(go.Scatter(x=years, y=path, name=row["entity_name"], mode="lines",
+                                 line=dict(color=colour, width=2),
+                                 hovertemplate=f"{row['entity_name']}<br>year %{{x}}<br>R %{{y:,.0f}}<extra></extra>"))
+    fig.update_layout(xaxis_title="Years from now", legend_title_text="Entity")
+    st.plotly_chart(frame_style(fig, 460, "Fee income (ZAR)"), width="stretch")
+
+    st.dataframe(
+        proj.sort_values("bank_uplift", ascending=False)[
+            ["entity_id", "entity_name", "sector", "cagr_pct", "base_year", "base_revenue",
+             "projected_revenue", "wallet_share_pct", "bank_now", "bank_future", "bank_uplift"]]
+        .style.format({"cagr_pct": "{:,.2f}%", "wallet_share_pct": "{:,.3f}%",
+                       "base_revenue": "{:,.0f}", "projected_revenue": "{:,.0f}",
+                       "bank_now": "{:,.0f}", "bank_future": "{:,.0f}", "bank_uplift": "{:,.0f}"}),
+        hide_index=True, width="stretch")
+
+    if dropped:
+        st.caption(f"Excluded for want of a reported revenue line: {', '.join(dropped)}.")

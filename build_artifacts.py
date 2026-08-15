@@ -19,7 +19,9 @@ import pandas as pd
 from analysis_script import (load_data, reference_type_check, combined_df, entity_report,
                              compare_to_results, TRANSACTIONS_, CROSS_BORDER_, TRADE_FINANCE_)
 
-ARTIFACTS_ = Path(__file__).resolve().parent / "outputs" / "artifacts"
+BASE_DIR_ = Path(__file__).resolve().parent
+ARTIFACTS_ = BASE_DIR_ / "outputs" / "artifacts"
+CAGR_ = BASE_DIR_ / "benchmarks" / "entity_cagr.csv"
 
 GEO_COLS = ["entity_id", "entity_name", "sector", "counterparty_country", "signed_amount", "value_zar"]
 
@@ -30,6 +32,30 @@ def country_flows(cross_border, trade_finance):
     d["flow"] = np.where(d["signed_amount"] > 0, "Income", "Payment")
     return d.groupby(["entity_id", "entity_name", "sector", "counterparty_country", "flow"],
                      as_index=False).agg(value_zar=("value_zar", "sum"), txn_count=("value_zar", "size"))
+
+
+def projection_base(comparison: pd.DataFrame, summary: pd.DataFrame) -> pd.DataFrame:
+    """Each entity's most recent reported revenue and the share of it the bank carries.
+
+    Revenue is the projection base rather than bank flow: CAGR is published on the
+    company's top line, so growing bank flow by it would assume the bank's share
+    grows with the client, which is the thing being tested rather than assumed.
+    """
+    revenue = comparison[comparison["line_item"] == "Total revenue"].dropna(subset=["reported_value"])
+    latest = (revenue.sort_values("fiscal_year")
+                     .groupby("entity_id", as_index=False)
+                     .last()[["entity_id", "fiscal_year", "reported_value",
+                              "summation_value", "pct_of_reported"]])
+    latest = latest.rename(columns={"fiscal_year": "base_year",
+                                    "reported_value": "base_revenue",
+                                    "summation_value": "base_routed",
+                                    "pct_of_reported": "wallet_share_pct"})
+
+    cagr = pd.read_csv(CAGR_)[["entity_id", "cagr_pct"]]
+
+    return (summary[["entity_id", "entity_name", "sector", "num_transactions"]]
+            .merge(cagr, on="entity_id", how="left")
+            .merge(latest, on="entity_id", how="left"))
 
 
 def build() -> dict[str, pd.DataFrame]:
@@ -50,6 +76,7 @@ def build() -> dict[str, pd.DataFrame]:
         "reference_counts": reference_counts,
         "comparison": comparison,
         "geo": country_flows(frames[1], frames[2]),
+        "projection": projection_base(comparison, summary),
     }
 
 

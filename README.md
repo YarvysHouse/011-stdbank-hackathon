@@ -42,7 +42,7 @@ Five reported line items mapped to reference types:
 - `difference = computed − reported`.
 - **`pct_of_reported = computed ÷ reported × 100`** — this is the wallet share figure.
 - Outflow lines compared on magnitude; the worklist is inconsistent on sign (Taxation paid is negative in 37 of 42 rows).
-- **181 of 181 filled rows match.**
+- **176 of 176 filled rows match.**
 
 ## 4. Output metrics
 
@@ -54,12 +54,12 @@ Median wallet share, by line — *dashboard page 1 · Reported vs Computed*:
 | Total revenue | 47 | 0.657% |
 | Cost of sales and supplier payments | 44 | 0.098% |
 | Taxation paid | 42 | 0.030% |
-| Employee costs | 5 | 0.008% |
 
-- Overall median: **0.148%**.
+- Overall median: **0.174%**.
 - Book flow: R318.9bn in, R256.5bn out across 3.04m transactions — *page 3 · Entity Analysis*.
 - Sector split and reported-vs-calculated per sector — *page 2 · Sector*.
 - Cross-border: 34 counterparty countries, R169.0bn over 256,443 transactions, net importer — *page 4 · Geography*.
+- Product concentration: top 3 references carry 90.7% of all transactions — *page 3 · Entity Analysis*.
 
 ## 5. Analysis and recommendation outputs
 
@@ -71,8 +71,27 @@ Median wallet share, by line — *dashboard page 1 · Reported vs Computed*:
   - `avg_ticket = (incomes + payments) ÷ transactions`.
   - `implied_txns = missed ÷ avg_ticket`.
   - `fee_revenue = missed × bps/10,000 + implied_txns × fee_per_txn` (both sliders).
-- Headline: R58.05tn reported, **0.235% carried**, R57.92tn addressable, ~R88bn modelled fee revenue at 15 bps + R5/txn.
+- Headline: R57.99tn reported, **0.235% carried**, R57.85tn addressable, ~R88bn modelled fee revenue at 15 bps + R5/txn.
 - Rows where computed exceeds 50% of reported are flagged amber and excluded from sizing — extraction scale errors, not real matches.
+
+**Product bundling** — *page 3 · Entity Analysis*:
+
+- Top 3 reference types per entity, ranked by **transaction count, not value** — a bundle is billed per instruction, so volume concentration determines whether a discount recovers its margin.
+- Table gives each reference, its share of the entity's transactions, and the combined total.
+- Group package recommended when the three clear **60%** of transactions.
+- Every entity clears it (AngloGold 80.1%, Bidvest 88.7%, book-wide 90.7%) — INV, SWEEP and PO dominate throughout.
+
+## 6. Future projection — *page 6*
+
+- Growth rates hand-entered per entity in `benchmarks/entity_cagr.csv`.
+- Base is the **latest reported revenue**, not bank flow: CAGR is published on the company top line, so compounding bank flow by it would assume share grows with the client — the thing under test.
+- `projected_revenue = base_revenue × (1 + cagr)^years`.
+- `routed = projected_revenue × current_wallet_share`.
+- `bank_revenue = routed × bps/10,000`. Horizon and bps are sliders.
+- **Current share held flat** — the tab sizes growth already committed to; winning share is page 5's job.
+- At 5 years / 15 bps: client revenue R7.20tn → **R9.33tn**, bank fee income R57.3m → **R77.7m**, uplift **R20.4m** with no new mandates.
+- Fastest growers: Gold Fields 13.1%, Pepkor 12.3%, OUTsurance 12.2%. Two entities contracting (Anglo American −0.98%, Bidvest −4.70%).
+- Sanlam is excluded — no reported revenue line, so no base to compound. 19 of 20 project.
 
 ## Run it
 
@@ -82,7 +101,7 @@ uv run python build_artifacts.py        # needs Data/ — writes outputs/artifac
 uv run streamlit run entity_app.py
 ```
 
-- `build_artifacts.py` precomputes the five dashboard tables to **65 KB of parquet**.
+- `build_artifacts.py` precomputes the six dashboard tables to **71 KB of parquet**.
 - The app reads those when present, falls back to the raw CSVs when absent.
 - Deployment ships only the parquet — load time under a second instead of ~40s.
 - Re-run `build_artifacts.py` and push after changing the worklist or source data.
@@ -94,14 +113,15 @@ uv run streamlit run entity_app.py
 | `analysis_script.py` | Load, sign, fiscal-year, aggregate, compare |
 | `build_artifacts.py` | Precompute the five tables to parquet |
 | `entity_app.py` | Five-tab Streamlit dashboard |
-| `benchmarks/` | Extraction worklist — the reported-side denominator |
+| `benchmarks/` | Extraction worklist (reported-side denominator) and `entity_cagr.csv` |
 | `public_financial_statements/` | Source PDFs behind every reported figure |
 | `outputs/artifacts/` | What the deployed app reads |
 
 ## Known limits
 
-- **Employee costs: 5 rows only** (Vodacom, MTN). Treat 0.008% as indicative.
+- **Employee costs has no reported rows** — computed from `PAYROLL + PAYE` but nothing to compare against, so it does not appear in the metrics.
 - Payroll is likely paid via bulk files this data does not capture — a coverage gap, not a modelling error.
+- Projections assume wallet share holds flat and CAGR is uniform across the horizon; neither is guaranteed.
 - Some reported figures carry scale errors from PDF extraction; a plausibility ceiling on `reported_value` is not yet implemented.
 - Cash basis only — no accruals, so no true EBITDA.
 - Trade finance counterparties are all external; no entity finances another.
