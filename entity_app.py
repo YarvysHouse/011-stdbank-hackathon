@@ -4,11 +4,12 @@
 
 Tabs, left to right:
 
-    1 Reported vs Computed   the financials line comparison
+    1 Portfolio Summary      book-wide position, opportunity heatmap, line comparison
     2 Sector                 sector split, and reported against computed per sector
     3 Entity Analysis        incomes, payments and reference types per entity
     4 Geography              counterparty countries, income against payment
     5 Opportunity            missed wallet and the revenue it would carry
+    6 Future Projection      published CAGR compounded forward at flat share
 
 Each tab opens with a generated read of its own figures - see `insight()`.
 """
@@ -34,6 +35,11 @@ SURFACE, MUTED, GRID = "#ffffff", "#898781", "#e1e0d9"
 # status palette - income green against payment red
 POS, NEG = "#0ca30c", "#d03b3b"
 GREY, AMBER = "rgba(137,135,129,0.16)", "rgba(250,178,25,0.22)"
+# sequential ramp for the heatmap - one hue, light to dark, stepped off CATEGORICAL[0]
+SEQUENTIAL = ["#f4f8fd", "#d9e7f8", "#b6d0f1", "#8bb3e6", "#5a94da", "#2a78d6", "#1d5aa4", "#123c6f"]
+
+# the assumptions the portfolio summary quotes, before anyone touches a slider
+BASE_BPS, BASE_FEE_PER_TXN, BASE_HORIZON = 15, 5, 5
 
 COUNTRY_COORDS = {
     "Angola": (-11.2, 17.9), "Botswana": (-22.3, 24.7), "Brazil": (-14.2, -51.9),
@@ -199,6 +205,56 @@ def reference_bar(df_wide, dim, y_title):
     fig.update_layout(bargap=0.25, xaxis_title=None, legend_title_text=split)
     return frame_style(fig, 460, y_title)
 
+# --------------------------------------------------------------------------
+# Sizing - shared by the portfolio summary, the heatmap, and tabs 5 and 6
+# --------------------------------------------------------------------------
+
+def reliable_lines(frame):
+    """Comparison rows that reconcile.
+
+    Scale errors from PDF extraction would swamp any sizing built on them, so they
+    go on the same rule the comparison table paints amber.
+    """
+    return frame[frame["summation_value"].notna() & (frame["pct_of_reported"].abs() <= 50)].copy()
+
+
+def missed_wallet(clean, fee_bps, fee_per_txn):
+    """Per-entity gap to reported financials, and the fee revenue closing it would carry."""
+    clean = clean.copy()
+    clean["missed"] = (clean["reported_value"] - clean["summation_value"]).clip(lower=0)
+
+    missed = clean.groupby(ID_COLS, as_index=False).agg(
+        missed_amount=("missed", "sum"), reported=("reported_value", "sum"),
+        computed=("summation_value", "sum"))
+    missed = missed.merge(summary_df[["entity_id", "incomes", "payments", "num_transactions"]],
+                          on="entity_id", how="left")
+
+    # what the bank already routes, per transaction, is the ticket it would carry
+    missed["avg_ticket"] = ((missed["incomes"] + missed["payments"])
+                            / missed["num_transactions"].replace(0, np.nan))
+    missed["implied_txns"] = (missed["missed_amount"] / missed["avg_ticket"]).replace([np.inf, -np.inf], np.nan)
+    missed["fee_revenue"] = (missed["missed_amount"] * fee_bps / 10_000
+                             + missed["implied_txns"].fillna(0) * fee_per_txn)
+    return missed
+
+
+def project(frame, horizon, bps):
+    """Published revenue compounded forward at each entity's CAGR, bank share held flat.
+
+    Entities with no reported revenue line carry no base to compound and drop out.
+    """
+    p = frame.dropna(subset=["base_revenue", "cagr_pct"]).copy()
+
+    p["projected_revenue"] = p["base_revenue"] * (1 + p["cagr_pct"] / 100) ** horizon
+    p["revenue_growth"] = p["projected_revenue"] - p["base_revenue"]
+    p["routed_now"] = p["base_revenue"] * p["wallet_share_pct"] / 100
+    p["routed_future"] = p["projected_revenue"] * p["wallet_share_pct"] / 100
+    p["bank_now"] = p["routed_now"] * bps / 10_000
+    p["bank_future"] = p["routed_future"] * bps / 10_000
+    p["bank_uplift"] = p["bank_future"] - p["bank_now"]
+    return p
+
+
 def highlight(row):
     """Grey where nothing was computed, amber where the ratio implies a reporting scale error."""
     if pd.isna(row["summation_value"]):
@@ -211,12 +267,127 @@ def highlight(row):
 # Tabs
 # --------------------------------------------------------------------------
 
-tabs = st.tabs(["1 · Reported vs Computed", "2 · Sector", "3 · Entity Analysis",
+tabs = st.tabs(["1 · Portfolio Summary", "2 · Sector", "3 · Entity Analysis",
                 "4 · Geography", "5 · Opportunity", "6 · Future Projection"])
 
-# 1 - REPORTED VS COMPUTED --------------------------------------------------
+# 1 - PORTFOLIO SUMMARY -----------------------------------------------------
 with tabs[0]:
-    st.title("Reported vs Computed")
+    st.title("Portfolio Summary")
+
+    book = missed_wallet(reliable_lines(comparison_df), BASE_BPS, BASE_FEE_PER_TXN)
+    horizon_view = project(projection_df, BASE_HORIZON, BASE_BPS)
+
+    reported_book = book["reported"].sum()
+    carried_book = book["computed"].sum()
+    book_share = carried_book / reported_book * 100 if reported_book else 0
+    uplift_book = horizon_view["bank_uplift"].sum()
+
+    top_gap = book.loc[book["missed_amount"].idxmax()]
+    top_growth = horizon_view.loc[horizon_view["bank_uplift"].idxmax()]
+    lead_sector = (book.groupby("sector")["missed_amount"].sum().idxmax())
+
+    insight(
+        f"Syn Bank banks <b>{len(summary_df)}</b> listed entities across {len(SECTORS)} sectors, moving "
+        f"{zar(summary_df['incomes'].sum() + summary_df['payments'].sum())} over "
+        f"{int(summary_df['num_transactions'].sum()):,} transactions. Against "
+        f"{zar(reported_book)} of published financials that is <b>{book_share:.3f}%</b> carried, leaving "
+        f"<b>{zar(book['missed_amount'].sum())}</b> addressable — worth {zar(book['fee_revenue'].sum())} "
+        f"in fee revenue at {BASE_BPS} bps plus R{BASE_FEE_PER_TXN} per instruction. A further "
+        f"{zar(uplift_book)} arrives over {BASE_HORIZON} years from client growth alone, with share held flat. "
+        f"The gap concentrates in <b>{tidy(lead_sector)}</b>, and <b>{top_gap['entity_name']}</b> is the "
+        f"single largest unbanked position at {zar(top_gap['missed_amount'])}.",
+        f"Run two plays in parallel: origination against <b>{top_gap['entity_name']}</b>, where the wallet gap "
+        f"is largest, and retention on <b>{top_growth['entity_name']}</b>, where {top_growth['cagr_pct']:.1f}% "
+        f"growth delivers {zar(top_growth['bank_uplift'])} without a new mandate.")
+
+    st.caption(f"Book-wide, independent of the filters below. Sized at {BASE_BPS} bps + "
+               f"R{BASE_FEE_PER_TXN} per transaction over {BASE_HORIZON} years — "
+               f"tabs 5 and 6 make those assumptions adjustable.")
+
+    p1, p2, p3, p4 = st.columns(4)
+    p1.metric("Entities", len(summary_df), f"{len(SECTORS)} sectors", delta_color="off")
+    p2.metric("Transactions", f"{int(summary_df['num_transactions'].sum()):,}")
+    p3.metric("Book flow", zar(summary_df["incomes"].sum() + summary_df["payments"].sum()),
+              f"{zar(summary_df['incomes'].sum())} in", delta_color="off")
+    p4.metric("Cross-border", zar(geo_df["value_zar"].sum()),
+              f"{geo_df['counterparty_country'].nunique()} countries", delta_color="off")
+
+    p5, p6, p7, p8 = st.columns(4)
+    p5.metric("Reported financials", zar(reported_book))
+    p6.metric("Wallet share carried", f"{book_share:.3f}%", zar(carried_book), delta_color="off")
+    p7.metric("Addressable gap", zar(book["missed_amount"].sum()),
+              f"{zar(book['fee_revenue'].sum())} in fees", delta_color="off")
+    p8.metric(f"Growth uplift, {BASE_HORIZON}y", zar(uplift_book),
+              f"{len(horizon_view)} of {len(projection_df)} entities", delta_color="off")
+
+    # -- opportunity heatmap ------------------------------------------------
+    st.divider()
+    st.subheader("Opportunity heatmap")
+    st.caption("Every client ranked against the others on five measures of opportunity. Cells are "
+               "percentile rank within the book, not absolute value — the measures are in different "
+               "units, so ranking is what makes them comparable across a row. Darker is more "
+               "opportunity on every column, including share headroom, which inverts wallet share "
+               "so that thinly banked clients read hot.")
+
+    heat = book[ID_COLS + ["missed_amount", "implied_txns", "computed", "reported"]].merge(
+        horizon_view[["entity_id", "cagr_pct", "bank_uplift"]], on="entity_id", how="left")
+    heat["headroom_pct"] = 100 - heat["computed"] / heat["reported"] * 100
+
+    DIMENSIONS = {
+        "Wallet gap": ("missed_amount", zar),
+        "Volume potential": ("implied_txns", lambda v: f"{v:,.0f} txns"),
+        "Share headroom": ("headroom_pct", lambda v: f"{v:.3f}% unbanked"),
+        "Client growth": ("cagr_pct", lambda v: f"{v:.2f}% CAGR"),
+        "Projected uplift": ("bank_uplift", zar),
+    }
+
+    ranks = pd.DataFrame({label: heat[col].rank(pct=True) * 100
+                          for label, (col, _) in DIMENSIONS.items()})
+    heat["score"] = ranks.mean(axis=1, skipna=True)
+    order = heat["score"].sort_values(ascending=False).index
+
+    raw = np.array([[fmt(heat.loc[i, col]) if pd.notna(heat.loc[i, col]) else "not projected"
+                     for col, fmt in DIMENSIONS.values()] for i in order])
+
+    fig = go.Figure(go.Heatmap(
+        z=ranks.loc[order].to_numpy(), x=list(DIMENSIONS), y=heat.loc[order, "entity_name"],
+        customdata=raw, colorscale=SEQUENTIAL, zmin=0, zmax=100,
+        xgap=2, ygap=2,  # surface gap between cells
+        colorbar=dict(title="Percentile", thickness=12, outlinewidth=0),
+        hovertemplate="%{y}<br>%{x}: %{customdata}<br>rank %{z:.0f} of 100<extra></extra>"))
+    fig.update_layout(yaxis=dict(autorange="reversed"), xaxis=dict(side="top"))
+    st.plotly_chart(frame_style(fig, 26 * len(heat) + 190), width="stretch")
+
+    if len(heat) < len(summary_df):
+        st.caption(f"{len(heat)} of {len(summary_df)} clients resolve a reliable comparison and appear "
+                   f"here; a client with no reconciling line has no gap to rank.")
+
+    # the palest cells fall under 3:1 against the surface, so the values also
+    # have to be readable as text rather than colour alone
+    with st.expander("Heatmap as a table"):
+        st.dataframe(
+            pd.concat([heat.loc[order, ["entity_name", "sector"]],
+                       ranks.loc[order].round(0), heat.loc[order, ["score"]]], axis=1)
+              .style.format({c: "{:,.0f}" for c in list(DIMENSIONS) + ["score"]}),
+            hide_index=True, width="stretch")
+
+    hottest = heat.loc[order[0]]
+    hot_dims = ranks.loc[order[0]].sort_values(ascending=False)
+    coldest = heat.loc[order[-1]]
+    insight(
+        f"<b>{hottest['entity_name']}</b> leads the book at an average percentile of "
+        f"{hottest['score']:.0f}, strongest on <b>{hot_dims.index[0]}</b> and "
+        f"<b>{hot_dims.index[1]}</b>. Ranking rather than absolute value is what lets a large but "
+        f"slow-growing client and a small fast-growing one be read on the same row — a client dark "
+        f"across all five is a coverage failure, one dark in a single column is a product sale. "
+        f"<b>{coldest['entity_name']}</b> sits last at {coldest['score']:.0f}.",
+        f"Give <b>{hottest['entity_name']}</b> a named coverage lead this quarter — it is the only "
+        f"client the book ranks in the upper half on every dimension that matters, so effort there "
+        f"compounds rather than trading one measure off against another.")
+
+    # -- the line comparison behind all of it --------------------------------
+    st.divider()
+    st.subheader("Reported vs Computed")
 
     scope = st.radio("View", ["All", "By sector", "By entity"], horizontal=True)
 
@@ -540,10 +711,7 @@ with tabs[4]:
     fee_bps = o1.slider("Fee on value routed (bps)", 1, 100, 15)
     fee_per_txn = o2.slider("Fee per transaction (R)", 0, 50, 5)
 
-    # scale errors would swamp the sizing, so drop them on the same rule the
-    # comparison tab highlights in amber
-    clean = comparison_df[comparison_df["summation_value"].notna()
-                          & (comparison_df["pct_of_reported"].abs() <= 50)].copy()
+    clean = reliable_lines(comparison_df)
 
     if opp_scope == "By sector":
         opp_sector = st.selectbox("Sector", SECTORS, key="opp_sector")
@@ -555,20 +723,8 @@ with tabs[4]:
         st.caption(opp_pick)
     else:
         st.caption("All entities")
-    clean["missed"] = (clean["reported_value"] - clean["summation_value"]).clip(lower=0)
 
-    missed = clean.groupby(ID_COLS, as_index=False).agg(
-        missed_amount=("missed", "sum"), reported=("reported_value", "sum"),
-        computed=("summation_value", "sum"))
-    missed = missed.merge(summary_df[["entity_id", "incomes", "payments", "num_transactions"]],
-                          on="entity_id", how="left")
-
-    # what the bank already routes, per transaction, is the ticket it would carry
-    missed["avg_ticket"] = ((missed["incomes"] + missed["payments"])
-                            / missed["num_transactions"].replace(0, np.nan))
-    missed["implied_txns"] = (missed["missed_amount"] / missed["avg_ticket"]).replace([np.inf, -np.inf], np.nan)
-    missed["fee_revenue"] = (missed["missed_amount"] * fee_bps / 10_000
-                             + missed["implied_txns"].fillna(0) * fee_per_txn)
+    missed = missed_wallet(clean, fee_bps, fee_per_txn)
 
     seg = missed.groupby("sector", as_index=False).agg(
         missed_amount=("missed_amount", "sum"), fee_revenue=("fee_revenue", "sum"),
@@ -641,17 +797,8 @@ with tabs[5]:
     horizon = f1.slider("Projection horizon (years)", 1, 10, 5)
     proj_bps = f2.slider("Fee on value routed (bps)", 1, 100, 15, key="proj_bps")
 
-    proj = projection_df.dropna(subset=["base_revenue", "cagr_pct"]).copy()
+    proj = project(projection_df, horizon, proj_bps)
     dropped = projection_df[projection_df["base_revenue"].isna()]["entity_name"].tolist()
-
-    growth = (1 + proj["cagr_pct"] / 100) ** horizon
-    proj["projected_revenue"] = proj["base_revenue"] * growth
-    proj["revenue_growth"] = proj["projected_revenue"] - proj["base_revenue"]
-    proj["routed_now"] = proj["base_revenue"] * proj["wallet_share_pct"] / 100
-    proj["routed_future"] = proj["projected_revenue"] * proj["wallet_share_pct"] / 100
-    proj["bank_now"] = proj["routed_now"] * proj_bps / 10_000
-    proj["bank_future"] = proj["routed_future"] * proj_bps / 10_000
-    proj["bank_uplift"] = proj["bank_future"] - proj["bank_now"]
 
     fastest = proj.nlargest(3, "cagr_pct")
     top_uplift = proj.loc[proj["bank_uplift"].idxmax()]

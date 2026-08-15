@@ -46,7 +46,7 @@ Five reported line items mapped to reference types:
 
 ## 4. Output metrics
 
-Median wallet share, by line — *dashboard page 1 · Reported vs Computed*:
+Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 
 | Line item | Rows | Median share |
 | --- | --- | --- |
@@ -60,6 +60,16 @@ Median wallet share, by line — *dashboard page 1 · Reported vs Computed*:
 - Sector split and reported-vs-calculated per sector — *page 2 · Sector*.
 - Cross-border: 34 counterparty countries, R169.0bn over 256,443 transactions, net importer — *page 4 · Geography*.
 - Product concentration: top 3 references carry 90.7% of all transactions — *page 3 · Entity Analysis*.
+
+**Portfolio summary and opportunity heatmap** — *page 1*:
+
+- Page 1 opens book-wide before any filter: entities, transactions, book flow, cross-border, reported financials, share carried, addressable gap, and the 5-year growth uplift. Quoted at a fixed 15 bps + R5/txn over 5 years, so the headline never moves under someone else's slider; pages 5 and 6 make those adjustable.
+- **Opportunity heatmap** — 19 clients × 5 measures: wallet gap, volume potential, share headroom, client growth, projected uplift.
+- Cells are **percentile rank within the book**, not absolute value — the five measures are in different units (ZAR, transactions, %), so ranking is what makes them comparable across a row. Hover gives the underlying figure.
+- Every column is oriented so darker = more opportunity; share headroom inverts wallet share so thinly banked clients read hot.
+- Rows sorted by mean percentile. Dark across all five is a coverage failure; dark in one column is a product sale.
+- NEPI Rockcastle leads at 75.8, Glencore and Clicks Group both 74.7; Aspen Pharmacare last at 22.1.
+- Sizing maths is shared with pages 5 and 6 (`reliable_lines`, `missed_wallet`, `project`) so the summary cannot drift from the tabs it summarises.
 
 ## 5. Analysis and recommendation outputs
 
@@ -112,7 +122,7 @@ uv run streamlit run entity_app.py
 | --- | --- |
 | `analysis_script.py` | Load, sign, fiscal-year, aggregate, compare |
 | `build_artifacts.py` | Precompute the five tables to parquet |
-| `entity_app.py` | Five-tab Streamlit dashboard |
+| `entity_app.py` | Six-tab Streamlit dashboard |
 | `benchmarks/` | Extraction worklist (reported-side denominator) and `entity_cagr.csv` |
 | `public_financial_statements/` | Source PDFs behind every reported figure |
 | `outputs/artifacts/` | What the deployed app reads |
