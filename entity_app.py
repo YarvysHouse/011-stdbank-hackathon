@@ -234,10 +234,11 @@ with tabs[0]:
 
     matched = table["summation_value"].notna()
     reliable = table[matched & (table["pct_of_reported"].abs() <= 50)]
-    by_line = table.groupby("line_item", as_index=False).agg(
+    by_line = (table.groupby("line_item", as_index=False).agg(
         reported_lines=("reported_value", "size"),
         matched=("summation_value", "count"),
         median_pct=("pct_of_reported", "median"))
+        .sort_values("median_pct", ascending=False))
 
     if reliable.empty:
         insight(f"No reliable comparison lines resolve for {scope_label}.",
@@ -262,10 +263,12 @@ with tabs[0]:
     b1.metric("Reported lines", len(table))
     b2.metric("Matched", f"{int(matched.sum())} of {len(table)}")
     b3.metric("Median wallet share",
-              f"{reliable['pct_of_reported'].median():.2f}%" if not reliable.empty else "-")
+              f"{reliable['pct_of_reported'].median():.2f}%" if not reliable.empty else "-",
+              f"{zar(abs(reliable['difference'].sum()))} gap" if not reliable.empty else None,
+              delta_color="off")
 
     styled = (table.drop(columns=["sector"])
-                   .sort_values(["entity_id", "line_item", "fiscal_year"])
+                   .sort_values("pct_of_reported", ascending=False)
                    .style.apply(highlight, axis=1)
                    .format({c: "{:,.0f}" for c in ("reported_value", "summation_value", "difference")}
                            | {"pct_of_reported": "{:,.2f}%"}))
@@ -531,6 +534,8 @@ with tabs[3]:
 with tabs[4]:
     st.title("Opportunities for Growth")
 
+    opp_scope = st.radio("View", ["All", "By sector", "By entity"], horizontal=True, key="opp_scope")
+
     o1, o2 = st.columns(2)
     fee_bps = o1.slider("Fee on value routed (bps)", 1, 100, 15)
     fee_per_txn = o2.slider("Fee per transaction (R)", 0, 50, 5)
@@ -539,6 +544,17 @@ with tabs[4]:
     # comparison tab highlights in amber
     clean = comparison_df[comparison_df["summation_value"].notna()
                           & (comparison_df["pct_of_reported"].abs() <= 50)].copy()
+
+    if opp_scope == "By sector":
+        opp_sector = st.selectbox("Sector", SECTORS, key="opp_sector")
+        clean = clean[clean["sector"] == opp_sector]
+        st.caption(tidy(opp_sector))
+    elif opp_scope == "By entity":
+        opp_pick = st.selectbox("Entity", entity_labels(clean), key="opp_entity")
+        clean = clean[clean["entity_id"] == opp_pick.split(" - ", 1)[0]]
+        st.caption(opp_pick)
+    else:
+        st.caption("All entities")
     clean["missed"] = (clean["reported_value"] - clean["summation_value"]).clip(lower=0)
 
     missed = clean.groupby(ID_COLS, as_index=False).agg(
@@ -577,8 +593,11 @@ with tabs[4]:
             f"{top_entity['missed_amount'] / missed['missed_amount'].sum() * 100:.0f}% of the total gap, "
             f"so a single mandate win moves the book further than broad origination.")
 
+    missed_pct = missed["missed_amount"].sum() / missed["reported"].sum() * 100 if not missed.empty else 0
+
     k1, k2, k3 = st.columns(3)
-    k1.metric("Total missed wallet", zar(missed["missed_amount"].sum()))
+    k1.metric("Total missed wallet", f"{missed_pct:.2f}%",
+              zar(missed["missed_amount"].sum()), delta_color="off")
     k2.metric("Implied transactions", f"{missed['implied_txns'].sum():,.0f}")
     k3.metric("Modelled fee revenue", zar(missed["fee_revenue"].sum()))
 
