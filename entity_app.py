@@ -20,9 +20,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from build_artifacts import ARTIFACTS_, build
-
-TABLES = ["summary", "reference", "reference_counts", "comparison", "geo", "projection"]
+import ai_analyst
+from sizing import TABLES, load_tables, project, reliable_lines
+from sizing import missed_wallet as _missed_wallet
 
 st.set_page_config(page_title="Syn Bank Entity Analysis", layout="wide")
 
@@ -35,8 +35,10 @@ SURFACE, MUTED, GRID = "#ffffff", "#898781", "#e1e0d9"
 # status palette - income green against payment red
 POS, NEG = "#0ca30c", "#d03b3b"
 GREY, AMBER = "rgba(137,135,129,0.16)", "rgba(250,178,25,0.22)"
-# sequential ramp for the heatmap - one hue, light to dark, stepped off CATEGORICAL[0]
-SEQUENTIAL = ["#f4f8fd", "#d9e7f8", "#b6d0f1", "#8bb3e6", "#5a94da", "#2a78d6", "#1d5aa4", "#123c6f"]
+# sequential ramp for the heatmap - one hue, stepped off CATEGORICAL[0]. Runs dark
+# to light because the configured theme is dark: the low end has to sit near the
+# surface and the high end has to lift off it, which is the reverse of a light build.
+SEQUENTIAL = ["#101a2b", "#16304f", "#1c4a7a", "#2a68b0", "#3f8ae0", "#71abec", "#a5c9f4", "#d5e6fb"]
 
 # the assumptions the portfolio summary quotes, before anyone touches a slider
 BASE_BPS, BASE_FEE_PER_TXN, BASE_HORIZON = 15, 5, 5
@@ -73,21 +75,14 @@ st.markdown("""
 
 @st.cache_data
 def build_tables(names: tuple[str, ...]):
-    """Precomputed artifacts where they exist, otherwise straight from the CSVs.
-
-    Deployments ship only the 71 KB of parquet - the 409 MB of source data never
-    leaves the machine that ran `build_artifacts.py`.
+    """Cached wrapper over `sizing.load_tables`.
 
     `names` is passed in rather than read off the module so it lands in the cache
     key: st.cache_data hashes the arguments and the function body, not the globals
     the body closes over. Adding a table while it was a global left the previous
     deploy's shorter tuple cached against unchanged code.
     """
-    if all((ARTIFACTS_ / f"{name}.parquet").exists() for name in names):
-        return tuple(pd.read_parquet(ARTIFACTS_ / f"{name}.parquet") for name in names)
-
-    tables = build()
-    return tuple(tables[name] for name in names)
+    return load_tables(names)
 
 summary_df, reference_df, reference_count_df, comparison_df, geo_df, projection_df = build_tables(tuple(TABLES))
 
@@ -205,54 +200,9 @@ def reference_bar(df_wide, dim, y_title):
     fig.update_layout(bargap=0.25, xaxis_title=None, legend_title_text=split)
     return frame_style(fig, 460, y_title)
 
-# --------------------------------------------------------------------------
-# Sizing - shared by the portfolio summary, the heatmap, and tabs 5 and 6
-# --------------------------------------------------------------------------
-
-def reliable_lines(frame):
-    """Comparison rows that reconcile.
-
-    Scale errors from PDF extraction would swamp any sizing built on them, so they
-    go on the same rule the comparison table paints amber.
-    """
-    return frame[frame["summation_value"].notna() & (frame["pct_of_reported"].abs() <= 50)].copy()
-
-
 def missed_wallet(clean, fee_bps, fee_per_txn):
-    """Per-entity gap to reported financials, and the fee revenue closing it would carry."""
-    clean = clean.copy()
-    clean["missed"] = (clean["reported_value"] - clean["summation_value"]).clip(lower=0)
-
-    missed = clean.groupby(ID_COLS, as_index=False).agg(
-        missed_amount=("missed", "sum"), reported=("reported_value", "sum"),
-        computed=("summation_value", "sum"))
-    missed = missed.merge(summary_df[["entity_id", "incomes", "payments", "num_transactions"]],
-                          on="entity_id", how="left")
-
-    # what the bank already routes, per transaction, is the ticket it would carry
-    missed["avg_ticket"] = ((missed["incomes"] + missed["payments"])
-                            / missed["num_transactions"].replace(0, np.nan))
-    missed["implied_txns"] = (missed["missed_amount"] / missed["avg_ticket"]).replace([np.inf, -np.inf], np.nan)
-    missed["fee_revenue"] = (missed["missed_amount"] * fee_bps / 10_000
-                             + missed["implied_txns"].fillna(0) * fee_per_txn)
-    return missed
-
-
-def project(frame, horizon, bps):
-    """Published revenue compounded forward at each entity's CAGR, bank share held flat.
-
-    Entities with no reported revenue line carry no base to compound and drop out.
-    """
-    p = frame.dropna(subset=["base_revenue", "cagr_pct"]).copy()
-
-    p["projected_revenue"] = p["base_revenue"] * (1 + p["cagr_pct"] / 100) ** horizon
-    p["revenue_growth"] = p["projected_revenue"] - p["base_revenue"]
-    p["routed_now"] = p["base_revenue"] * p["wallet_share_pct"] / 100
-    p["routed_future"] = p["projected_revenue"] * p["wallet_share_pct"] / 100
-    p["bank_now"] = p["routed_now"] * bps / 10_000
-    p["bank_future"] = p["routed_future"] * bps / 10_000
-    p["bank_uplift"] = p["bank_future"] - p["bank_now"]
-    return p
+    """`sizing.missed_wallet` with this app's summary frame already bound."""
+    return _missed_wallet(clean, summary_df, fee_bps, fee_per_txn)
 
 
 def highlight(row):
@@ -268,7 +218,7 @@ def highlight(row):
 # --------------------------------------------------------------------------
 
 tabs = st.tabs(["1 · Portfolio Summary", "2 · Sector", "3 · Entity Analysis",
-                "4 · Geography", "5 · Opportunity", "6 · Future Projection"])
+                "4 · Geography", "5 · Opportunity", "6 · Future Projection", "7 · AI Analyst"])
 
 # 1 - PORTFOLIO SUMMARY -----------------------------------------------------
 with tabs[0]:
@@ -325,7 +275,7 @@ with tabs[0]:
     st.subheader("Opportunity heatmap")
     st.caption("Every client ranked against the others on five measures of opportunity. Cells are "
                "percentile rank within the book, not absolute value — the measures are in different "
-               "units, so ranking is what makes them comparable across a row. Darker is more "
+               "units, so ranking is what makes them comparable across a row. Brighter is more "
                "opportunity on every column, including share headroom, which inverts wallet share "
                "so that thinly banked clients read hot.")
 
@@ -378,8 +328,8 @@ with tabs[0]:
         f"<b>{hottest['entity_name']}</b> leads the book at an average percentile of "
         f"{hottest['score']:.0f}, strongest on <b>{hot_dims.index[0]}</b> and "
         f"<b>{hot_dims.index[1]}</b>. Ranking rather than absolute value is what lets a large but "
-        f"slow-growing client and a small fast-growing one be read on the same row — a client dark "
-        f"across all five is a coverage failure, one dark in a single column is a product sale. "
+        f"slow-growing client and a small fast-growing one be read on the same row — a client bright "
+        f"across all five is a coverage failure, one bright in a single column is a product sale. "
         f"<b>{coldest['entity_name']}</b> sits last at {coldest['score']:.0f}.",
         f"Give <b>{hottest['entity_name']}</b> a named coverage lead this quarter — it is the only "
         f"client the book ranks in the upper half on every dimension that matters, so effort there "
@@ -856,3 +806,80 @@ with tabs[5]:
 
     if dropped:
         st.caption(f"Excluded for want of a reported revenue line: {', '.join(dropped)}.")
+
+# 7 - AI ANALYST ------------------------------------------------------------
+with tabs[6]:
+    st.title("AI Analyst")
+    st.caption("Ask the book a question. Gemini answers by calling the same aggregations these "
+               "tabs render — it has no access to the underlying rows and cannot run code against "
+               "them, so every figure it quotes is one the dashboard already computes. Each answer "
+               "shows the tool calls it made.")
+
+    key = ai_analyst.api_key()
+    if not key:
+        st.warning("No Gemini API key configured, so the analyst is offline. "
+                   "The rest of the dashboard is unaffected.")
+        st.markdown(
+            "**To wire it up**\n\n"
+            "1. Create a key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).\n"
+            "2. Locally — put it in `.streamlit/secrets.toml` as `GEMINI_API_KEY = \"AIza...\"` "
+            "(that file is gitignored), or `export GEMINI_API_KEY=AIza...`.\n"
+            "3. Deployed — Streamlit Cloud → your app → **⋮ → Settings → Secrets**, paste the same "
+            "line, save. The app restarts on its own.\n"
+            "4. Confirm with `uv run python ai_analyst.py --check`.")
+    else:
+        st.caption(f"Connected · {ai_analyst.MODEL} · key from {ai_analyst.key_source()}")
+
+        PRESETS = [
+            "Where is our single largest wallet gap, and what would closing it be worth?",
+            "Write a briefing note for the Glencore relationship team.",
+            "Write a briefing note for Shoprite Holdings.",
+            "Write a briefing note for NEPI Rockcastle.",
+            "Which sector should we prioritise for origination, and why that one?",
+            "Which clients should we defend rather than chase, based on growth?",
+        ]
+
+        st.session_state.setdefault("chat", [])
+
+        cols = st.columns(3)
+        asked = None
+        for i, preset in enumerate(PRESETS):
+            if cols[i % 3].button(preset, key=f"preset_{i}", width="stretch"):
+                asked = preset
+
+        for turn in st.session_state["chat"]:
+            with st.chat_message(turn["role"]):
+                st.markdown(turn["content"])
+                if turn.get("trace"):
+                    with st.expander(f"{len(turn['trace'])} tool call"
+                                     f"{'s' if len(turn['trace']) > 1 else ''}"):
+                        for call in turn["trace"]:
+                            st.markdown(f"**{call['tool']}**"
+                                        + (f" `{call['args']}`" if call["args"] else ""))
+                            st.json(call["result"], expanded=False)
+
+        typed = st.chat_input("Ask about a client, a sector, the gap, or the projection")
+        question = typed or asked
+
+        if question:
+            with st.chat_message("user"):
+                st.markdown(question)
+            st.session_state["chat"].append({"role": "user", "content": question})
+
+            with st.chat_message("assistant"):
+                with st.spinner("Calling the book…"):
+                    prior = ai_analyst.history_from(st.session_state["chat"][:-1])
+                    answer, trace = ai_analyst.ask(question, history=prior, key=key)
+                st.markdown(answer)
+                if trace:
+                    with st.expander(f"{len(trace)} tool call{'s' if len(trace) > 1 else ''}"):
+                        for call in trace:
+                            st.markdown(f"**{call['tool']}**"
+                                        + (f" `{call['args']}`" if call["args"] else ""))
+                            st.json(call["result"], expanded=False)
+
+            st.session_state["chat"].append({"role": "assistant", "content": answer, "trace": trace})
+
+        if st.session_state["chat"] and st.button("Clear conversation"):
+            st.session_state["chat"] = []
+            st.rerun()

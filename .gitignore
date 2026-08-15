@@ -23,3 +23,7 @@ __pycache__/
 # Environment
 .env
 .DS_Store
+
+# API keys. Streamlit reads this locally; the deployed app gets the same values
+# pasted into Streamlit Cloud's own Secrets box instead. Never commit it.
+.streamlit/secrets.toml

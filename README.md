@@ -75,7 +75,7 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 
 - Every dashboard page opens with a generated read of its own figures — key insight plus one suggested move.
 - Computed live from whatever that page's slicers currently resolve to, not a fixed snapshot.
-- **Rule-based, not a model call** — branching logic over real statistics, so figures are always correct and it runs offline.
+- These are **rule-based, not a model call** — branching logic over real statistics, so figures are always correct and they run offline. The generative layer is separate, on page 7 (section 7 below).
 - Sizing on *page 5 · Opportunity*:
   - `missed = max(reported − computed, 0)` per entity-year.
   - `avg_ticket = (incomes + payments) ÷ transactions`.
@@ -103,6 +103,61 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 - Fastest growers: Gold Fields 13.1%, Pepkor 12.3%, OUTsurance 12.2%. Two entities contracting (Anglo American −0.98%, Bidvest −4.70%).
 - Sanlam is excluded — no reported revenue line, so no base to compound. 19 of 20 project.
 
+## 7. Generative AI — the analyst on page 7
+
+A chat panel over the book. Gemini answers by **calling the same aggregations the tabs render**, so every figure it quotes is one the dashboard already computes and the analysis was validated against.
+
+### Why tool-calling and not a pandas agent
+
+- A pandas agent executes model-written code against the frame — `df.query(model_string)` reaches any column, any row, and whatever `eval` exposes.
+- Here the model gets **six named tools with typed arguments** and nothing else. It never sees the rows and cannot run code.
+- Consequence: a bad answer is a wrong *sentence* about right figures, never an invented figure. The failure mode is bounded.
+- Both the dashboard and the tools import `sizing.py` — one implementation of the maths, so the chat and the tabs cannot disagree.
+
+### The tools
+
+| Tool | Returns |
+| --- | --- |
+| `portfolio_overview` | Book-wide: entities, transactions, flow, reported, carried, gap, fee revenue, 5y uplift |
+| `entity_detail` | One client: flow, share, missed wallet, top references, CAGR, projected uplift |
+| `sector_rollup` | Every sector with entity count, flow, share and gap |
+| `opportunity_ranking` | Clients ranked by missed wallet / volume / fee revenue, bps configurable |
+| `projection` | Revenue compounded at CAGR, share flat, horizon and bps configurable |
+| `cross_border` | Counterparty countries, income against payment, optionally per client |
+
+- `MAX_TOOL_TURNS = 8`; the loop stops rather than spiralling.
+- Every answer ships an expander listing the calls made and their raw JSON — the audit trail is the point.
+- Six preset prompts, three of which are **client briefing notes** (Glencore, Shoprite, NEPI Rockcastle).
+- No key configured → the tab explains the wiring and the other six tabs are unaffected.
+- Model: `gemini-2.5-flash`, temperature 0.2. The system prompt is `SYSTEM` in `ai_analyst.py` — committed, so the prompt is reviewable evidence rather than a screenshot.
+
+### Wiring the Gemini key
+
+**1 — Generate.** Sign in at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) → **Create API key** → pick or create a Google Cloud project → copy it. Starts `AIza`, about 39 characters. Free tier is enough for demo traffic. This is a Google AI Studio key, *not* a Vertex AI service account.
+
+**2 — Local.** Create `.streamlit/secrets.toml` (already gitignored — check `git status` shows nothing before committing):
+
+```toml
+GEMINI_API_KEY = "AIza..."
+```
+
+Or `export GEMINI_API_KEY=AIza...`. The app reads `st.secrets` first, then the environment.
+
+**3 — Deployed.** Streamlit Cloud → the app → **⋮ → Settings → Secrets** → paste the same line → **Save**. The app reboots itself; no redeploy needed. Cloud secrets are per-app and are not readable from the repo.
+
+**4 — Validate.**
+
+```bash
+uv run python ai_analyst.py --check
+uv run python ai_analyst.py --ask "Where is our largest wallet gap?"
+```
+
+`--check` proves four things in order: the key resolves and from which source, it authenticates against Google, the parquet artifacts load, and a real question completes a full tool round-trip. It prints the tool names called — if that line is empty the model answered without touching the data, which is a failure even when the prose looks right.
+
+Failure modes it names: `API_KEY_INVALID` (wrong value, or an IP/referrer restriction on the key), `403` (Generative Language API not enabled on the key's project), missing artifacts (run `build_artifacts.py`).
+
+**Key hygiene:** rotate in AI Studio if it ever lands in a commit, a screenshot, or a shared terminal — Cloud picks up the new value from the Secrets box with no code change.
+
 ## Run it
 
 ```bash
@@ -121,8 +176,10 @@ uv run streamlit run entity_app.py
 | File | Role |
 | --- | --- |
 | `analysis_script.py` | Load, sign, fiscal-year, aggregate, compare |
-| `build_artifacts.py` | Precompute the five tables to parquet |
-| `entity_app.py` | Six-tab Streamlit dashboard |
+| `build_artifacts.py` | Precompute the six tables to parquet |
+| `sizing.py` | The sizing maths, pure — shared by the dashboard and the analyst |
+| `ai_analyst.py` | Gemini tools, the tool loop, and the `--check` wiring test |
+| `entity_app.py` | Seven-tab Streamlit dashboard |
 | `benchmarks/` | Extraction worklist (reported-side denominator) and `entity_cagr.csv` |
 | `public_financial_statements/` | Source PDFs behind every reported figure |
 | `outputs/artifacts/` | What the deployed app reads |
