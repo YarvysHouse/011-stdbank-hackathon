@@ -593,10 +593,12 @@ with tabs[4]:
             f"{top_entity['missed_amount'] / missed['missed_amount'].sum() * 100:.0f}% of the total gap, "
             f"so a single mandate win moves the book further than broad origination.")
 
-    missed_pct = missed["missed_amount"].sum() / missed["reported"].sum() * 100 if not missed.empty else 0
+    reported_total = missed["reported"].sum() if not missed.empty else 0
+    missed_pct = missed["missed_amount"].sum() / reported_total * 100 if reported_total else 0
+    carried_pct = missed["computed"].sum() / reported_total * 100 if reported_total else 0
 
     k1, k2, k3 = st.columns(3)
-    k1.metric("Total missed wallet", f"{missed_pct:.2f}%",
+    k1.metric("Total missed wallet", f"{missed_pct:.2f}% ({carried_pct:.3f}% carried)",
               zar(missed["missed_amount"].sum()), delta_color="off")
     k2.metric("Implied transactions", f"{missed['implied_txns'].sum():,.0f}")
     k3.metric("Modelled fee revenue", zar(missed["fee_revenue"].sum()))
