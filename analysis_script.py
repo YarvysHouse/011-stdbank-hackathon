@@ -11,7 +11,7 @@ OUTPUTS_ = BASE_DIR_ / "Outputs"
 TRANSACTIONS_ = DATA_/"transactional_banking.csv"
 CROSS_BORDER_ = DATA_/"cross_border_payments.csv"
 TRADE_FINANCE_ = DATA_/"trade_finance.csv"
-BENCHMARK_ = BASE_DIR_/"benchmarks"/"extraction_worklist_14_aug.csv"
+BENCHMARK_ = BASE_DIR_/"benchmarks"/"extraction_worklist_15_aug.csv"
 
 PUBLIC_FINANCE_ = ""
 
@@ -159,7 +159,7 @@ def line_comparison(consolidated_df):
     employees = (df[ 
         df["reference"].isin(EMPLOYEE_REFS)]
                .groupby(keys, as_index=False)["signed_amount"].sum()
-               .assign(line_item="Employee Payments")
+               .assign(line_item="Employee costs")
                )
     employees["signed_amount"] = employees["signed_amount"].abs()
 
