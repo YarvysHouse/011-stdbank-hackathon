@@ -828,7 +828,7 @@ with tabs[6]:
             "line, save. The app restarts on its own.\n"
             "4. Confirm with `uv run python ai_analyst.py --check`.")
     else:
-        st.caption(f"Connected · {ai_analyst.MODEL} · key from {ai_analyst.key_source()}")
+        st.caption(f"Connected · {ai_analyst.resolve_model(key)} · key from {ai_analyst.key_source()}")
 
         PRESETS = [
             "Where is our single largest wallet gap, and what would closing it be worth?",

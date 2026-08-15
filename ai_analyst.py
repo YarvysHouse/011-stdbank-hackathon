@@ -20,7 +20,13 @@ Key handling - the app reads, in order:
 Validate the wiring without launching the dashboard::
 
     uv run python ai_analyst.py --check          # key resolves, and a live round-trip
+    uv run python ai_analyst.py --models         # what this key can actually call
     uv run python ai_analyst.py --ask "..."      # one question through the full tool loop
+
+The model is not pinned. Google retires names on its own schedule - a hardcoded
+`gemini-2.5-flash` began 404ing in production with nothing here changed - so
+`resolve_model()` picks the best model the key can see, and a 404 mid-session
+re-discovers rather than failing. Set GEMINI_MODEL to override.
 """
 
 from __future__ import annotations
@@ -34,7 +40,9 @@ import pandas as pd
 
 from sizing import ID_COLS, load_tables, missed_wallet, project, reliable_lines
 
-MODEL = "gemini-2.5-flash"
+# Only used when the key cannot list models at all - the real choice is made by
+# `resolve_model()` against what the account can actually see. Do not pin here.
+FALLBACK_MODEL = "gemini-flash-latest"
 MAX_TOOL_TURNS = 8  # a question needing more than this is one the tools do not answer
 
 SYSTEM = """You are a corporate banking analyst for Syn Bank, working inside a wallet-share
@@ -386,6 +394,86 @@ def _client(key: str):
     return genai.Client(api_key=key)
 
 
+# --------------------------------------------------------------------------
+# Model selection
+#
+# Google retires model names out from under deployed code - a pinned
+# `gemini-2.5-flash` started returning 404 NOT_FOUND ("no longer available to
+# new users") without anything here changing. So the model is discovered from
+# what the key can actually see, rather than hardcoded and hoped for.
+# --------------------------------------------------------------------------
+
+# Families that cannot do what this panel needs, whatever they are called.
+_EXCLUDE = ("embedding", "aqa", "imagen", "veo", "image", "tts", "audio",
+            "live", "gemma", "learnlm", "vision")
+
+
+def _model_rank(name: str) -> tuple:
+    """Sort key for a candidate model. Higher is better.
+
+    A `-latest` alias outranks everything numbered: pinning a version is what
+    broke this panel in the first place, and Google keeps the alias current.
+    Below that: newer generation, flash over pro (a high-frequency lookup panel
+    wants latency and cost over depth), full over lite, stable over preview.
+    """
+    short = name.removeprefix("models/")
+
+    generation = 0.0
+    for part in short.replace("gemini-", "", 1).split("-"):
+        try:
+            generation = float(part)
+            break
+        except ValueError:
+            continue
+
+    return (99.0 if "latest" in short else generation,
+            1 if "flash" in short else 0,
+            0 if "lite" in short else 1,
+            0 if "preview" in short or "exp" in short else 1,
+            0 if any(ch.isdigit() for ch in short.split("-")[-1]) else 1)
+
+
+def available_models(key: str) -> list[str]:
+    """Every model this key may call generateContent on, best first."""
+    client = _client(key)
+
+    usable = []
+    for model in client.models.list():
+        name = (model.name or "").removeprefix("models/")
+        actions = getattr(model, "supported_actions", None) or []
+        if "generateContent" not in actions:
+            continue
+        if not name.startswith("gemini") or any(bad in name for bad in _EXCLUDE):
+            continue
+        usable.append(name)
+
+    return sorted(usable, key=_model_rank, reverse=True)
+
+
+@lru_cache(maxsize=4)
+def resolve_model(key: str) -> str:
+    """The model to call: an explicit override, else the best one the key can see.
+
+    Cached per key - one extra list call per process, not per question.
+    """
+    override = None
+    try:
+        import streamlit as st
+        if "GEMINI_MODEL" in st.secrets:
+            override = str(st.secrets["GEMINI_MODEL"]).strip()
+    except Exception:
+        pass
+    override = override or os.environ.get("GEMINI_MODEL", "").strip()
+    if override:
+        return override
+
+    try:
+        found = available_models(key)
+    except Exception:
+        return FALLBACK_MODEL  # can't list - let the call itself produce the real error
+    return found[0] if found else FALLBACK_MODEL
+
+
 def _config():
     from google.genai import types
     return types.GenerateContentConfig(
@@ -421,12 +509,24 @@ def ask(question: str, history: list | None = None, key: str | None = None):
         return ("No API key configured - see the README section 'Wiring the Gemini key'.", [])
 
     client = _client(key)
+    model = resolve_model(key)
     contents = list(history or [])
     contents.append(types.Content(role="user", parts=[types.Part(text=question)]))
 
     trace = []
     for _ in range(MAX_TOOL_TURNS):
-        response = client.models.generate_content(model=MODEL, contents=contents, config=_config())
+        try:
+            response = client.models.generate_content(model=model, contents=contents, config=_config())
+        except Exception as exc:
+            # A retired model 404s. Drop the cached choice, re-discover once, and
+            # retry - otherwise every deployed session breaks on Google's timetable.
+            if "NOT_FOUND" in str(exc) or "404" in str(exc):
+                resolve_model.cache_clear()
+                retry = resolve_model(key)
+                if retry != model:
+                    model = retry
+                    continue
+            return (f"The model call failed: {type(exc).__name__}: {exc}", trace)
 
         candidate = response.candidates[0] if response.candidates else None
         if candidate is None or not candidate.content or not candidate.content.parts:
@@ -477,15 +577,24 @@ def check() -> int:
         print("  WARNING        Google AI Studio keys normally start 'AIza' - check you pasted the right value")
 
     try:
-        from google import genai
-        client = genai.Client(api_key=key)
-        models = [m.name for m in client.models.list()]
-        print(f"  auth           OK - {len(models)} models visible to this key")
+        usable = available_models(key)
+        print(f"  auth           OK - {len(usable)} usable models visible to this key")
     except Exception as exc:
         print(f"  auth           FAILED - {type(exc).__name__}: {exc}")
         print("\n  A 400 with API_KEY_INVALID means the key is wrong or has an IP/referrer restriction.")
         print("  A 403 usually means the Generative Language API is not enabled on the key's project.")
         return 1
+
+    if not usable:
+        print("  models         FAILED - this key sees no Gemini model that supports generateContent")
+        print("  Run `uv run python ai_analyst.py --models` to see the raw list.")
+        return 1
+
+    chosen = resolve_model(key)
+    print(f"  model          {chosen}")
+    print(f"                 next best: {', '.join(usable[1:4]) or 'none'}")
+    if chosen not in usable:
+        print(f"  WARNING        '{chosen}' came from GEMINI_MODEL but is not in this key's list")
 
     try:
         overview = portfolio_overview()
@@ -502,13 +611,45 @@ def check() -> int:
         return 1
 
     print(f"  tool loop      OK - called {', '.join(t['tool'] for t in trace)}")
-    print(f"  model          {MODEL}")
     print("-" * 60)
     print(f"  {answer}")
     return 0
 
 
+def models_report() -> int:
+    """Every model the key can see, so a 404 can be diagnosed rather than guessed at."""
+    key = api_key()
+    if not key:
+        print("No API key configured.")
+        return 1
+
+    from google import genai
+    client = genai.Client(api_key=key)
+
+    rows = []
+    for model in client.models.list():
+        name = (model.name or "").removeprefix("models/")
+        actions = getattr(model, "supported_actions", None) or []
+        rows.append((name, "generateContent" in actions, ",".join(actions)))
+
+    usable = available_models(key)
+    print(f"{len(rows)} models visible, {len(usable)} usable for this panel\n")
+    print(f"  chosen: {resolve_model(key)}\n")
+
+    print("  usable, best first:")
+    for name in usable:
+        print(f"    {name}")
+
+    print("\n  everything else:")
+    for name, ok, actions in sorted(rows):
+        if name not in usable:
+            print(f"    {name:<45} {'generateContent' if ok else actions[:40]}")
+    return 0
+
+
 def main() -> int:
+    if "--models" in sys.argv:
+        return models_report()
     if "--check" in sys.argv:
         return check()
     if "--ask" in sys.argv:

@@ -129,7 +129,9 @@ A chat panel over the book. Gemini answers by **calling the same aggregations th
 - Every answer ships an expander listing the calls made and their raw JSON — the audit trail is the point.
 - Six preset prompts, three of which are **client briefing notes** (Glencore, Shoprite, NEPI Rockcastle).
 - No key configured → the tab explains the wiring and the other six tabs are unaffected.
-- Model: `gemini-2.5-flash`, temperature 0.2. The system prompt is `SYSTEM` in `ai_analyst.py` — committed, so the prompt is reviewable evidence rather than a screenshot.
+- Temperature 0.2. The system prompt is `SYSTEM` in `ai_analyst.py` — committed, so the prompt is reviewable evidence rather than a screenshot.
+- **The model is not pinned.** A hardcoded `gemini-2.5-flash` began returning `404 NOT_FOUND — no longer available to new users` in production with nothing in this repo having changed. `resolve_model()` now lists what the key can actually call and picks the best of them: newest generation, then flash over pro (this is a high-frequency lookup panel, so latency and cost beat depth), then a bare alias over a dated snapshot, since aliases outlive pins. A 404 mid-session clears the cache and re-discovers rather than breaking the tab.
+- `GEMINI_MODEL` in secrets or the environment overrides the choice. `--models` prints everything the key sees, so a future 404 is diagnosable rather than guesswork.
 
 ### Wiring the Gemini key
 
@@ -149,6 +151,7 @@ Or `export GEMINI_API_KEY=AIza...`. The app reads `st.secrets` first, then the e
 
 ```bash
 uv run python ai_analyst.py --check
+uv run python ai_analyst.py --models                              # what the key can call
 uv run python ai_analyst.py --ask "Where is our largest wallet gap?"
 ```
 
