@@ -74,7 +74,11 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 
 ## 5. Analysis and recommendation outputs
 
-**Growth capacity** — *page 5, top section*:
+**Sidebar** — controls are grouped by the page each one drives (`3 · Entity Analysis`, `5 · Opportunity`), not owned by a single page. Streamlit's tabs expose no active-tab signal server-side, so a sidebar cannot follow the reader between tabs; labelling each group with its page number is the honest alternative — every control is reachable from anywhere and says what it acts on.
+
+Page 5 carries a **section filter** in that sidebar: Total growth / Current opportunities / Future opportunities, any combination. Clearing it entirely reads as "no filter applied" and shows all three rather than rendering an empty page. Dividers are drawn by `rule()`, which suppresses the leading one so a narrowed page never opens on a stray line.
+
+**Total growth** — *page 5, top section*:
 
 - Current and future opportunity sit on one page: the same client is a target for one and a defence for the other, and splitting them across tabs made that easy to miss.
 - The top section ranks clients by what they could be worth in fee income at a chosen year, with a **year slider (0–5)** that reorders the board.

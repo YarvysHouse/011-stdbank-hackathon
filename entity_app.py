@@ -145,16 +145,33 @@ def donut(labels, values, height=400):
     return fig
 
 # --------------------------------------------------------------------------
-# Sidebar - drives the Entity Analysis tab only
+# Sidebar
+#
+# Grouped by the page each control drives, rather than belonging to one page.
+# Streamlit's tabs do not report which one is open - there is no active-tab
+# callback and no way to read it server-side - so the sidebar cannot follow the
+# reader. Labelling each group with its page number is the honest alternative:
+# every control is visible from everywhere, and says what it acts on.
 # --------------------------------------------------------------------------
 
-st.sidebar.markdown("**Entity Analysis filters**")
-labels = entity_labels(summary_df).tolist()
-choice = st.sidebar.selectbox("Entity", [TOTAL] + labels)
-selected_id = None if choice == TOTAL else choice.split(" - ", 1)[0]
+st.sidebar.title("Filters")
+st.sidebar.caption("Grouped by the page each one drives. All pages read these from anywhere.")
 
-split = st.sidebar.radio("Split by", ["Sector", "Entity"], horizontal=True)
-measure = st.sidebar.radio("Measure", ["Amount", "Count"], horizontal=True)
+with st.sidebar.expander("3 · Entity Analysis", expanded=True):
+    labels = entity_labels(summary_df).tolist()
+    choice = st.selectbox("Entity", [TOTAL] + labels)
+    selected_id = None if choice == TOTAL else choice.split(" - ", 1)[0]
+
+    split = st.radio("Split by", ["Sector", "Entity"], horizontal=True)
+    measure = st.radio("Measure", ["Amount", "Count"], horizontal=True)
+
+with st.sidebar.expander("5 · Opportunity", expanded=True):
+    SECTIONS = ["Total growth", "Current opportunities", "Future opportunities"]
+    sections = st.multiselect("Sections to show", SECTIONS, default=SECTIONS,
+                              help="Narrow the page to one horizon, or show all three.")
+
+# an empty multiselect reads as "no filter applied", not "render an empty page"
+sections = sections or SECTIONS
 
 dim = "sector" if split == "Sector" else "entity_name"
 in_col, out_col = ("incomes", "payments") if measure == "Amount" else ("num_incomes", "num_payments")
@@ -203,6 +220,12 @@ def reference_bar(df_wide, dim, y_title):
 def missed_wallet(clean, fee_bps, fee_per_txn):
     """`sizing.missed_wallet` with this app's summary frame already bound."""
     return _missed_wallet(clean, summary_df, fee_bps, fee_per_txn)
+
+
+def rule(label):
+    """A divider above a section, unless the sidebar filter left it first on the page."""
+    if [s for s in SECTIONS if s in sections].index(label) > 0:
+        st.divider()
 
 
 def highlight(row):
@@ -657,250 +680,253 @@ with tabs[3]:
 with tabs[4]:
     st.title("Opportunity")
 
-    # -- growth capacity: both halves in one revenue stream, year by year -----
-    st.subheader("Growth capacity")
-    st.caption("What each client could be worth to Syn Bank in fee income, year by year. Two "
-               "components on different clocks: what the bank already routes, compounding at the "
-               "client's own growth rate, plus a phased-in share of the wallet gap. Move the year "
-               "and the ranking reorders — a client can lead today and be overtaken by one growing "
-               "into a larger book.")
+    if "Total growth" in sections:
+        # -- growth capacity: both halves in one revenue stream, year by year -----
+        st.subheader("Total growth")
+        st.caption("What each client could be worth to Syn Bank in fee income, year by year. Two "
+                   "components on different clocks: what the bank already routes, compounding at the "
+                   "client's own growth rate, plus a phased-in share of the wallet gap. Move the year "
+                   "and the ranking reorders — a client can lead today and be overtaken by one growing "
+                   "into a larger book.")
 
-    g1, g2, g3 = st.columns(3)
-    cap_year = g1.slider("Year", 0, BASE_HORIZON, 0, key="cap_year",
-                         help="0 is today. The ranking below re-sorts at each year.")
-    capture_pct = g2.slider("Share of the gap won by year 5 (%)", 0.0, 5.0, 1.0, 0.25,
-                            key="cap_rate",
-                            help="Phased in evenly. At 0% the ranking is pure organic growth.")
-    cap_bps = g3.slider("Fee on value routed (bps)", 1, 100, BASE_BPS, key="cap_bps")
+        g1, g2, g3 = st.columns(3)
+        cap_year = g1.slider("Year", 0, BASE_HORIZON, 0, key="cap_year",
+                             help="0 is today. The ranking below re-sorts at each year.")
+        capture_pct = g2.slider("Share of the gap won by year 5 (%)", 0.0, 5.0, 1.0, 0.25,
+                                key="cap_rate",
+                                help="Phased in evenly. At 0% the ranking is pure organic growth.")
+        cap_bps = g3.slider("Fee on value routed (bps)", 1, 100, BASE_BPS, key="cap_bps")
 
-    cap_missed = missed_wallet(reliable_lines(comparison_df), cap_bps, BASE_FEE_PER_TXN)
-    cap_proj = project(projection_df, BASE_HORIZON, cap_bps)
+        cap_missed = missed_wallet(reliable_lines(comparison_df), cap_bps, BASE_FEE_PER_TXN)
+        cap_proj = project(projection_df, BASE_HORIZON, cap_bps)
 
-    cap = (summary_df[ID_COLS]
-           .merge(cap_missed[["entity_id", "missed_amount", "fee_revenue"]], on="entity_id", how="left")
-           .merge(cap_proj[["entity_id", "cagr_pct", "bank_now"]], on="entity_id", how="left")
-           .fillna({"missed_amount": 0.0, "fee_revenue": 0.0, "cagr_pct": 0.0, "bank_now": 0.0}))
+        cap = (summary_df[ID_COLS]
+               .merge(cap_missed[["entity_id", "missed_amount", "fee_revenue"]], on="entity_id", how="left")
+               .merge(cap_proj[["entity_id", "cagr_pct", "bank_now"]], on="entity_id", how="left")
+               .fillna({"missed_amount": 0.0, "fee_revenue": 0.0, "cagr_pct": 0.0, "bank_now": 0.0}))
 
-    def capacity(frame, year):
-        """Fee income in `year`: routed flow compounding, plus the gap phased in linearly."""
-        organic = frame["bank_now"] * (1 + frame["cagr_pct"] / 100) ** year
-        captured = frame["fee_revenue"] * capture_pct / 100 * (year / BASE_HORIZON)
-        return organic, captured, organic + captured
+        def capacity(frame, year):
+            """Fee income in `year`: routed flow compounding, plus the gap phased in linearly."""
+            organic = frame["bank_now"] * (1 + frame["cagr_pct"] / 100) ** year
+            captured = frame["fee_revenue"] * capture_pct / 100 * (year / BASE_HORIZON)
+            return organic, captured, organic + captured
 
-    cap["organic"], cap["captured"], cap["total"] = capacity(cap, cap_year)
-    _, _, cap["total_now"] = capacity(cap, 0)
-    _, _, cap["total_end"] = capacity(cap, BASE_HORIZON)
+        cap["organic"], cap["captured"], cap["total"] = capacity(cap, cap_year)
+        _, _, cap["total_now"] = capacity(cap, 0)
+        _, _, cap["total_end"] = capacity(cap, BASE_HORIZON)
 
-    ranked_now = cap.sort_values("total_now", ascending=False)["entity_name"].tolist()
-    ranked_end = cap.sort_values("total_end", ascending=False)["entity_name"].tolist()
-    movers = [(n, ranked_now.index(n) - ranked_end.index(n)) for n in ranked_now]
-    climber = max(movers, key=lambda m: m[1])
+        ranked_now = cap.sort_values("total_now", ascending=False)["entity_name"].tolist()
+        ranked_end = cap.sort_values("total_end", ascending=False)["entity_name"].tolist()
+        movers = [(n, ranked_now.index(n) - ranked_end.index(n)) for n in ranked_now]
+        climber = max(movers, key=lambda m: m[1])
 
-    lead_now, lead_end = ranked_now[0], ranked_end[0]
-    top_row = cap.loc[cap["entity_name"] == lead_end].iloc[0]
+        lead_now, lead_end = ranked_now[0], ranked_end[0]
+        top_row = cap.loc[cap["entity_name"] == lead_end].iloc[0]
 
-    insight(
-        f"At today's book <b>{lead_now}</b> earns the most fee income, and by year {BASE_HORIZON} "
-        + (f"<b>{lead_end}</b> has taken the lead." if lead_end != lead_now
-           else f"it still leads.")
-        + f" Across the book that is {zar(cap['total_now'].sum())} today against "
-        f"{zar(cap['total_end'].sum())} in year {BASE_HORIZON}, of which "
-        f"{zar(cap['fee_revenue'].sum() * capture_pct / 100)} comes from winning "
-        f"{capture_pct:.2f}% of the gap rather than from growth. "
-        + (f"<b>{climber[0]}</b> climbs {climber[1]} place{'s' if climber[1] > 1 else ''} over the "
-           f"horizon — the sharpest reordering on the board."
-           if climber[1] > 0 else "No client changes rank over the horizon at these settings."),
-        f"Rank is not static, so coverage should not be either. <b>{lead_end}</b> ends the horizon "
-        f"largest at {zar(top_row['total_end'])} — worth assigning against where it lands, not where "
-        f"it sits today.")
-
-    top_n = cap.sort_values("total", ascending=False).head(12)
-    fig = go.Figure()
-    fig.add_bar(y=top_n["entity_name"], x=top_n["organic"], orientation="h",
-                name="Routed today, compounding", marker_color=CATEGORICAL[0],
-                marker_line=dict(width=2, color=SURFACE),
-                hovertemplate="%{y}<br>organic R %{x:,.0f}<extra></extra>")
-    fig.add_bar(y=top_n["entity_name"], x=top_n["captured"], orientation="h",
-                name="Gap captured", marker_color=CATEGORICAL[1],
-                marker_line=dict(width=2, color=SURFACE),
-                hovertemplate="%{y}<br>captured R %{x:,.0f}<extra></extra>")
-    fig.update_layout(barmode="stack", bargap=0.25, yaxis=dict(autorange="reversed"),
-                      xaxis_title=f"Fee income in year {cap_year} (ZAR)",
-                      legend=dict(orientation="h", y=-0.12))
-    st.plotly_chart(frame_style(fig, 520), width="stretch")
-
-    c1, c2, c3 = st.columns(3)
-    c1.metric(f"Book fee income, year {cap_year}", zar(cap["total"].sum()),
-              f"{zar(cap['total'].sum() - cap['total_now'].sum())} vs today", delta_color="off")
-    c2.metric("Strongest today", lead_now)
-    c3.metric(f"Strongest in year {BASE_HORIZON}", lead_end)
-
-    with st.expander("Every client, ranked at this year"):
-        st.dataframe(
-            cap.sort_values("total", ascending=False)[
-                ID_COLS + ["cagr_pct", "bank_now", "organic", "captured", "total", "missed_amount"]]
-            .style.format({"cagr_pct": "{:,.2f}%", "bank_now": "{:,.0f}", "organic": "{:,.0f}",
-                           "captured": "{:,.0f}", "total": "{:,.0f}", "missed_amount": "{:,.0f}"}),
-            hide_index=True, width="stretch")
-
-    st.divider()
-    st.header("Current opportunity")
-    st.caption("The gap as it stands today — reported financials the bank does not currently see.")
-
-    opp_scope = st.radio("View", ["All", "By sector", "By entity"], horizontal=True, key="opp_scope")
-
-    o1, o2 = st.columns(2)
-    fee_bps = o1.slider("Fee on value routed (bps)", 1, 100, 15)
-    fee_per_txn = o2.slider("Fee per transaction (R)", 0, 50, 5)
-
-    clean = reliable_lines(comparison_df)
-
-    if opp_scope == "By sector":
-        opp_sector = st.selectbox("Sector", SECTORS, key="opp_sector")
-        clean = clean[clean["sector"] == opp_sector]
-        st.caption(tidy(opp_sector))
-    elif opp_scope == "By entity":
-        opp_pick = st.selectbox("Entity", entity_labels(clean), key="opp_entity")
-        clean = clean[clean["entity_id"] == opp_pick.split(" - ", 1)[0]]
-        st.caption(opp_pick)
-    else:
-        st.caption("All entities")
-
-    missed = missed_wallet(clean, fee_bps, fee_per_txn)
-
-    seg = missed.groupby("sector", as_index=False).agg(
-        missed_amount=("missed_amount", "sum"), fee_revenue=("fee_revenue", "sum"),
-        entities=("entity_id", "nunique")).sort_values("missed_amount", ascending=False)
-
-    if missed.empty:
-        insight("No entity resolves a reliable gap to size.",
-                "Extend extraction coverage before modelling revenue.")
-    else:
-        top_entity = missed.loc[missed["missed_amount"].idxmax()]
-        top_seg = seg.iloc[0]
-        share = missed["computed"].sum() / missed["reported"].sum() * 100
         insight(
-            f"Against {zar(missed['reported'].sum())} of reported financials Syn Bank currently carries "
-            f"{share:.2f}%, leaving <b>{zar(missed['missed_amount'].sum())}</b> of addressable wallet. "
-            f"At {fee_bps} bps plus R{fee_per_txn} per transaction that models to "
-            f"<b>{zar(missed['fee_revenue'].sum())}</b> in fee revenue, concentrated in "
-            f"<b>{tidy(top_seg['sector'])}</b> ({zar(top_seg['missed_amount'])} across "
-            f"{int(top_seg['entities'])} entities), with <b>{top_entity['entity_name']}</b> the single "
-            f"largest gap at {zar(top_entity['missed_amount'])}.",
-            f"Open with <b>{top_entity['entity_name']}</b> — one existing relationship carries "
-            f"{top_entity['missed_amount'] / missed['missed_amount'].sum() * 100:.0f}% of the total gap, "
-            f"so a single mandate win moves the book further than broad origination.")
+            f"At today's book <b>{lead_now}</b> earns the most fee income, and by year {BASE_HORIZON} "
+            + (f"<b>{lead_end}</b> has taken the lead." if lead_end != lead_now
+               else f"it still leads.")
+            + f" Across the book that is {zar(cap['total_now'].sum())} today against "
+            f"{zar(cap['total_end'].sum())} in year {BASE_HORIZON}, of which "
+            f"{zar(cap['fee_revenue'].sum() * capture_pct / 100)} comes from winning "
+            f"{capture_pct:.2f}% of the gap rather than from growth. "
+            + (f"<b>{climber[0]}</b> climbs {climber[1]} place{'s' if climber[1] > 1 else ''} over the "
+               f"horizon — the sharpest reordering on the board."
+               if climber[1] > 0 else "No client changes rank over the horizon at these settings."),
+            f"Rank is not static, so coverage should not be either. <b>{lead_end}</b> ends the horizon "
+            f"largest at {zar(top_row['total_end'])} — worth assigning against where it lands, not where "
+            f"it sits today.")
 
-    reported_total = missed["reported"].sum() if not missed.empty else 0
-    missed_pct = missed["missed_amount"].sum() / reported_total * 100 if reported_total else 0
-    carried_pct = missed["computed"].sum() / reported_total * 100 if reported_total else 0
+        top_n = cap.sort_values("total", ascending=False).head(12)
+        fig = go.Figure()
+        fig.add_bar(y=top_n["entity_name"], x=top_n["organic"], orientation="h",
+                    name="Routed today, compounding", marker_color=CATEGORICAL[0],
+                    marker_line=dict(width=2, color=SURFACE),
+                    hovertemplate="%{y}<br>organic R %{x:,.0f}<extra></extra>")
+        fig.add_bar(y=top_n["entity_name"], x=top_n["captured"], orientation="h",
+                    name="Gap captured", marker_color=CATEGORICAL[1],
+                    marker_line=dict(width=2, color=SURFACE),
+                    hovertemplate="%{y}<br>captured R %{x:,.0f}<extra></extra>")
+        fig.update_layout(barmode="stack", bargap=0.25, yaxis=dict(autorange="reversed"),
+                          xaxis_title=f"Fee income in year {cap_year} (ZAR)",
+                          legend=dict(orientation="h", y=-0.12))
+        st.plotly_chart(frame_style(fig, 520), width="stretch")
 
-    k1, k2, k3 = st.columns(3)
-    k1.metric("Total missed wallet", f"{missed_pct:.2f}% ({carried_pct:.3f}% carried)",
-              zar(missed["missed_amount"].sum()), delta_color="off")
-    k2.metric("Implied transactions", f"{missed['implied_txns'].sum():,.0f}")
-    k3.metric("Modelled fee revenue", zar(missed["fee_revenue"].sum()))
+        c1, c2, c3 = st.columns(3)
+        c1.metric(f"Book fee income, year {cap_year}", zar(cap["total"].sum()),
+                  f"{zar(cap['total'].sum() - cap['total_now'].sum())} vs today", delta_color="off")
+        c2.metric("Strongest today", lead_now)
+        c3.metric(f"Strongest in year {BASE_HORIZON}", lead_end)
 
-    st.subheader("Greatest missed segments")
-    st.caption("Reported financials the bank does not currently see, by sector.")
+        with st.expander("Every client, ranked at this year"):
+            st.dataframe(
+                cap.sort_values("total", ascending=False)[
+                    ID_COLS + ["cagr_pct", "bank_now", "organic", "captured", "total", "missed_amount"]]
+                .style.format({"cagr_pct": "{:,.2f}%", "bank_now": "{:,.0f}", "organic": "{:,.0f}",
+                               "captured": "{:,.0f}", "total": "{:,.0f}", "missed_amount": "{:,.0f}"}),
+                hide_index=True, width="stretch")
 
-    fig = go.Figure(go.Bar(x=seg["sector"], y=seg["missed_amount"], marker_color=CATEGORICAL[1],
-                           marker_line=dict(width=2, color=SURFACE),
-                           hovertemplate="%{x}<br>R %{y:,.0f} missed<extra></extra>"))
-    fig.update_layout(bargap=0.3, xaxis_title=None)
-    st.plotly_chart(frame_style(fig, 400, "Missed wallet (ZAR)"), width="stretch")
+    if "Current opportunities" in sections:
+        rule("Current opportunities")
+        st.header("Current opportunities")
+        st.caption("The gap as it stands today — reported financials the bank does not currently see.")
 
-    st.subheader("Greatest potential for revenue")
-    rank_by = st.radio("Rank by", ["Transaction amount", "Transaction volume"], horizontal=True)
-    rank_col = "missed_amount" if rank_by == "Transaction amount" else "implied_txns"
+        opp_scope = st.radio("View", ["All", "By sector", "By entity"], horizontal=True, key="opp_scope")
 
-    top = missed.sort_values(rank_col, ascending=False).head(10)
-    fig = go.Figure(go.Bar(y=top["entity_name"], x=top[rank_col], orientation="h",
-                           marker_color=CATEGORICAL[0], marker_line=dict(width=2, color=SURFACE),
-                           hovertemplate="%{y}<br>%{x:,.0f}<extra></extra>"))
-    fig.update_layout(bargap=0.25, yaxis=dict(autorange="reversed"), xaxis_title=rank_by)
-    st.plotly_chart(frame_style(fig, 460), width="stretch")
+        o1, o2 = st.columns(2)
+        fee_bps = o1.slider("Fee on value routed (bps)", 1, 100, 15)
+        fee_per_txn = o2.slider("Fee per transaction (R)", 0, 50, 5)
 
-    st.dataframe(
-        missed.sort_values(rank_col, ascending=False)[
-            ID_COLS + ["missed_amount", "avg_ticket", "implied_txns", "fee_revenue"]]
-        .style.format({"missed_amount": "{:,.0f}", "avg_ticket": "{:,.0f}",
-                       "implied_txns": "{:,.0f}", "fee_revenue": "{:,.0f}"}),
-        hide_index=True, width="stretch")
+        clean = reliable_lines(comparison_df)
+
+        if opp_scope == "By sector":
+            opp_sector = st.selectbox("Sector", SECTORS, key="opp_sector")
+            clean = clean[clean["sector"] == opp_sector]
+            st.caption(tidy(opp_sector))
+        elif opp_scope == "By entity":
+            opp_pick = st.selectbox("Entity", entity_labels(clean), key="opp_entity")
+            clean = clean[clean["entity_id"] == opp_pick.split(" - ", 1)[0]]
+            st.caption(opp_pick)
+        else:
+            st.caption("All entities")
+
+        missed = missed_wallet(clean, fee_bps, fee_per_txn)
+
+        seg = missed.groupby("sector", as_index=False).agg(
+            missed_amount=("missed_amount", "sum"), fee_revenue=("fee_revenue", "sum"),
+            entities=("entity_id", "nunique")).sort_values("missed_amount", ascending=False)
+
+        if missed.empty:
+            insight("No entity resolves a reliable gap to size.",
+                    "Extend extraction coverage before modelling revenue.")
+        else:
+            top_entity = missed.loc[missed["missed_amount"].idxmax()]
+            top_seg = seg.iloc[0]
+            share = missed["computed"].sum() / missed["reported"].sum() * 100
+            insight(
+                f"Against {zar(missed['reported'].sum())} of reported financials Syn Bank currently carries "
+                f"{share:.2f}%, leaving <b>{zar(missed['missed_amount'].sum())}</b> of addressable wallet. "
+                f"At {fee_bps} bps plus R{fee_per_txn} per transaction that models to "
+                f"<b>{zar(missed['fee_revenue'].sum())}</b> in fee revenue, concentrated in "
+                f"<b>{tidy(top_seg['sector'])}</b> ({zar(top_seg['missed_amount'])} across "
+                f"{int(top_seg['entities'])} entities), with <b>{top_entity['entity_name']}</b> the single "
+                f"largest gap at {zar(top_entity['missed_amount'])}.",
+                f"Open with <b>{top_entity['entity_name']}</b> — one existing relationship carries "
+                f"{top_entity['missed_amount'] / missed['missed_amount'].sum() * 100:.0f}% of the total gap, "
+                f"so a single mandate win moves the book further than broad origination.")
+
+        reported_total = missed["reported"].sum() if not missed.empty else 0
+        missed_pct = missed["missed_amount"].sum() / reported_total * 100 if reported_total else 0
+        carried_pct = missed["computed"].sum() / reported_total * 100 if reported_total else 0
+
+        k1, k2, k3 = st.columns(3)
+        k1.metric("Total missed wallet", f"{missed_pct:.2f}% ({carried_pct:.3f}% carried)",
+                  zar(missed["missed_amount"].sum()), delta_color="off")
+        k2.metric("Implied transactions", f"{missed['implied_txns'].sum():,.0f}")
+        k3.metric("Modelled fee revenue", zar(missed["fee_revenue"].sum()))
+
+        st.subheader("Greatest missed segments")
+        st.caption("Reported financials the bank does not currently see, by sector.")
+
+        fig = go.Figure(go.Bar(x=seg["sector"], y=seg["missed_amount"], marker_color=CATEGORICAL[1],
+                               marker_line=dict(width=2, color=SURFACE),
+                               hovertemplate="%{x}<br>R %{y:,.0f} missed<extra></extra>"))
+        fig.update_layout(bargap=0.3, xaxis_title=None)
+        st.plotly_chart(frame_style(fig, 400, "Missed wallet (ZAR)"), width="stretch")
+
+        st.subheader("Greatest potential for revenue")
+        rank_by = st.radio("Rank by", ["Transaction amount", "Transaction volume"], horizontal=True)
+        rank_col = "missed_amount" if rank_by == "Transaction amount" else "implied_txns"
+
+        top = missed.sort_values(rank_col, ascending=False).head(10)
+        fig = go.Figure(go.Bar(y=top["entity_name"], x=top[rank_col], orientation="h",
+                               marker_color=CATEGORICAL[0], marker_line=dict(width=2, color=SURFACE),
+                               hovertemplate="%{y}<br>%{x:,.0f}<extra></extra>"))
+        fig.update_layout(bargap=0.25, yaxis=dict(autorange="reversed"), xaxis_title=rank_by)
+        st.plotly_chart(frame_style(fig, 460), width="stretch")
+
+        st.dataframe(
+            missed.sort_values(rank_col, ascending=False)[
+                ID_COLS + ["missed_amount", "avg_ticket", "implied_txns", "fee_revenue"]]
+            .style.format({"missed_amount": "{:,.0f}", "avg_ticket": "{:,.0f}",
+                           "implied_txns": "{:,.0f}", "fee_revenue": "{:,.0f}"}),
+            hide_index=True, width="stretch")
 
 # 5 continued - FUTURE OPPORTUNITY ------------------------------------------
 # Re-entering tabs[4] appends to the same tab, which keeps this block's
 # indentation and controls exactly as they were when it was its own tab.
 with tabs[4]:
-    st.divider()
-    st.header("Future opportunity")
-    st.caption("Published revenue CAGR compounded forward, with the bank's current share of "
-               "each client held flat — so the projection sizes growth already committed to, "
-               "not share the bank has yet to win.")
+    if "Future opportunities" in sections:
+        rule("Future opportunities")
+        st.header("Future opportunities")
+        st.caption("Published revenue CAGR compounded forward, with the bank's current share of "
+                   "each client held flat — so the projection sizes growth already committed to, "
+                   "not share the bank has yet to win.")
 
-    f1, f2 = st.columns(2)
-    horizon = f1.slider("Projection horizon (years)", 1, 10, 5)
-    proj_bps = f2.slider("Fee on value routed (bps)", 1, 100, 15, key="proj_bps")
+        f1, f2 = st.columns(2)
+        horizon = f1.slider("Projection horizon (years)", 1, 10, 5)
+        proj_bps = f2.slider("Fee on value routed (bps)", 1, 100, 15, key="proj_bps")
 
-    proj = project(projection_df, horizon, proj_bps)
-    dropped = projection_df[projection_df["base_revenue"].isna()]["entity_name"].tolist()
+        proj = project(projection_df, horizon, proj_bps)
+        dropped = projection_df[projection_df["base_revenue"].isna()]["entity_name"].tolist()
 
-    fastest = proj.nlargest(3, "cagr_pct")
-    top_uplift = proj.loc[proj["bank_uplift"].idxmax()]
-    shrinking = proj[proj["cagr_pct"] < 0]
+        fastest = proj.nlargest(3, "cagr_pct")
+        top_uplift = proj.loc[proj["bank_uplift"].idxmax()]
+        shrinking = proj[proj["cagr_pct"] < 0]
 
-    insight(
-        f"Compounded over {horizon} years, the book's clients grow from "
-        f"{zar(proj['base_revenue'].sum())} to <b>{zar(proj['projected_revenue'].sum())}</b> of "
-        f"published revenue. Holding today's share flat, Syn Bank's modelled fee income rises from "
-        f"{zar(proj['bank_now'].sum())} to <b>{zar(proj['bank_future'].sum())}</b> — an uplift of "
-        f"{zar(proj['bank_uplift'].sum())} earned without winning a single new mandate. Fastest growers "
-        f"are <b>{'</b>, <b>'.join(fastest['entity_name'])}</b> "
-        f"({', '.join(f'{c:.1f}%' for c in fastest['cagr_pct'])} CAGR)"
-        + (f", while {len(shrinking)} entities are contracting." if len(shrinking) else "."),
-        f"<b>{top_uplift['entity_name']}</b> carries the largest uplift at {zar(top_uplift['bank_uplift'])} "
-        f"on {top_uplift['cagr_pct']:.1f}% growth — defend that mandate first, since retaining existing "
-        f"share there returns more than chasing a comparable gap elsewhere.")
+        insight(
+            f"Compounded over {horizon} years, the book's clients grow from "
+            f"{zar(proj['base_revenue'].sum())} to <b>{zar(proj['projected_revenue'].sum())}</b> of "
+            f"published revenue. Holding today's share flat, Syn Bank's modelled fee income rises from "
+            f"{zar(proj['bank_now'].sum())} to <b>{zar(proj['bank_future'].sum())}</b> — an uplift of "
+            f"{zar(proj['bank_uplift'].sum())} earned without winning a single new mandate. Fastest growers "
+            f"are <b>{'</b>, <b>'.join(fastest['entity_name'])}</b> "
+            f"({', '.join(f'{c:.1f}%' for c in fastest['cagr_pct'])} CAGR)"
+            + (f", while {len(shrinking)} entities are contracting." if len(shrinking) else "."),
+            f"<b>{top_uplift['entity_name']}</b> carries the largest uplift at {zar(top_uplift['bank_uplift'])} "
+            f"on {top_uplift['cagr_pct']:.1f}% growth — defend that mandate first, since retaining existing "
+            f"share there returns more than chasing a comparable gap elsewhere.")
 
-    k1, k2, k3 = st.columns(3)
-    k1.metric(f"Client revenue in {horizon}y", zar(proj["projected_revenue"].sum()))
-    k2.metric("Bank fee income", zar(proj["bank_future"].sum()))
-    k3.metric("Uplift at flat share", zar(proj["bank_uplift"].sum()))
+        k1, k2, k3 = st.columns(3)
+        k1.metric(f"Client revenue in {horizon}y", zar(proj["projected_revenue"].sum()))
+        k2.metric("Bank fee income", zar(proj["bank_future"].sum()))
+        k3.metric("Uplift at flat share", zar(proj["bank_uplift"].sum()))
 
-    st.subheader("Fastest growing entities")
-    d = proj.sort_values("cagr_pct", ascending=False)
-    fig = go.Figure(go.Bar(y=d["entity_name"], x=d["cagr_pct"], orientation="h",
-                           marker_color=np.where(d["cagr_pct"] >= 0, POS, NEG),
-                           marker_line=dict(width=2, color=SURFACE),
-                           hovertemplate="%{y}<br>%{x:.2f}% CAGR<extra></extra>"))
-    fig.update_layout(bargap=0.25, yaxis=dict(autorange="reversed"), xaxis_title="Revenue CAGR (%)")
-    st.plotly_chart(frame_style(fig, 620), width="stretch")
+        st.subheader("Fastest growing entities")
+        d = proj.sort_values("cagr_pct", ascending=False)
+        fig = go.Figure(go.Bar(y=d["entity_name"], x=d["cagr_pct"], orientation="h",
+                               marker_color=np.where(d["cagr_pct"] >= 0, POS, NEG),
+                               marker_line=dict(width=2, color=SURFACE),
+                               hovertemplate="%{y}<br>%{x:.2f}% CAGR<extra></extra>"))
+        fig.update_layout(bargap=0.25, yaxis=dict(autorange="reversed"), xaxis_title="Revenue CAGR (%)")
+        st.plotly_chart(frame_style(fig, 620), width="stretch")
 
-    st.subheader("Projected bank fee income")
-    st.caption("Top eight entities by uplift, compounded year by year at current share.")
+        st.subheader("Projected bank fee income")
+        st.caption("Top eight entities by uplift, compounded year by year at current share.")
 
-    years = list(range(horizon + 1))
-    lead = proj.nlargest(8, "bank_uplift")
-    fig = go.Figure()
-    for colour, (_, row) in zip(CATEGORICAL, lead.iterrows()):
-        path = [row["bank_now"] * (1 + row["cagr_pct"] / 100) ** y for y in years]
-        fig.add_trace(go.Scatter(x=years, y=path, name=row["entity_name"], mode="lines",
-                                 line=dict(color=colour, width=2),
-                                 hovertemplate=f"{row['entity_name']}<br>year %{{x}}<br>R %{{y:,.0f}}<extra></extra>"))
-    fig.update_layout(xaxis_title="Years from now", legend_title_text="Entity")
-    st.plotly_chart(frame_style(fig, 460, "Fee income (ZAR)"), width="stretch")
+        years = list(range(horizon + 1))
+        lead = proj.nlargest(8, "bank_uplift")
+        fig = go.Figure()
+        for colour, (_, row) in zip(CATEGORICAL, lead.iterrows()):
+            path = [row["bank_now"] * (1 + row["cagr_pct"] / 100) ** y for y in years]
+            fig.add_trace(go.Scatter(x=years, y=path, name=row["entity_name"], mode="lines",
+                                     line=dict(color=colour, width=2),
+                                     hovertemplate=f"{row['entity_name']}<br>year %{{x}}<br>R %{{y:,.0f}}<extra></extra>"))
+        fig.update_layout(xaxis_title="Years from now", legend_title_text="Entity")
+        st.plotly_chart(frame_style(fig, 460, "Fee income (ZAR)"), width="stretch")
 
-    st.dataframe(
-        proj.sort_values("bank_uplift", ascending=False)[
-            ["entity_id", "entity_name", "sector", "cagr_pct", "base_year", "base_revenue",
-             "projected_revenue", "wallet_share_pct", "bank_now", "bank_future", "bank_uplift"]]
-        .style.format({"cagr_pct": "{:,.2f}%", "wallet_share_pct": "{:,.3f}%",
-                       "base_revenue": "{:,.0f}", "projected_revenue": "{:,.0f}",
-                       "bank_now": "{:,.0f}", "bank_future": "{:,.0f}", "bank_uplift": "{:,.0f}"}),
-        hide_index=True, width="stretch")
+        st.dataframe(
+            proj.sort_values("bank_uplift", ascending=False)[
+                ["entity_id", "entity_name", "sector", "cagr_pct", "base_year", "base_revenue",
+                 "projected_revenue", "wallet_share_pct", "bank_now", "bank_future", "bank_uplift"]]
+            .style.format({"cagr_pct": "{:,.2f}%", "wallet_share_pct": "{:,.3f}%",
+                           "base_revenue": "{:,.0f}", "projected_revenue": "{:,.0f}",
+                           "bank_now": "{:,.0f}", "bank_future": "{:,.0f}", "bank_uplift": "{:,.0f}"}),
+            hide_index=True, width="stretch")
 
-    if dropped:
-        st.caption(f"Excluded for want of a reported revenue line: {', '.join(dropped)}.")
+        if dropped:
+            st.caption(f"Excluded for want of a reported revenue line: {', '.join(dropped)}.")
 
 # 6 - AI ANALYST ------------------------------------------------------------
 with tabs[5]:
