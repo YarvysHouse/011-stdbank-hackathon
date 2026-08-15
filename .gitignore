@@ -1,4 +1,5 @@
-# Source data - 409MB, and transactional_banking.csv alone exceeds GitHub's 100MB limit
+# Source data - 409MB, and transactional_banking.csv alone exceeds GitHub's 100MB limit.
+# The deployed app reads outputs/artifacts/ instead - see build_artifacts.py
 Data/
 *.zip
 

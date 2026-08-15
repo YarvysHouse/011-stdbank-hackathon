@@ -33,3 +33,15 @@
 - Greatest Potential for revenue (count of transactions, avg cost of transaction for a Bank)
 - Greatest Applicability (% of entity transaction amounts)
 
+
+4. Potential For Growth
+- Years of revenue (YoY growth %) 
+- Project the fastest growing market
+- Trade Finance & Cross Border GDP 
+- Trade Channel % 
+
+
+5. Kept Sections from app.py 
+- Geographical Location of Transactions (income / payment slicer - red and green colourway)
+- Per Sector Split & Per Sector Discrepancy
+- 
