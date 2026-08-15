@@ -66,19 +66,24 @@ st.markdown("""
 # --------------------------------------------------------------------------
 
 @st.cache_data
-def build_tables():
+def build_tables(names: tuple[str, ...]):
     """Precomputed artifacts where they exist, otherwise straight from the CSVs.
 
-    Deployments ship only the 67 KB of parquet - the 409 MB of source data never
+    Deployments ship only the 71 KB of parquet - the 409 MB of source data never
     leaves the machine that ran `build_artifacts.py`.
+
+    `names` is passed in rather than read off the module so it lands in the cache
+    key: st.cache_data hashes the arguments and the function body, not the globals
+    the body closes over. Adding a table while it was a global left the previous
+    deploy's shorter tuple cached against unchanged code.
     """
-    if all((ARTIFACTS_ / f"{name}.parquet").exists() for name in TABLES):
-        return tuple(pd.read_parquet(ARTIFACTS_ / f"{name}.parquet") for name in TABLES)
+    if all((ARTIFACTS_ / f"{name}.parquet").exists() for name in names):
+        return tuple(pd.read_parquet(ARTIFACTS_ / f"{name}.parquet") for name in names)
 
     tables = build()
-    return tuple(tables[name] for name in TABLES)
+    return tuple(tables[name] for name in names)
 
-summary_df, reference_df, reference_count_df, comparison_df, geo_df, projection_df = build_tables()
+summary_df, reference_df, reference_count_df, comparison_df, geo_df, projection_df = build_tables(tuple(TABLES))
 
 REFERENCE_TYPES = [c for c in reference_df.columns if c not in ID_COLS]
 SECTORS = sorted(summary_df["sector"].dropna().unique())
