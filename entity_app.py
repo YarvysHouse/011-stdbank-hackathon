@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
 import streamlit as st
 
 import ai_analyst
@@ -29,16 +30,24 @@ st.set_page_config(page_title="Syn Bank Entity Analysis", layout="wide")
 ID_COLS = ["entity_id", "entity_name", "sector"]
 TOTAL = "All Entities (total)"
 
-# validated categorical palette - worst adjacent CVD dE 9.1 on a white surface
-CATEGORICAL = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"]
-SURFACE, MUTED, GRID = "#ffffff", "#898781", "#e1e0d9"
-# status palette - income green against payment red
-POS, NEG = "#0ca30c", "#d03b3b"
-GREY, AMBER = "rgba(137,135,129,0.16)", "rgba(250,178,25,0.22)"
-# sequential ramp for the heatmap - one hue, stepped off CATEGORICAL[0]. Runs dark
-# to light because the configured theme is dark: the low end has to sit near the
-# surface and the high end has to lift off it, which is the reverse of a light build.
-SEQUENTIAL = ["#101a2b", "#16304f", "#1c4a7a", "#2a68b0", "#3f8ae0", "#71abec", "#a5c9f4", "#d5e6fb"]
+# Brand: matte gold on a whitish-blue ground. Both palettes below were validated
+# against the real surface (#F2F2F7), not against white - the surface is an input
+# to the contrast and CVD maths, so it cannot be assumed.
+GOLD = "#8C7C21"
+SURFACE, MUTED, GRID = "#F2F2F7", "#6B6B78", "#D9D9E3"
+
+# categorical, gold first so the accent leads. All five checks pass on this
+# surface: worst adjacent CVD dE 8.9 (deutan), normal-vision floor 15.8.
+CATEGORICAL = ["#8C7C21", "#2f6fb5", "#1f8a6d", "#b4522a", "#7a4fb0", "#c2185b", "#0f7f9e", "#5b8f10"]
+
+# status palette - income green against payment red, darkened for a light ground
+POS, NEG = "#1a7f37", "#c03434"
+GREY, AMBER = "rgba(107,107,120,0.14)", "rgba(140,124,33,0.20)"
+
+# sequential ramp for the heatmap - one hue off GOLD, light to dark for a light
+# surface. The light end stops at #BFAA63 rather than going paler: below that it
+# drops under 2:1 against this background and the cell stops reading as a mark.
+SEQUENTIAL = ["#BFAA63", "#A68F42", "#8C7C21", "#736518", "#594E12", "#3F370C"]
 
 # the assumptions the portfolio summary quotes, before anyone touches a slider
 BASE_BPS, BASE_FEE_PER_TXN, BASE_HORIZON = 15, 5, 5
@@ -58,14 +67,50 @@ COUNTRY_COORDS = {
     "Zimbabwe": (-19.0, 29.2),
 }
 
-st.markdown("""
+# Gill Sans is a system font - present on macOS and on Windows as Gill Sans MT,
+# absent from the Linux hosts Streamlit Cloud runs on. The stack falls through
+# humanist sans-serifs of similar proportion so the deployed page keeps the same
+# feel rather than dropping to a default grotesque. Weight 300 is the "light" cut;
+# where a face has no 300, the browser synthesises the nearest.
+FONT_STACK = ('"Gill Sans", "Gill Sans MT", "Gill Sans Nova", Calibri, '
+              '"Trebuchet MS", "Lato", "Optima", sans-serif')
+
+# One template rather than per-figure font arguments: several charts (the donut,
+# the map, the heatmap) never pass through frame_style, and a chart in a different
+# face from its own caption is the tell that a theme was applied by hand.
+pio.templates["syn"] = go.layout.Template(layout=dict(
+    font=dict(family=FONT_STACK, color="#3A3A44", size=13),
+    colorway=CATEGORICAL,
+    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+    title=dict(font=dict(color="#1F1F26", size=16)),
+    legend=dict(font=dict(size=12)),
+    hoverlabel=dict(font=dict(family=FONT_STACK, size=12)),
+))
+pio.templates.default = "syn"
+
+st.markdown(f"""
 <style>
-.insight { border-left: 3px solid #2a78d6; background: rgba(42,120,214,0.07);
-           padding: 0.85rem 1.1rem; border-radius: 6px; margin: 0.2rem 0 1.2rem 0; }
-.insight-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-                 opacity: 0.6; margin-bottom: 0.35rem; }
-.insight-body { line-height: 1.5; }
-.insight-action { margin-top: 0.6rem; font-size: 0.93em; opacity: 0.88; }
+html, body, [class*="st-"], .stMarkdown, .stMetric, button, input, select, textarea {{
+    font-family: {FONT_STACK} !important;
+    font-weight: 300;
+}}
+h1, h2, h3, h4, h5, h6 {{
+    font-family: {FONT_STACK} !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.01em;
+}}
+h1 {{ color: {GOLD}; }}
+/* metric values carry the accent; their labels stay quiet ink */
+[data-testid="stMetricValue"] {{ font-weight: 300 !important; color: {GOLD}; }}
+[data-testid="stMetricLabel"] {{ font-weight: 300 !important; }}
+
+.insight {{ border-left: 3px solid {GOLD}; background: rgba(140,124,33,0.08);
+           padding: 0.85rem 1.1rem; border-radius: 6px; margin: 0.2rem 0 1.2rem 0; }}
+.insight-label {{ font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+                 opacity: 0.65; margin-bottom: 0.35rem; }}
+.insight-body {{ line-height: 1.55; }}
+.insight-action {{ margin-top: 0.6rem; font-size: 0.93em; opacity: 0.9; }}
+.insight b {{ font-weight: 600; color: #5E5316; }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -125,7 +170,7 @@ def frame_style(fig, height=420, y_title=None):
     fig.update_layout(height=height, yaxis_title=y_title,
                       plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
     fig.update_xaxes(showgrid=False, color=MUTED)
-    fig.update_yaxes(gridcolor=GRID, zerolinecolor="#c3c2b7", color=MUTED)
+    fig.update_yaxes(gridcolor=GRID, zerolinecolor="#C3C3CE", color=MUTED)
     return fig
 
 def fold_to_eight(df, dim, value_col):
@@ -654,7 +699,7 @@ with tabs[3]:
                             color=colour, opacity=0.75,
                             line=dict(width=0.5, color=SURFACE)),
             ))
-        fig.update_geos(bgcolor="rgba(0,0,0,0)", showland=True, landcolor="#f0efec",
+        fig.update_geos(bgcolor="rgba(0,0,0,0)", showland=True, landcolor="#E4E4EC",
                         showcountries=True, countrycolor=GRID, showcoastlines=False,
                         showframe=False, showocean=False, projection_type="natural earth")
         fig.update_layout(height=560, paper_bgcolor="rgba(0,0,0,0)",

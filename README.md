@@ -66,9 +66,9 @@ Median wallet share, by line — *dashboard page 1 · Portfolio Summary*:
 - Page 1 opens book-wide before any filter: entities, transactions, book flow, cross-border, reported financials, share carried, addressable gap, and the 5-year growth uplift. Quoted at a fixed 15 bps + R5/txn over 5 years, so the headline never moves under someone else's slider; page 5 makes those adjustable.
 - **Opportunity heatmap** — 19 clients × 5 measures: wallet gap, volume potential, share headroom, client growth, projected uplift.
 - Cells are **percentile rank within the book**, not absolute value — the five measures are in different units (ZAR, transactions, %), so ranking is what makes them comparable across a row. Hover gives the underlying figure.
-- Every column is oriented so brighter = more opportunity; share headroom inverts wallet share so thinly banked clients read hot.
-- The ramp runs dark→light because the configured theme is dark: the low end sits near the surface and the high end lifts off it, which is the reverse of a light build.
-- Rows sorted by mean percentile. Bright across all five is a coverage failure; bright in one column is a product sale.
+- Every column is oriented so darker = more opportunity; share headroom inverts wallet share so thinly banked clients read hot.
+- The ramp runs light→dark in the brand gold. Its light end stops at `#BFAA63` rather than going paler: below that it falls under 2:1 against the `#F2F2F7` ground and the cell stops reading as a mark.
+- Rows sorted by mean percentile. Dark across all five is a coverage failure; dark in one column is a product sale.
 - NEPI Rockcastle leads at 75.8, Glencore and Clicks Group both 74.7; Aspen Pharmacare last at 22.1.
 - Sizing maths is shared with page 5 and the AI tools (`sizing.py`) so the summary cannot drift from what it summarises.
 
@@ -174,6 +174,13 @@ uv run python ai_analyst.py --ask "Where is our largest wallet gap?"
 Failure modes it names: `API_KEY_INVALID` (wrong value, or an IP/referrer restriction on the key), `403` (Generative Language API not enabled on the key's project), missing artifacts (run `build_artifacts.py`).
 
 **Key hygiene:** rotate in AI Studio if it ever lands in a commit, a screenshot, or a shared terminal — Cloud picks up the new value from the Secrets box with no code change.
+
+## Presentation layer
+
+- **Palette:** matte gold `#8C7C21` on a whitish-blue `#F2F2F7` ground, set in `.streamlit/config.toml` and mirrored in `entity_app.py`.
+- Both chart palettes were validated **against that surface**, not against white — the surface is an input to the contrast and CVD maths. Categorical (gold-led, 8 slots): worst adjacent CVD ΔE 8.9 deutan, normal-vision floor 15.8, all slots clear 3:1. Sequential (one hue off the gold, 6 steps): monotone lightness, all ΔL gaps clear, light end 2.06:1 against the ground.
+- **Type:** Gill Sans Light. It is a system font — present on macOS, on Windows as Gill Sans MT, and **absent from the Linux hosts Streamlit Cloud runs on**, so the stack falls through Calibri → Trebuchet MS → Lato → Optima, humanist sans-serifs of similar proportion. The deployed page will not be Gill Sans; it will be its nearest available relative. Embedding a licensed webfont is the only way to make it exact.
+- Charts inherit a single Plotly template (`syn`) rather than per-figure font arguments — the donut, the map and the heatmap never pass through `frame_style`, and a chart in a different face from its own caption is the tell that a theme was applied by hand.
 
 ## Run it
 
