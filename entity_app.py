@@ -211,6 +211,47 @@ def donut(labels, values, height=400):
     return fig
 
 # --------------------------------------------------------------------------
+# Analyst, shared between the sidebar dock and page 6
+#
+# Both surfaces read and write one conversation in session state. Neither one
+# answers inline: an input parks the question, reruns, and the run's single
+# answering step happens in the sidebar - which draws first, so page 6 sees the
+# finished turn in the same run rather than a rerun later.
+# --------------------------------------------------------------------------
+
+st.session_state.setdefault("chat", [])
+ANALYST_KEY = ai_analyst.api_key()
+
+def analyst_turn(turn, *, traces=True):
+    """One chat bubble, its tool calls folded away underneath."""
+    avatar = ANALYST_AVATAR if turn["role"] == "assistant" else None
+    with st.chat_message(turn["role"], avatar=avatar):
+        st.markdown(turn["content"])
+        trace = turn.get("trace")
+        if traces and trace:
+            with st.expander(f"{len(trace)} tool call{'s' if len(trace) > 1 else ''}"):
+                for call in trace:
+                    st.markdown(f"**{call['tool']}**"
+                                + (f" `{call['args']}`" if call["args"] else ""))
+                    st.json(call["result"], expanded=False)
+
+def ask_analyst(question):
+    """Park a question from either surface, then redraw so both show the same thread."""
+    st.session_state["pending"] = question
+    st.rerun()
+
+def answer_pending():
+    """Answer the parked question, if there is one."""
+    question = st.session_state.pop("pending", None)
+    if not question or not ANALYST_KEY:
+        return
+    st.session_state["chat"].append({"role": "user", "content": question})
+    with st.spinner("Calling the book…"):
+        prior = ai_analyst.history_from(st.session_state["chat"][:-1])
+        answer, trace = ai_analyst.ask(question, history=prior, key=ANALYST_KEY)
+    st.session_state["chat"].append({"role": "assistant", "content": answer, "trace": trace})
+
+# --------------------------------------------------------------------------
 # Sidebar
 #
 # Grouped by the page each control drives, rather than belonging to one page.
@@ -238,6 +279,27 @@ with st.sidebar.expander("Opportunity", expanded=True):
 
 # an empty multiselect reads as "no filter applied", not "render an empty page"
 sections = sections or SECTIONS
+
+# The analyst, docked last so it sits under the filters. Same conversation as
+# page 6, trimmed to the last few turns - the traces belong on the full page.
+with st.sidebar.expander("AI Analyst", expanded=False):
+    answer_pending()
+
+    if not ANALYST_KEY:
+        st.caption("Offline — no Gemini API key. Page 6 says how to wire one up.")
+    else:
+        recent = st.session_state["chat"][-4:]
+        for turn in recent:
+            analyst_turn(turn, traces=False)
+        if len(st.session_state["chat"]) > len(recent):
+            st.caption(f"Showing the last {len(recent)} of "
+                       f"{len(st.session_state['chat'])} turns · full thread on page 6.")
+        elif not recent:
+            st.caption("Ask a quick question here, or open page 6 for presets and tool calls.")
+
+        docked = st.chat_input("Ask the analyst", key="sidebar_ask")
+        if docked:
+            ask_analyst(docked)
 
 dim = "sector" if split == "Sector" else "entity_name"
 in_col, out_col = ("incomes", "payments") if measure == "Amount" else ("num_incomes", "num_payments")
@@ -1005,7 +1067,7 @@ with tabs[5]:
                "them, so every figure it quotes is one the dashboard already computes. Each answer "
                "shows the tool calls it made.")
 
-    key = ai_analyst.api_key()
+    key = ANALYST_KEY
     if not key:
         st.warning("No Gemini API key configured, so the analyst is offline. "
                    "The rest of the dashboard is unaffected.")
@@ -1029,7 +1091,8 @@ with tabs[5]:
             "Which clients should we defend rather than chase, based on growth?",
         ]
 
-        st.session_state.setdefault("chat", [])
+        st.caption("The same conversation is docked at the foot of the sidebar, "
+                   "for asking without leaving a page.")
 
         cols = st.columns(3)
         asked = None
@@ -1038,38 +1101,12 @@ with tabs[5]:
                 asked = preset
 
         for turn in st.session_state["chat"]:
-            avatar = ANALYST_AVATAR if turn["role"] == "assistant" else None
-            with st.chat_message(turn["role"], avatar=avatar):
-                st.markdown(turn["content"])
-                if turn.get("trace"):
-                    with st.expander(f"{len(turn['trace'])} tool call"
-                                     f"{'s' if len(turn['trace']) > 1 else ''}"):
-                        for call in turn["trace"]:
-                            st.markdown(f"**{call['tool']}**"
-                                        + (f" `{call['args']}`" if call["args"] else ""))
-                            st.json(call["result"], expanded=False)
+            analyst_turn(turn)
 
         typed = st.chat_input("Ask about a client, a sector, the gap, or the projection")
         question = typed or asked
-
         if question:
-            with st.chat_message("user"):
-                st.markdown(question)
-            st.session_state["chat"].append({"role": "user", "content": question})
-
-            with st.chat_message("assistant", avatar=ANALYST_AVATAR):
-                with st.spinner("Calling the book…"):
-                    prior = ai_analyst.history_from(st.session_state["chat"][:-1])
-                    answer, trace = ai_analyst.ask(question, history=prior, key=key)
-                st.markdown(answer)
-                if trace:
-                    with st.expander(f"{len(trace)} tool call{'s' if len(trace) > 1 else ''}"):
-                        for call in trace:
-                            st.markdown(f"**{call['tool']}**"
-                                        + (f" `{call['args']}`" if call["args"] else ""))
-                            st.json(call["result"], expanded=False)
-
-            st.session_state["chat"].append({"role": "assistant", "content": answer, "trace": trace})
+            ask_analyst(question)
 
         if st.session_state["chat"] and st.button("Clear conversation"):
             st.session_state["chat"] = []
