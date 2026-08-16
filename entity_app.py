@@ -14,6 +14,8 @@ Tabs, left to right:
 Each tab opens with a generated read of its own figures - see `insight()`.
 """
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -26,6 +28,15 @@ from sizing import TABLES, load_tables, project, reliable_lines
 from sizing import missed_wallet as _missed_wallet
 
 st.set_page_config(page_title="Syn Bank Entity Analysis", layout="wide")
+
+# The analyst's face. Resolved against this file so the app runs from any cwd,
+# and falls back to the default avatar if the image is missing.
+_cloudy = Path(__file__).parent / "Cloudy.png"
+ANALYST_AVATAR = str(_cloudy) if _cloudy.exists() else None
+
+# Brand banner, drawn once above the tabs so it sits on every page.
+_header = Path(__file__).parent / "SynBankHeader.png"
+HEADER = str(_header) if _header.exists() else None
 
 ID_COLS = ["entity_id", "entity_name", "sector"]
 TOTAL = "All Entities (total)"
@@ -111,6 +122,10 @@ h1 {{ color: {GOLD}; }}
 .insight-body {{ line-height: 1.55; }}
 .insight-action {{ margin-top: 0.6rem; font-size: 0.93em; opacity: 0.9; }}
 .insight b {{ font-weight: 600; color: #5E5316; }}
+
+/* the banner reads as the page's own top edge, so shed the default headroom
+   and the gap it would otherwise leave above the tabs */
+[data-testid="stMainBlockContainer"] {{ padding-top: 2rem; }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -284,6 +299,9 @@ def highlight(row):
 # --------------------------------------------------------------------------
 # Tabs
 # --------------------------------------------------------------------------
+
+if HEADER:
+    st.image(HEADER, width="stretch")
 
 tabs = st.tabs(["1 · Portfolio Summary", "2 · Sector", "3 · Entity Analysis",
                 "4 · Geography", "5 · Opportunity", "6 · AI Analyst"])
@@ -1014,7 +1032,8 @@ with tabs[5]:
                 asked = preset
 
         for turn in st.session_state["chat"]:
-            with st.chat_message(turn["role"]):
+            avatar = ANALYST_AVATAR if turn["role"] == "assistant" else None
+            with st.chat_message(turn["role"], avatar=avatar):
                 st.markdown(turn["content"])
                 if turn.get("trace"):
                     with st.expander(f"{len(turn['trace'])} tool call"
@@ -1032,7 +1051,7 @@ with tabs[5]:
                 st.markdown(question)
             st.session_state["chat"].append({"role": "user", "content": question})
 
-            with st.chat_message("assistant"):
+            with st.chat_message("assistant", avatar=ANALYST_AVATAR):
                 with st.spinner("Calling the book…"):
                     prior = ai_analyst.history_from(st.session_state["chat"][:-1])
                     answer, trace = ai_analyst.ask(question, history=prior, key=key)
