@@ -105,6 +105,12 @@ html, body, [class*="st-"], .stMarkdown, .stMetric, button, input, select, texta
     font-family: {FONT_STACK} !important;
     font-weight: 300;
 }}
+/* the icon spans carry ligature names as text - leave their font alone, or
+   the expander chevron renders as the word "arrow_drop_down" */
+[data-testid="stIconMaterial"], .material-icons, .material-icons-outlined,
+span[class*="material-symbols"] {{
+    font-family: "Material Symbols Rounded", "Material Icons" !important;
+}}
 h1, h2, h3, h4, h5, h6 {{
     font-family: {FONT_STACK} !important;
     font-weight: 300 !important;
@@ -217,7 +223,7 @@ def donut(labels, values, height=400):
 st.sidebar.title("Filters")
 st.sidebar.caption("Grouped by the page each one drives. All pages read these from anywhere.")
 
-with st.sidebar.expander("3 · Entity Analysis", expanded=True):
+with st.sidebar.expander("Entity Analysis", expanded=True):
     labels = entity_labels(summary_df).tolist()
     choice = st.selectbox("Entity", [TOTAL] + labels)
     selected_id = None if choice == TOTAL else choice.split(" - ", 1)[0]
@@ -225,7 +231,7 @@ with st.sidebar.expander("3 · Entity Analysis", expanded=True):
     split = st.radio("Split by", ["Sector", "Entity"], horizontal=True)
     measure = st.radio("Measure", ["Amount", "Count"], horizontal=True)
 
-with st.sidebar.expander("5 · Opportunity", expanded=True):
+with st.sidebar.expander("Opportunity", expanded=True):
     SECTIONS = ["Total growth", "Current opportunities", "Future opportunities"]
     sections = st.multiselect("Sections to show", SECTIONS, default=SECTIONS,
                               help="Narrow the page to one horizon, or show all three.")
